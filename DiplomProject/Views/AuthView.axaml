@@ -1,0 +1,34 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             xmlns:vm="using:DiplomProject.ViewModels"
+             x:DataType="vm:AuthViewModel"
+             x:Class="DiplomProject.Views.AuthView">
+ <StackPanel
+		  HorizontalAlignment="Center"
+		  VerticalAlignment="Center"
+		  Spacing="15">
+		<TextBlock
+			Text="Авторизация"
+			FontSize="25"/>
+		<TextBox
+			Watermark="Логин"
+			Text="{Binding Login, Mode=TwoWay}"/>
+		<TextBox
+			Watermark="Пароль"
+			Text="{Binding Password, Mode=TwoWay}" PasswordChar="*"/>
+		<Button
+			Content="Вход"
+			HorizontalAlignment="Center"
+			Command="{Binding AuthCommand}"/>
+		<TextBlock
+			Text="{Binding MessageError}"/>
+		<Button
+			Content="Регистрация"
+			HorizontalAlignment="Center"
+			Command="{Binding NavigateToRegisterCommand}"
+			CommandParameter="{Binding }"/>
+	</StackPanel>
+</UserControl>

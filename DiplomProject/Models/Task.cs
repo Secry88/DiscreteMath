@@ -1,0 +1,17 @@
+﻿using System;
+using System.Collections.Generic;
+
+namespace DiplomProject.Models;
+
+public partial class Task
+{
+    public int Id { get; set; }
+
+    public string Type { get; set; } = null!;
+
+    public int Subtype { get; set; }
+
+    public string Condition { get; set; } = null!;
+
+    public string CorrectAnswer { get; set; } = null!;
+}
