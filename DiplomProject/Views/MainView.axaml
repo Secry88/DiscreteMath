@@ -46,6 +46,7 @@
                             HorizontalAlignment="Right"
                             VerticalAlignment="Top">
                     <Button Content="Profile"
+                            Command="{Binding OpenProfileCommand}"
                             Padding="22,14"
                             MinWidth="120"
                             Background="#F9F8FD"
@@ -57,6 +58,7 @@
                             Foreground="#6D28D9"/>
 
                     <Button Content="Logout"
+                            Command="{Binding LogoutCommand}"
                             Padding="22,14"
                             MinWidth="120"
                             Background="#F9F8FD"

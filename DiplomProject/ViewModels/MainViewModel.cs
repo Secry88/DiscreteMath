@@ -6,13 +6,20 @@ namespace DiplomProject.ViewModels
 {
     public partial class MainViewModel : ViewModelBase
     {
+        private readonly User _user;
+
         public string UserName { get; }
 
         public ObservableCollection<MenuItem> MenuItems { get; }
+        public IRelayCommand OpenProfileCommand { get; }
+        public IRelayCommand LogoutCommand { get; }
 
         public MainViewModel(User user)
         {
+            _user = user;
             UserName = user.FullName;
+            OpenProfileCommand = new RelayCommand(OpenProfile);
+            LogoutCommand = new RelayCommand(Logout);
 
             MenuItems = new ObservableCollection<MenuItem>
         {
@@ -72,5 +79,16 @@ namespace DiplomProject.ViewModels
             MainWindowViewModel.Instance!.CurrentViewModel = new TestSelectionViewModel();
         }
         private void OpenResults() { }
+
+        private void OpenProfile()
+        {
+            MainWindowViewModel.Instance!.CurrentViewModel = new ProfileViewModel();
+        }
+
+        private void Logout()
+        {
+            MainWindowViewModel.Instance!.CurrentUser = null;
+            MainWindowViewModel.Instance!.CurrentViewModel = new AuthViewModel();
+        }
     }
 }

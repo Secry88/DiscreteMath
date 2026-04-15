@@ -69,7 +69,7 @@
 
         <Grid IsVisible="{Binding IsTakingTest}">
             <Grid RowDefinitions="Auto,*" RowSpacing="12">
-                <Grid Row="0" ColumnDefinitions="*,Auto">
+                <Grid Grid.Row="0" ColumnDefinitions="*,Auto">
                     <Button Grid.Column="0"
                             HorizontalAlignment="Left"
                             Padding="0"
