@@ -1,0 +1,86 @@
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:controls="using:DiplomProject.CustomControls">
+
+    <Design.PreviewWith>
+        <StackPanel Width="400">
+            <controls:MenuCardControl Title="Test"
+                                     Description="Test"
+                                     Icon="📘"/>
+        </StackPanel>
+    </Design.PreviewWith>
+
+    <!-- Основной шаблон -->
+    <Style Selector="controls|MenuCardControl">
+        <Setter Property="Template">
+<ControlTemplate>
+
+    <Button Command="{TemplateBinding Command}"
+            Background="Transparent"
+            BorderThickness="0"
+            Padding="0">
+
+        <Border x:Name="Root"
+                Width="260"
+                Height="200"
+                Background="White"
+                CornerRadius="20"
+                Padding="20"
+                BorderBrush="#E9D5FF"
+                BorderThickness="1">
+
+            <StackPanel Spacing="12">
+
+                <!-- ИКОНКА (как ты хотел — в фиолетовой плашке) -->
+                <Border Width="48"
+                        Height="48"
+                        Background="#7C3AED"
+                        CornerRadius="14"
+                        HorizontalAlignment="Left">
+
+                    <TextBlock Text="{TemplateBinding Icon}"
+                               FontSize="22"
+                               Foreground="White"
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Center"/>
+                </Border>
+
+                <!-- Заголовок -->
+                <TextBlock Text="{TemplateBinding Title}"
+                           FontSize="16"
+                           FontWeight="SemiBold"
+                           Foreground="#1A1625"/>
+
+                <!-- Описание -->
+                <TextBlock Text="{TemplateBinding Description}"
+                           FontSize="13"
+                           Foreground="#6B5B95"
+                           TextWrapping="Wrap"/>
+
+                <!-- CTA -->
+                <StackPanel Orientation="Horizontal" Spacing="6">
+                    <TextBlock Text="Открыть"
+                               FontSize="12"
+                               Foreground="#7C3AED"/>
+                    <TextBlock Text="→"
+                               Foreground="#7C3AED"/>
+                </StackPanel>
+
+            </StackPanel>
+
+        </Border>
+
+    </Button>
+
+</ControlTemplate>
+        </Setter>
+    </Style>
+
+    <!-- Hover эффект -->
+    <Style Selector="controls|MenuCardControl:pointerover /template/ Border#Root">
+        <Setter Property="BorderBrush" Value="#C4B5FD"/>
+        <Setter Property="BoxShadow" Value="0 8 20 0 #D8B4FE"/>
+    </Style>
+
+
+</Styles>

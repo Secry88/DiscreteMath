@@ -6,29 +6,75 @@
              xmlns:vm="using:DiplomProject.ViewModels"
              x:DataType="vm:AuthViewModel"
              x:Class="DiplomProject.Views.AuthView">
- <StackPanel
-		  HorizontalAlignment="Center"
-		  VerticalAlignment="Center"
-		  Spacing="15">
-		<TextBlock
-			Text="Авторизация"
-			FontSize="25"/>
-		<TextBox
-			Watermark="Логин"
-			Text="{Binding Login, Mode=TwoWay}"/>
-		<TextBox
-			Watermark="Пароль"
-			Text="{Binding Password, Mode=TwoWay}" PasswordChar="*"/>
-		<Button
-			Content="Вход"
-			HorizontalAlignment="Center"
-			Command="{Binding AuthCommand}"/>
-		<TextBlock
-			Text="{Binding MessageError}"/>
-		<Button
-			Content="Регистрация"
-			HorizontalAlignment="Center"
-			Command="{Binding NavigateToRegisterCommand}"
-			CommandParameter="{Binding }"/>
-	</StackPanel>
+
+    <Grid>
+        <Grid.Background>
+            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                <GradientStop Color="#FAFAFA" Offset="0"/>
+                <GradientStop Color="#F3E8FF" Offset="0.5"/>
+                <GradientStop Color="#E9D5FF" Offset="1"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+
+        <Border Width="350"
+                Padding="25"
+                CornerRadius="20"
+                Background="White"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                BorderBrush="#E9D5FF"
+                BorderThickness="1">
+
+            <StackPanel Spacing="15">
+
+                <TextBlock Text="Discrete Math"
+                           FontSize="22"
+                           FontWeight="Bold"
+                           Foreground="#5B21B6"
+                           HorizontalAlignment="Center"/>
+
+                <TextBlock Text="Авторизация"
+                           FontSize="16"
+                           Foreground="#6B5B95"
+                           HorizontalAlignment="Center"/>
+
+                <TextBox Watermark="Логин"
+                         Text="{Binding Login, Mode=TwoWay}"
+                         Background="#F9FAFB"
+                         BorderBrush="#E9D5FF"
+                         CornerRadius="10"
+                         Padding="10"/>
+
+                <TextBox Watermark="Пароль"
+                         Text="{Binding Password, Mode=TwoWay}"
+                         PasswordChar="*"
+                         Background="#F9FAFB"
+                         BorderBrush="#E9D5FF"
+                         CornerRadius="10"
+                         Padding="10"/>
+
+                <TextBlock Text="{Binding MessageError}"
+                           Foreground="Red"
+                           FontSize="12"
+                           TextWrapping="Wrap"/>
+
+                <Button Content="Вход"
+                        Command="{Binding AuthCommand}"
+                        Background="#7C3AED"
+                        Foreground="White"
+                        CornerRadius="12"
+                        Padding="10"
+                        HorizontalAlignment="Stretch"/>
+
+                <Button Content="Регистрация"
+                        Command="{Binding NavigateToRegisterCommand}"
+                        CommandParameter="{Binding}"
+                        Background="#F3E8FF"
+                        Foreground="#6B5B95"
+                        CornerRadius="12"
+                        Padding="10"
+                        HorizontalAlignment="Stretch"/>
+            </StackPanel>
+        </Border>
+    </Grid>
 </UserControl>

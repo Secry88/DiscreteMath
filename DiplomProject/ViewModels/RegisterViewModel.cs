@@ -166,6 +166,11 @@ namespace DiplomProject.ViewModels
             FullName = null;
 
             MainWindowViewModel.Instance!.CurrentViewModel = new AuthViewModel();
-        }        
+        }
+        [RelayCommand]
+        private void NavigateToLogin()
+        {
+            MainWindowViewModel.Instance!.CurrentViewModel = new AuthViewModel();
+        }
     }
 }

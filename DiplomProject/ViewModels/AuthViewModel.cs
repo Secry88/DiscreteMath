@@ -13,10 +13,10 @@ namespace DiplomProject.ViewModels
     public partial class AuthViewModel : ViewModelBase
     {
         [ObservableProperty]
-        private string? _password = "12345678m.";
+        private string? _password = "1234";
 
         [ObservableProperty]
-        private string? _login = "ivanovgrigori@example.net";
+        private string? _login = "student1";
 
         [ObservableProperty]
         private string? _messageError;
@@ -84,7 +84,7 @@ namespace DiplomProject.ViewModels
             else
             {
                 MainWindowViewModel.Instance!.CurrentUser = user;
-                //MainWindowViewModel.Instance!.CurrentViewModel = new MainLayoutViewModel(user);
+                MainWindowViewModel.Instance!.CurrentViewModel = new MainViewModel(user);
             }
         }
 

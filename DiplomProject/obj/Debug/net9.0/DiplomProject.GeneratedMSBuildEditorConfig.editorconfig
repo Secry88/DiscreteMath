@@ -39,7 +39,13 @@ build_property.EnableCodeStyleSeverity =
 [D:/domashka/FOURTH_KURS/PP_DIPLOM/DiplomProject/DiplomProject/App.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 
+[D:/domashka/FOURTH_KURS/PP_DIPLOM/DiplomProject/DiplomProject/CustomControls/MenuCardControl.axaml]
+build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
+
 [D:/domashka/FOURTH_KURS/PP_DIPLOM/DiplomProject/DiplomProject/Views/AuthView.axaml]
+build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
+
+[D:/domashka/FOURTH_KURS/PP_DIPLOM/DiplomProject/DiplomProject/Views/MainView.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 
 [D:/domashka/FOURTH_KURS/PP_DIPLOM/DiplomProject/DiplomProject/Views/MainWindow.axaml]

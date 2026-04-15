@@ -1,0 +1,82 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             xmlns:vm="using:DiplomProject.ViewModels"
+             xmlns:controls="using:DiplomProject.CustomControls"
+             x:DataType="vm:MainViewModel"
+             x:Class="DiplomProject.Views.MainView">
+
+  <Grid>
+
+        <Grid.Background>
+            <SolidColorBrush Color="#FAFAFA"/>
+        </Grid.Background>
+
+        <Grid RowDefinitions="Auto,*" Margin="30">
+
+            <Grid ColumnDefinitions="*,Auto" Margin="0,0,0,20">
+
+    <!-- Лево -->
+    <StackPanel Grid.Column="0">
+        <TextBlock Text="{Binding UserName}"
+                   FontSize="20"
+                   FontWeight="Bold"
+                   Foreground="#5B21B6"/>
+
+        <TextBlock Text="Продолжим изучение дискретной математики"
+                   Foreground="#6B5B95"/>
+    </StackPanel>
+
+    <!-- Право -->
+    <StackPanel Grid.Column="1"
+                Orientation="Horizontal"
+                Spacing="10"
+                HorizontalAlignment="Right">
+
+        <Button Content="Профиль"
+                Background="White"
+                BorderBrush="#E9D5FF"
+                CornerRadius="10"/>
+
+        <Button Content="Выход"
+                Background="White"
+                BorderBrush="#E9D5FF"
+                CornerRadius="10"/>
+    </StackPanel>
+
+</Grid>
+
+            <ItemsControl Grid.Row="1"
+              ItemsSource="{Binding MenuItems}">
+
+    <!-- 👇 ВОТ СЮДА -->
+    <ItemsControl.Styles>
+        <Style Selector="ContentPresenter">
+            <Setter Property="Margin" Value="12"/>
+        </Style>
+    </ItemsControl.Styles>
+
+    <ItemsControl.ItemsPanel>
+        <ItemsPanelTemplate>
+            <WrapPanel ItemWidth="260"
+                       ItemHeight="200"/>
+        </ItemsPanelTemplate>
+    </ItemsControl.ItemsPanel>
+
+    <ItemsControl.ItemTemplate>
+        <DataTemplate>
+            <controls:MenuCardControl
+                Title="{Binding Title}"
+                Description="{Binding Description}"
+                Icon="{Binding Icon}"
+                Command="{Binding Command}"/>
+        </DataTemplate>
+    </ItemsControl.ItemTemplate>
+
+</ItemsControl>
+
+        </Grid>
+    </Grid>
+</UserControl>

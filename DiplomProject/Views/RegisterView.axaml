@@ -1,50 +1,88 @@
 <UserControl xmlns="https://github.com/avaloniaui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
-             xmlns:vm="using:DiplomProject.ViewModels"
-             x:DataType="vm:RegisterViewModel"
-             x:Class="DiplomProject.Views.RegisterView">
-  <Panel>
-        <StackPanel
-            HorizontalAlignment="Center"
-            VerticalAlignment="Center"
-            Spacing="15">
+			 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+			 xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+			 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+			 mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+			 xmlns:vm="using:DiplomProject.ViewModels"
+			 x:DataType="vm:RegisterViewModel"
+			 x:Class="DiplomProject.Views.RegisterView">
 
-            <TextBlock
-                Text="Регистрация"
-                FontSize="25"/>
+	<Grid>
+		<Grid.Background>
+			<LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+				<GradientStop Color="#FAFAFA" Offset="0"/>
+				<GradientStop Color="#F3E8FF" Offset="0.5"/>
+				<GradientStop Color="#E9D5FF" Offset="1"/>
+			</LinearGradientBrush>
+		</Grid.Background>
 
-            <TextBox
-                Watermark="Логин"
-                Text="{Binding Login, Mode=TwoWay}"/>
+		<Border Width="350"
+				Padding="25"
+				CornerRadius="20"
+				Background="White"
+				HorizontalAlignment="Center"
+				VerticalAlignment="Center"
+				BorderBrush="#E9D5FF"
+				BorderThickness="1">
 
-            <TextBox
-                Watermark="ФИО"
-                Text="{Binding FullName, Mode=TwoWay}"/>
+			<StackPanel Spacing="15">
 
-            <TextBox
-                Watermark="Пароль"
-                Text="{Binding Password, Mode=TwoWay}"
-                PasswordChar="*"/>
+				<TextBlock Text="Discrete Math"
+						   FontSize="22"
+						   FontWeight="Bold"
+						   Foreground="#5B21B6"
+						   HorizontalAlignment="Center"/>
 
-            <TextBox
-                Watermark="Повторите пароль"
-                Text="{Binding SecondPassword, Mode=TwoWay}"
-                PasswordChar="*"/>
+				<TextBlock Text="Регистрация"
+						   FontSize="16"
+						   Foreground="#6B5B95"
+						   HorizontalAlignment="Center"/>
 
-            <Button
-                Content="Зарегистрироваться"
-                HorizontalAlignment="Center"
-                Command="{Binding RegisterCommand}"/>
+				<TextBox Watermark="Логин"
+						 Text="{Binding Login, Mode=TwoWay}"
+						 Background="#F9FAFB"
+						 BorderBrush="#E9D5FF"
+						 CornerRadius="10"
+						 Padding="10"/>
 
-            <TextBlock
-                Text="{Binding MessageToUser}"
-                Foreground="Red"
-                TextWrapping="Wrap"
-                TextAlignment="Center"
-                MaxWidth="300"/>
-        </StackPanel>
-    </Panel>
+				<TextBox Watermark="Имя"
+						 Text="{Binding FullName, Mode=TwoWay}"
+						 Background="#F9FAFB"
+						 BorderBrush="#E9D5FF"
+						 CornerRadius="10"
+						 Padding="10"/>
+
+				<TextBox Watermark="Пароль"
+						 Text="{Binding Password, Mode=TwoWay}"
+						 PasswordChar="*"
+						 Background="#F9FAFB"
+						 BorderBrush="#E9D5FF"
+						 CornerRadius="10"
+						 Padding="10"/>
+
+				<TextBlock Text="{Binding MessageToUser}"
+						   Foreground="Red"
+						   FontSize="12"
+						   TextWrapping="Wrap"/>
+
+				<Button Content="Зарегистрироваться"
+						Command="{Binding RegisterCommand}"
+						Background="#7C3AED"
+						Foreground="White"
+						CornerRadius="12"
+						Padding="10"
+						HorizontalAlignment="Stretch"/>
+
+				<Button Content="Есть аккаунт? Войти"
+						Command="{Binding NavigateToLoginCommand}"
+						CommandParameter="{Binding}"
+						Background="#F3E8FF"
+						Foreground="#6B5B95"
+						CornerRadius="12"
+						Padding="10"
+						HorizontalAlignment="Stretch"/>
+
+			</StackPanel>
+		</Border>
+	</Grid>
 </UserControl>
