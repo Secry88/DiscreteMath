@@ -42,6 +42,9 @@ build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 [d:/domashka/FOURTH_KURS/PP_DIPLOM/DiplomProject/DiplomProject/CustomControls/MenuCardControl.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 
+[d:/domashka/FOURTH_KURS/PP_DIPLOM/DiplomProject/DiplomProject/CustomControls/TheoryCategoryCardControl.axaml]
+build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
+
 [d:/domashka/FOURTH_KURS/PP_DIPLOM/DiplomProject/DiplomProject/Views/AuthView.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 
@@ -52,4 +55,10 @@ build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 
 [d:/domashka/FOURTH_KURS/PP_DIPLOM/DiplomProject/DiplomProject/Views/RegisterView.axaml]
+build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
+
+[d:/domashka/FOURTH_KURS/PP_DIPLOM/DiplomProject/DiplomProject/Views/TheoryCategoryView.axaml]
+build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
+
+[d:/domashka/FOURTH_KURS/PP_DIPLOM/DiplomProject/DiplomProject/Views/TheoryDetailView.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml

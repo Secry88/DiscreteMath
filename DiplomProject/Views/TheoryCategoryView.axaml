@@ -1,0 +1,79 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             xmlns:vm="using:DiplomProject.ViewModels"
+             x:DataType="vm:TheoryCategoryViewModel"
+             xmlns:controls="using:DiplomProject.CustomControls"
+             x:Class="DiplomProject.Views.TheoryCategoryView">
+    <Grid Background="#F5F5F7">
+        <Grid RowDefinitions="Auto,Auto,*" Margin="40,22,40,32">
+            <Button Grid.Row="0"
+                    HorizontalAlignment="Left"
+                    Padding="0"
+                    Background="Transparent"
+                    BorderThickness="0"
+                    Command="{Binding NavigateBackCommand}">
+                <TextBlock Text="← Back to Dashboard"
+                           FontSize="22"
+                           Foreground="#6E6785"/>
+            </Button>
+
+            <Grid Grid.Row="1"
+                  Margin="0,18,0,28"
+                  ColumnDefinitions="Auto,*"
+                  ColumnSpacing="14">
+                <Border Grid.Column="0"
+                        Width="56"
+                        Height="56"
+                        Background="#7C3AED"
+                        CornerRadius="16"
+                        VerticalAlignment="Center">
+                    <TextBlock Text="📖"
+                               FontSize="26"
+                               Foreground="White"
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Center"/>
+                </Border>
+
+                <StackPanel Grid.Column="1" Spacing="2" VerticalAlignment="Center">
+                    <TextBlock Text="Theory"
+                               FontSize="42"
+                               FontWeight="SemiBold"
+                               Foreground="#1A1625"/>
+                    <TextBlock Text="Choose a topic to begin learning"
+                               FontSize="17"
+                               Foreground="#6E6785"/>
+                </StackPanel>
+            </Grid>
+
+            <ItemsControl Grid.Row="2"
+                          HorizontalAlignment="Center"
+                          MaxWidth="960"
+                          ItemsSource="{Binding Categories}">
+                <ItemsControl.Styles>
+                    <Style Selector="ContentPresenter">
+                        <Setter Property="Margin" Value="12"/>
+                    </Style>
+                </ItemsControl.Styles>
+
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel ItemWidth="280" ItemHeight="180"/>
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <controls:TheoryCategoryCardControl
+                            Title="{Binding Title}"
+                            Description="{Binding Description}"
+                            Command="{Binding $parent[UserControl].DataContext.OpenCategoryCommand}"
+                            CommandParameter="{Binding Id}"/>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </Grid>
+    </Grid>
+</UserControl>

@@ -12,5 +12,6 @@
     <Application.Styles>
         <FluentTheme />
         <StyleInclude Source="avares://DiplomProject/CustomControls/MenuCardControl.axaml"/>
+        <StyleInclude Source="avares://DiplomProject/CustomControls/TheoryCategoryCardControl.axaml"/>
     </Application.Styles>
 </Application>

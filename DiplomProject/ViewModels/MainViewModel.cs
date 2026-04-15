@@ -55,7 +55,10 @@ namespace DiplomProject.ViewModels
         }
 
         // методы-заглушки
-        private void OpenTheory() { }
+        private void OpenTheory() 
+        {
+            MainWindowViewModel.Instance!.CurrentViewModel = new TheoryCategoryViewModel();
+        }
         private void OpenPractice() { }
         private void OpenEuler() { }
         private void OpenTests() { }

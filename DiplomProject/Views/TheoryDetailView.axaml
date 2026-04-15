@@ -1,0 +1,123 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             xmlns:vm="using:DiplomProject.ViewModels"
+             x:DataType="vm:TheoryDetailViewModel"
+             x:Class="DiplomProject.Views.TheoryDetailView">
+    <UserControl.Styles>
+        <Style Selector="Border.TopicItemContainer">
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="BorderBrush" Value="#E6DFF7"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="CornerRadius" Value="12"/>
+        </Style>
+        <Style Selector="Border.TopicItemContainer.active">
+            <Setter Property="Background" Value="#F3EEFF"/>
+            <Setter Property="BorderBrush" Value="#7C3AED"/>
+            <Setter Property="BorderThickness" Value="1.4"/>
+        </Style>
+        <Style Selector="Button.TopicItemButton:pointerover Border.TopicItemContainer">
+            <Setter Property="BorderBrush" Value="#B49AF1"/>
+            <Setter Property="Background" Value="#FAF8FF"/>
+        </Style>
+    </UserControl.Styles>
+
+    <Grid Background="#F5F5F7" ColumnDefinitions="360,*">
+        <Border Grid.Column="0"
+                Margin="28,20,0,20"
+                Background="White"
+                BorderBrush="#E9D5FF"
+                BorderThickness="1"
+                CornerRadius="20"
+                Padding="18">
+            <Grid RowDefinitions="Auto,*">
+                <StackPanel Grid.Row="0" Spacing="8" Margin="4,4,4,16">
+                    <TextBlock Text="{Binding Title}"
+                               FontSize="30"
+                               FontWeight="SemiBold"
+                               Foreground="#1A1625"/>
+                    <TextBlock Text="{Binding Description}"
+                               FontSize="15"
+                               Foreground="#6B5B95"
+                               TextWrapping="Wrap"/>
+                </StackPanel>
+
+                <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto">
+                    <ItemsControl ItemsSource="{Binding Topics}">
+                        <ItemsControl.Styles>
+                            <Style Selector="ContentPresenter">
+                                <Setter Property="Margin" Value="0,0,0,10"/>
+                            </Style>
+                        </ItemsControl.Styles>
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <Button Classes="TopicItemButton"
+                                        Command="{Binding $parent[UserControl].DataContext.SelectTopicCommand}"
+                                        CommandParameter="{Binding}"
+                                        Background="Transparent"
+                                        BorderThickness="0"
+                                        Padding="0">
+                                    <Border Classes="TopicItemContainer"
+                                            Classes.active="{Binding IsSelected}"
+                                            Padding="14,12">
+                                        <TextBlock Text="{Binding Title}"
+                                                   FontSize="16"
+                                                   FontWeight="Medium"
+                                                   Foreground="#2B2142"
+                                                   TextWrapping="Wrap"/>
+                                    </Border>
+                                </Button>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                </ScrollViewer>
+            </Grid>
+        </Border>
+
+        <ScrollViewer Grid.Column="1"
+                      Margin="24,20,28,20"
+                      VerticalScrollBarVisibility="Auto">
+            <StackPanel Spacing="18">
+                <Border Background="White"
+                        BorderBrush="#E9D5FF"
+                        BorderThickness="1"
+                        CornerRadius="20"
+                        Padding="26">
+                    <StackPanel Spacing="8">
+                        <TextBlock Text="{Binding SelectedTopicTitle}"
+                                   FontSize="34"
+                                   FontWeight="SemiBold"
+                                   Foreground="#1A1625"/>
+                        <TextBlock Text="Study the theory and switch topics in the left sidebar."
+                                   FontSize="15"
+                                   Foreground="#6E6785"/>
+                    </StackPanel>
+                </Border>
+
+                <ItemsControl ItemsSource="{Binding SelectedTopicContents}">
+                    <ItemsControl.Styles>
+                        <Style Selector="ContentPresenter">
+                            <Setter Property="Margin" Value="0,0,0,12"/>
+                        </Style>
+                    </ItemsControl.Styles>
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <Border Background="White"
+                                    BorderBrush="#E9D5FF"
+                                    BorderThickness="1"
+                                    CornerRadius="16"
+                                    Padding="22">
+                                <TextBlock Text="{Binding Content}"
+                                           FontSize="17"
+                                           Foreground="#2B2142"
+                                           TextWrapping="Wrap"/>
+                            </Border>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</UserControl>

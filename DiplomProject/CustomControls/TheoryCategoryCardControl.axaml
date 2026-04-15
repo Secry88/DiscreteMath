@@ -1,0 +1,97 @@
+<Styles xmlns="https://github.com/avaloniaui"
+		xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+		xmlns:controls="using:DiplomProject.CustomControls">
+
+	<Design.PreviewWith>
+		<StackPanel Width="400">
+			<controls:TheoryCategoryCardControl
+			Title="Множества"
+			Description="Базовые понятия теории множеств"/>
+		</StackPanel>
+	</Design.PreviewWith>
+
+	<Style Selector="controls|TheoryCategoryCardControl">
+
+		<Setter Property="Template">
+			<ControlTemplate>
+
+				<Button Command="{TemplateBinding Command}"
+						CommandParameter="{TemplateBinding CommandParameter}"
+						Background="Transparent"
+						BorderThickness="0"
+						Padding="0"
+						HorizontalContentAlignment="Stretch"
+						VerticalContentAlignment="Stretch">
+
+					<Button.Styles>
+						<Style Selector="Button:pointerover">
+							<Setter Property="Background" Value="Transparent"/>
+						</Style>
+						<Style Selector="Button:pressed">
+							<Setter Property="Background" Value="Transparent"/>
+						</Style>
+						<Style Selector="Button:focus">
+							<Setter Property="Background" Value="Transparent"/>
+						</Style>
+					</Button.Styles>
+
+					<Border x:Name="Root"
+							Width="280"
+							Height="180"
+							Background="White"
+							CornerRadius="24"
+							Padding="22"
+							BorderBrush="#E9D5FF"
+							BorderThickness="1.2">
+
+						<StackPanel Spacing="12">
+
+							<Border Width="48"
+									Height="48"
+									Background="#7C3AED"
+									CornerRadius="14"
+									HorizontalAlignment="Left">
+
+								<TextBlock Text="📚"
+										   FontSize="22"
+										   Foreground="White"
+										   HorizontalAlignment="Center"
+										   VerticalAlignment="Center"/>
+							</Border>
+
+							<TextBlock Text="{TemplateBinding Title}"
+									   FontSize="18"
+									   FontWeight="SemiBold"
+									   Foreground="#1A1625"/>
+
+							<TextBlock Text="{TemplateBinding Description}"
+									   FontSize="13"
+									   Foreground="#6B5B95"
+									   TextWrapping="Wrap"/>
+
+							<StackPanel Orientation="Horizontal" Spacing="6">
+								<TextBlock Text="Открыть"
+										   FontSize="13"
+										   Foreground="#7C3AED"/>
+								<TextBlock Text="›"
+										   FontSize="13"
+										   Foreground="#7C3AED"/>
+							</StackPanel>
+
+						</StackPanel>
+
+					</Border>
+				</Button>
+
+			</ControlTemplate>
+		</Setter>
+
+	</Style>
+
+	<!-- Hover эффект -->
+	<Style Selector="controls|TheoryCategoryCardControl:pointerover /template/ Border#Root">
+		<Setter Property="BorderBrush" Value="#C4B5FD"/>
+		<Setter Property="BoxShadow" Value="0 10 26 0 #44A78BFA"/>
+	</Style>
+
+</Styles>
