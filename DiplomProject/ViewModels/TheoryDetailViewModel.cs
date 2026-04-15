@@ -33,6 +33,7 @@ public partial class TheoryDetailViewModel : ViewModelBase
 
         Topics = new ObservableCollection<TheoryTopicDto>(category.Topics);
         SelectTopicCommand = new RelayCommand<TheoryTopicDto>(SelectTopic);
+        NavigateBackCommand = new RelayCommand(NavigateBack);
 
         SelectedTopic = Topics.FirstOrDefault();
         UpdateSelectedTopicState();

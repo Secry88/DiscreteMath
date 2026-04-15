@@ -22,4 +22,6 @@ public partial class User
     public virtual Role Role { get; set; } = null!;
 
     public virtual ICollection<TestResult> TestResults { get; set; } = new List<TestResult>();
+
+    public virtual ICollection<UserTestSession> UserTestSessions { get; set; } = new List<UserTestSession>();
 }

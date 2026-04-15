@@ -24,8 +24,21 @@
         </Style>
     </UserControl.Styles>
 
-    <Grid Background="#F5F5F7" ColumnDefinitions="360,*">
-        <Border Grid.Column="0"
+    <Grid Background="#F5F5F7" RowDefinitions="Auto,*">
+        <Button Grid.Row="0"
+                HorizontalAlignment="Left"
+                Margin="28,16,0,0"
+                Padding="0"
+                Background="Transparent"
+                BorderThickness="0"
+                Command="{Binding NavigateBackCommand}">
+            <TextBlock Text="← Back to Dashboard"
+                       FontSize="17"
+                       Foreground="#2B2142"/>
+        </Button>
+
+        <Grid Grid.Row="1" ColumnDefinitions="360,*">
+            <Border Grid.Column="0"
                 Margin="28,20,0,20"
                 Background="White"
                 BorderBrush="#E9D5FF"
@@ -76,48 +89,49 @@
             </Grid>
         </Border>
 
-        <ScrollViewer Grid.Column="1"
-                      Margin="24,20,28,20"
-                      VerticalScrollBarVisibility="Auto">
-            <StackPanel Spacing="18">
-                <Border Background="White"
-                        BorderBrush="#E9D5FF"
-                        BorderThickness="1"
-                        CornerRadius="20"
-                        Padding="26">
-                    <StackPanel Spacing="8">
-                        <TextBlock Text="{Binding SelectedTopicTitle}"
-                                   FontSize="34"
-                                   FontWeight="SemiBold"
-                                   Foreground="#1A1625"/>
-                        <TextBlock Text="Study the theory and switch topics in the left sidebar."
-                                   FontSize="15"
-                                   Foreground="#6E6785"/>
-                    </StackPanel>
-                </Border>
+            <ScrollViewer Grid.Column="1"
+                          Margin="24,20,28,20"
+                          VerticalScrollBarVisibility="Auto">
+                <StackPanel Spacing="18">
+                    <Border Background="White"
+                            BorderBrush="#E9D5FF"
+                            BorderThickness="1"
+                            CornerRadius="20"
+                            Padding="26">
+                        <StackPanel Spacing="8">
+                            <TextBlock Text="{Binding SelectedTopicTitle}"
+                                       FontSize="34"
+                                       FontWeight="SemiBold"
+                                       Foreground="#1A1625"/>
+                            <TextBlock Text="Study the theory and switch topics in the left sidebar."
+                                       FontSize="15"
+                                       Foreground="#6E6785"/>
+                        </StackPanel>
+                    </Border>
 
-                <ItemsControl ItemsSource="{Binding SelectedTopicContents}">
-                    <ItemsControl.Styles>
-                        <Style Selector="ContentPresenter">
-                            <Setter Property="Margin" Value="0,0,0,12"/>
-                        </Style>
-                    </ItemsControl.Styles>
-                    <ItemsControl.ItemTemplate>
-                        <DataTemplate>
-                            <Border Background="White"
-                                    BorderBrush="#E9D5FF"
-                                    BorderThickness="1"
-                                    CornerRadius="16"
-                                    Padding="22">
-                                <TextBlock Text="{Binding Content}"
-                                           FontSize="17"
-                                           Foreground="#2B2142"
-                                           TextWrapping="Wrap"/>
-                            </Border>
-                        </DataTemplate>
-                    </ItemsControl.ItemTemplate>
-                </ItemsControl>
-            </StackPanel>
-        </ScrollViewer>
+                    <ItemsControl ItemsSource="{Binding SelectedTopicContents}">
+                        <ItemsControl.Styles>
+                            <Style Selector="ContentPresenter">
+                                <Setter Property="Margin" Value="0,0,0,12"/>
+                            </Style>
+                        </ItemsControl.Styles>
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <Border Background="White"
+                                        BorderBrush="#E9D5FF"
+                                        BorderThickness="1"
+                                        CornerRadius="16"
+                                        Padding="22">
+                                    <TextBlock Text="{Binding Content}"
+                                               FontSize="17"
+                                               Foreground="#2B2142"
+                                               TextWrapping="Wrap"/>
+                                </Border>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                </StackPanel>
+            </ScrollViewer>
+        </Grid>
     </Grid>
 </UserControl>

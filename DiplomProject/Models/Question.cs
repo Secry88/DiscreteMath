@@ -11,6 +11,8 @@ public partial class Question
 
     public string QuestionText { get; set; } = null!;
 
+    public int? OrderIndex { get; set; }
+
     public virtual ICollection<Answer> Answers { get; set; } = new List<Answer>();
 
     public virtual Test Test { get; set; } = null!;

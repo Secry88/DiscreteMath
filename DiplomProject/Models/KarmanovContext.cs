@@ -41,6 +41,8 @@ public partial class KarmanovContext : DbContext
 
     public virtual DbSet<User> Users { get; set; }
 
+    public virtual DbSet<UserTestSession> UserTestSessions { get; set; }
+
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
         => optionsBuilder.UseNpgsql("Host=ngknn.ru;Port=5442;Username=21P;Database=Karmanov;Password=123");
@@ -57,9 +59,13 @@ public partial class KarmanovContext : DbContext
 
             entity.Property(e => e.Id).HasColumnName("id");
             entity.Property(e => e.AnswerText).HasColumnName("answer_text");
+            entity.Property(e => e.Explanation).HasColumnName("explanation");
             entity.Property(e => e.IsCorrect)
                 .HasDefaultValue(false)
                 .HasColumnName("is_correct");
+            entity.Property(e => e.OrderIndex)
+                .HasDefaultValue(0)
+                .HasColumnName("order_index");
             entity.Property(e => e.QuestionId).HasColumnName("question_id");
 
             entity.HasOne(d => d.Question).WithMany(p => p.Answers)
@@ -123,6 +129,9 @@ public partial class KarmanovContext : DbContext
             entity.ToTable("questions", "Diplom");
 
             entity.Property(e => e.Id).HasColumnName("id");
+            entity.Property(e => e.OrderIndex)
+                .HasDefaultValue(0)
+                .HasColumnName("order_index");
             entity.Property(e => e.QuestionText).HasColumnName("question_text");
             entity.Property(e => e.TestId).HasColumnName("test_id");
 
@@ -173,9 +182,18 @@ public partial class KarmanovContext : DbContext
 
             entity.Property(e => e.Id).HasColumnName("id");
             entity.Property(e => e.Description).HasColumnName("description");
+            entity.Property(e => e.Difficulty)
+                .HasDefaultValue(1)
+                .HasColumnName("difficulty");
+            entity.Property(e => e.Duration)
+                .HasDefaultValue(10)
+                .HasColumnName("duration");
             entity.Property(e => e.Title)
                 .HasMaxLength(200)
                 .HasColumnName("title");
+            entity.Property(e => e.Topic)
+                .HasMaxLength(200)
+                .HasColumnName("topic");
         });
 
         modelBuilder.Entity<TestResult>(entity =>
@@ -185,10 +203,14 @@ public partial class KarmanovContext : DbContext
             entity.ToTable("test_results", "Diplom");
 
             entity.Property(e => e.Id).HasColumnName("id");
+            entity.Property(e => e.AttemptNumber)
+                .HasDefaultValue(1)
+                .HasColumnName("attempt_number");
             entity.Property(e => e.CompletedAt)
                 .HasDefaultValueSql("CURRENT_TIMESTAMP")
                 .HasColumnType("timestamp without time zone")
                 .HasColumnName("completed_at");
+            entity.Property(e => e.Percentage).HasColumnName("percentage");
             entity.Property(e => e.Score).HasColumnName("score");
             entity.Property(e => e.TestId).HasColumnName("test_id");
             entity.Property(e => e.TotalQuestions).HasColumnName("total_questions");
@@ -282,6 +304,43 @@ public partial class KarmanovContext : DbContext
                 .HasForeignKey(d => d.RoleId)
                 .OnDelete(DeleteBehavior.Restrict)
                 .HasConstraintName("fk_user_role");
+        });
+
+        modelBuilder.Entity<UserTestSession>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("user_test_sessions_pkey");
+
+            entity.ToTable("user_test_sessions", "Diplom");
+
+            entity.Property(e => e.Id).HasColumnName("id");
+            entity.Property(e => e.CurrentQuestion)
+                .HasDefaultValue(0)
+                .HasColumnName("current_question");
+            entity.Property(e => e.IsCompleted)
+                .HasDefaultValue(false)
+                .HasColumnName("is_completed");
+            entity.Property(e => e.SelectedAnswers)
+                .HasDefaultValueSql("'[]'::jsonb")
+                .HasColumnType("jsonb")
+                .HasColumnName("selected_answers");
+            entity.Property(e => e.StartedAt)
+                .HasDefaultValueSql("CURRENT_TIMESTAMP")
+                .HasColumnType("timestamp without time zone")
+                .HasColumnName("started_at");
+            entity.Property(e => e.TestId).HasColumnName("test_id");
+            entity.Property(e => e.UpdatedAt)
+                .HasDefaultValueSql("CURRENT_TIMESTAMP")
+                .HasColumnType("timestamp without time zone")
+                .HasColumnName("updated_at");
+            entity.Property(e => e.UserId).HasColumnName("user_id");
+
+            entity.HasOne(d => d.Test).WithMany(p => p.UserTestSessions)
+                .HasForeignKey(d => d.TestId)
+                .HasConstraintName("user_test_sessions_test_id_fkey");
+
+            entity.HasOne(d => d.User).WithMany(p => p.UserTestSessions)
+                .HasForeignKey(d => d.UserId)
+                .HasConstraintName("user_test_sessions_user_id_fkey");
         });
 
         OnModelCreatingPartial(modelBuilder);

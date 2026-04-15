@@ -67,7 +67,10 @@ namespace DiplomProject.ViewModels
         {
             MainWindowViewModel.Instance!.CurrentViewModel = new EulerViewModel();
         }
-        private void OpenTests() { }
+        private void OpenTests()
+        {
+            MainWindowViewModel.Instance!.CurrentViewModel = new TestSelectionViewModel();
+        }
         private void OpenResults() { }
     }
 }

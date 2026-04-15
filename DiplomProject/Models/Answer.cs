@@ -13,5 +13,9 @@ public partial class Answer
 
     public bool IsCorrect { get; set; }
 
+    public int? OrderIndex { get; set; }
+
+    public string? Explanation { get; set; }
+
     public virtual Question Question { get; set; } = null!;
 }
