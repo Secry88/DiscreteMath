@@ -154,6 +154,11 @@ public partial class KarmanovContext : DbContext
             entity.Property(e => e.Id).HasColumnName("id");
             entity.Property(e => e.Condition).HasColumnName("condition");
             entity.Property(e => e.CorrectAnswer).HasColumnName("correct_answer");
+            entity.Property(e => e.Operation)
+                .HasMaxLength(20)
+                .HasColumnName("operation");
+            entity.Property(e => e.SetA).HasColumnName("set_a");
+            entity.Property(e => e.SetB).HasColumnName("set_b");
             entity.Property(e => e.Subtype).HasColumnName("subtype");
             entity.Property(e => e.Type)
                 .HasMaxLength(10)

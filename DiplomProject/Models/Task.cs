@@ -14,4 +14,10 @@ public partial class Task
     public string Condition { get; set; } = null!;
 
     public string CorrectAnswer { get; set; } = null!;
+
+    public string? SetA { get; set; }
+
+    public string? SetB { get; set; }
+
+    public string? Operation { get; set; }
 }
