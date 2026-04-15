@@ -60,7 +60,10 @@ namespace DiplomProject.ViewModels
             MainWindowViewModel.Instance!.CurrentViewModel = new TheoryCategoryViewModel();
         }
         private void OpenPractice() { }
-        private void OpenEuler() { }
+        private void OpenEuler()
+        {
+            MainWindowViewModel.Instance!.CurrentViewModel = new EulerViewModel();
+        }
         private void OpenTests() { }
         private void OpenResults() { }
     }

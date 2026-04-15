@@ -1,0 +1,211 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             xmlns:vm="using:DiplomProject.ViewModels"
+             x:DataType="vm:EulerViewModel"
+             x:Class="DiplomProject.Views.EulerView">
+    <UserControl.Styles>
+        <Style Selector="Border.Region">
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="BorderBrush" Value="#00000000"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="CornerRadius" Value="100"/>
+        </Style>
+        <Style Selector="Border.Region.selected">
+            <Setter Property="Background" Value="#66CDB6FF"/>
+            <Setter Property="BorderBrush" Value="#8B5CF6"/>
+        </Style>
+        <Style Selector="Button.RegionButton:pointerover Border.Region">
+            <Setter Property="Background" Value="#33CDB6FF"/>
+        </Style>
+    </UserControl.Styles>
+
+    <Grid Background="#F5F5F7" RowDefinitions="Auto,*" Margin="28,18,28,24">
+        <Grid Grid.Row="0" ColumnDefinitions="*,Auto" Margin="0,0,0,18">
+            <Button Grid.Column="0"
+                    HorizontalAlignment="Left"
+                    Padding="0"
+                    Background="Transparent"
+                    BorderThickness="0"
+                    Command="{Binding NavigateBackCommand}">
+                <TextBlock Text="← Back to Dashboard"
+                           FontSize="18"
+                           Foreground="#2B2142"/>
+            </Button>
+
+            <Border Grid.Column="1"
+                    Padding="20,10"
+                    CornerRadius="14"
+                    BorderBrush="#8B5CF6"
+                    BorderThickness="1.4"
+                    Background="#F9F8FD">
+                <TextBlock Text="{Binding ScoreText}"
+                           FontSize="16"
+                           Foreground="#2B2142"/>
+            </Border>
+        </Grid>
+
+        <Border Grid.Row="1"
+                Background="#F4F1FA"
+                BorderBrush="#BFA9F6"
+                BorderThickness="1.2"
+                CornerRadius="18"
+                Padding="26"
+                BoxShadow="0 6 18 0 #22000000">
+            <StackPanel Spacing="16" HorizontalAlignment="Center">
+                <Border Background="#D9C3F5" CornerRadius="14" Padding="46,8">
+                    <TextBlock Text="{Binding ProgressText}"
+                               FontSize="14"
+                               HorizontalAlignment="Center"
+                               Foreground="#3A295B"/>
+                </Border>
+
+                <TextBlock Text="Euler Diagrams"
+                           FontSize="40"
+                           FontWeight="SemiBold"
+                           HorizontalAlignment="Center"
+                           Foreground="#151022"/>
+
+                <Border Background="#D9C3F5" CornerRadius="14" Padding="36,14" MaxWidth="920">
+                    <TextBlock Text="{Binding CurrentProblemDescription}"
+                               FontSize="18"
+                               TextWrapping="Wrap"
+                               HorizontalAlignment="Center"
+                               Foreground="#19142A"/>
+                </Border>
+
+                <Border BorderBrush="#8B5CF6"
+                        BorderThickness="1.4"
+                        CornerRadius="14"
+                        Background="White"
+                        Width="520"
+                        Height="360"
+                        Padding="16">
+                    <StackPanel Spacing="8">
+                        <TextBlock Text="Click regions"
+                                   FontSize="16"
+                                   HorizontalAlignment="Center"
+                                   Foreground="#2B2142"/>
+
+                        <Canvas Width="480" Height="300">
+                            <Ellipse Width="210"
+                                     Height="210"
+                                     Stroke="#8B5CF6"
+                                     StrokeThickness="2"
+                                     Fill="Transparent"
+                                     Canvas.Left="70"
+                                     Canvas.Top="48"/>
+                            <Ellipse Width="210"
+                                     Height="210"
+                                     Stroke="#8B5CF6"
+                                     StrokeThickness="2"
+                                     Fill="Transparent"
+                                     Canvas.Left="200"
+                                     Canvas.Top="48"/>
+
+                            <Button Classes="RegionButton"
+                                    Command="{Binding SelectRegionCommand}"
+                                    CommandParameter="a-only"
+                                    Background="Transparent"
+                                    BorderThickness="0"
+                                    Padding="0"
+                                    Width="100"
+                                    Height="190"
+                                    Canvas.Left="88"
+                                    Canvas.Top="58">
+                                <Border Classes="Region"
+                                        Classes.selected="{Binding IsAOnlySelected}"/>
+                            </Button>
+
+                            <Button Classes="RegionButton"
+                                    Command="{Binding SelectRegionCommand}"
+                                    CommandParameter="ab"
+                                    Background="Transparent"
+                                    BorderThickness="0"
+                                    Padding="0"
+                                    Width="86"
+                                    Height="190"
+                                    Canvas.Left="196"
+                                    Canvas.Top="58">
+                                <Border Classes="Region"
+                                        Classes.selected="{Binding IsAbSelected}"/>
+                            </Button>
+
+                            <Button Classes="RegionButton"
+                                    Command="{Binding SelectRegionCommand}"
+                                    CommandParameter="b-only"
+                                    Background="Transparent"
+                                    BorderThickness="0"
+                                    Padding="0"
+                                    Width="100"
+                                    Height="190"
+                                    Canvas.Left="293"
+                                    Canvas.Top="58">
+                                <Border Classes="Region"
+                                        Classes.selected="{Binding IsBOnlySelected}"/>
+                            </Button>
+                        </Canvas>
+                    </StackPanel>
+                </Border>
+
+                <Border Background="#DCFCE7"
+                        CornerRadius="12"
+                        Padding="14,10"
+                        IsVisible="{Binding IsCorrectFeedback}">
+                    <TextBlock Text="Correct! Great job."
+                               FontSize="16"
+                               Foreground="#166534"
+                               HorizontalAlignment="Center"/>
+                </Border>
+
+                <Border Background="#FEE2E2"
+                        CornerRadius="12"
+                        Padding="14,10"
+                        IsVisible="{Binding IsIncorrectFeedback}">
+                    <TextBlock Text="Incorrect. Try the next one."
+                               FontSize="16"
+                               Foreground="#991B1B"
+                               HorizontalAlignment="Center"/>
+                </Border>
+
+                <Button Content="Next Problem"
+                        Width="452"
+                        Height="50"
+                        FontSize="28"
+                        FontWeight="SemiBold"
+                        Command="{Binding NextCommand}"
+                        IsVisible="{Binding CanGoNext}"
+                        Foreground="White"
+                        BorderThickness="0"
+                        CornerRadius="14">
+                    <Button.Background>
+                        <LinearGradientBrush StartPoint="0%,0%" EndPoint="100%,0%">
+                            <GradientStop Color="#7C3AED" Offset="0"/>
+                            <GradientStop Color="#9A7CF1" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Button.Background>
+                </Button>
+
+                <Button Content="Start Again"
+                        Width="452"
+                        Height="50"
+                        FontSize="28"
+                        FontWeight="SemiBold"
+                        Command="{Binding ResetCommand}"
+                        IsVisible="{Binding IsSessionFinished}"
+                        Foreground="White"
+                        BorderThickness="0"
+                        CornerRadius="14">
+                    <Button.Background>
+                        <LinearGradientBrush StartPoint="0%,0%" EndPoint="100%,0%">
+                            <GradientStop Color="#7C3AED" Offset="0"/>
+                            <GradientStop Color="#9A7CF1" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Button.Background>
+                </Button>
+            </StackPanel>
+        </Border>
+    </Grid>
+</UserControl>

@@ -17,6 +17,10 @@ public partial class KarmanovContext : DbContext
 
     public virtual DbSet<Answer> Answers { get; set; }
 
+    public virtual DbSet<EulerProblem> EulerProblems { get; set; }
+
+    public virtual DbSet<EulerRegion> EulerRegions { get; set; }
+
     public virtual DbSet<Group> Groups { get; set; }
 
     public virtual DbSet<Question> Questions { get; set; }
@@ -61,6 +65,41 @@ public partial class KarmanovContext : DbContext
             entity.HasOne(d => d.Question).WithMany(p => p.Answers)
                 .HasForeignKey(d => d.QuestionId)
                 .HasConstraintName("fk_answer_question");
+        });
+
+        modelBuilder.Entity<EulerProblem>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("euler_problems_pkey");
+
+            entity.ToTable("euler_problems", "Diplom");
+
+            entity.Property(e => e.Id).HasColumnName("id");
+            entity.Property(e => e.Description).HasColumnName("description");
+            entity.Property(e => e.DiagramType).HasColumnName("diagram_type");
+            entity.Property(e => e.Difficulty)
+                .HasDefaultValue(1)
+                .HasColumnName("difficulty");
+            entity.Property(e => e.Title)
+                .HasMaxLength(200)
+                .HasColumnName("title");
+        });
+
+        modelBuilder.Entity<EulerRegion>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("euler_regions_pkey");
+
+            entity.ToTable("euler_regions", "Diplom");
+
+            entity.Property(e => e.Id).HasColumnName("id");
+            entity.Property(e => e.IsCorrect).HasColumnName("is_correct");
+            entity.Property(e => e.ProblemId).HasColumnName("problem_id");
+            entity.Property(e => e.RegionCode)
+                .HasMaxLength(50)
+                .HasColumnName("region_code");
+
+            entity.HasOne(d => d.Problem).WithMany(p => p.EulerRegions)
+                .HasForeignKey(d => d.ProblemId)
+                .HasConstraintName("fk_region_problem");
         });
 
         modelBuilder.Entity<Group>(entity =>
