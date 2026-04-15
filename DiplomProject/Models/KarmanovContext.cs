@@ -29,13 +29,17 @@ public partial class KarmanovContext : DbContext
 
     public virtual DbSet<TestResult> TestResults { get; set; }
 
-    public virtual DbSet<Theory> Theories { get; set; }
+    public virtual DbSet<TheoryCategory> TheoryCategories { get; set; }
+
+    public virtual DbSet<TheoryContent> TheoryContents { get; set; }
+
+    public virtual DbSet<TheoryTopic> TheoryTopics { get; set; }
 
     public virtual DbSet<User> Users { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
-        => optionsBuilder.UseNpgsql("Host=ngknn.ru;Port=5442;Database=Karmanov;Username=21P;Password=123");
+        => optionsBuilder.UseNpgsql("Host=ngknn.ru;Port=5442;Username=21P;Database=Karmanov;Password=123");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -155,17 +159,55 @@ public partial class KarmanovContext : DbContext
                 .HasConstraintName("fk_result_user");
         });
 
-        modelBuilder.Entity<Theory>(entity =>
+        modelBuilder.Entity<TheoryCategory>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("theory_pkey");
+            entity.HasKey(e => e.Id).HasName("theory_categories_pkey");
 
-            entity.ToTable("theory", "Diplom");
+            entity.ToTable("theory_categories", "Diplom");
 
             entity.Property(e => e.Id).HasColumnName("id");
-            entity.Property(e => e.Content).HasColumnName("content");
+            entity.Property(e => e.Description).HasColumnName("description");
             entity.Property(e => e.Title)
                 .HasMaxLength(200)
                 .HasColumnName("title");
+        });
+
+        modelBuilder.Entity<TheoryContent>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("theory_content_pkey");
+
+            entity.ToTable("theory_content", "Diplom");
+
+            entity.Property(e => e.Id).HasColumnName("id");
+            entity.Property(e => e.Content).HasColumnName("content");
+            entity.Property(e => e.OrderIndex)
+                .HasDefaultValue(0)
+                .HasColumnName("order_index");
+            entity.Property(e => e.TopicId).HasColumnName("topic_id");
+
+            entity.HasOne(d => d.Topic).WithMany(p => p.TheoryContents)
+                .HasForeignKey(d => d.TopicId)
+                .HasConstraintName("fk_content_topic");
+        });
+
+        modelBuilder.Entity<TheoryTopic>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("theory_topics_pkey");
+
+            entity.ToTable("theory_topics", "Diplom");
+
+            entity.Property(e => e.Id).HasColumnName("id");
+            entity.Property(e => e.CategoryId).HasColumnName("category_id");
+            entity.Property(e => e.OrderIndex)
+                .HasDefaultValue(0)
+                .HasColumnName("order_index");
+            entity.Property(e => e.Title)
+                .HasMaxLength(200)
+                .HasColumnName("title");
+
+            entity.HasOne(d => d.Category).WithMany(p => p.TheoryTopics)
+                .HasForeignKey(d => d.CategoryId)
+                .HasConstraintName("fk_topics_category");
         });
 
         modelBuilder.Entity<User>(entity =>

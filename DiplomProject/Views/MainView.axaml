@@ -8,75 +8,93 @@
              x:DataType="vm:MainViewModel"
              x:Class="DiplomProject.Views.MainView">
 
-  <Grid>
+    <Grid Background="#F5F5F7">
+        <Grid RowDefinitions="Auto,*">
+            <Grid Grid.Row="0"
+                  ColumnDefinitions="*,Auto"
+                  Margin="56,28,56,20">
+                <Grid Grid.Column="0" ColumnDefinitions="Auto,*" ColumnSpacing="16">
+                    <Border Grid.Column="0"
+                            Width="52"
+                            Height="52"
+                            CornerRadius="16"
+                            Background="#7C3AED"
+                            VerticalAlignment="Top">
+                        <TextBlock Text="👋"
+                                   FontSize="26"
+                                   HorizontalAlignment="Center"
+                                   VerticalAlignment="Center"/>
+                    </Border>
 
-        <Grid.Background>
-            <SolidColorBrush Color="#FAFAFA"/>
-        </Grid.Background>
+                    <StackPanel Grid.Column="1" Spacing="2">
+                        <TextBlock FontSize="44"
+                                   FontWeight="SemiBold"
+                                   Foreground="#6D28D9">
+                            <Run Text="Welcome back, "/>
+                            <Run Text="{Binding UserName}"/>
+                            <Run Text="!"/>
+                        </TextBlock>
+                        <TextBlock Text="Let's continue learning discrete mathematics"
+                                   FontSize="17"
+                                   Foreground="#5F5A70"/>
+                    </StackPanel>
+                </Grid>
 
-        <Grid RowDefinitions="Auto,*" Margin="30">
+                <StackPanel Grid.Column="1"
+                            Orientation="Horizontal"
+                            Spacing="16"
+                            HorizontalAlignment="Right"
+                            VerticalAlignment="Top">
+                    <Button Content="Profile"
+                            Padding="22,14"
+                            MinWidth="120"
+                            Background="#F9F8FD"
+                            BorderBrush="#D9D3EA"
+                            BorderThickness="1.5"
+                            CornerRadius="15"
+                            FontSize="20"
+                            FontWeight="SemiBold"
+                            Foreground="#6D28D9"/>
 
-            <Grid ColumnDefinitions="*,Auto" Margin="0,0,0,20">
-
-    <!-- Лево -->
-    <StackPanel Grid.Column="0">
-        <TextBlock Text="{Binding UserName}"
-                   FontSize="20"
-                   FontWeight="Bold"
-                   Foreground="#5B21B6"/>
-
-        <TextBlock Text="Продолжим изучение дискретной математики"
-                   Foreground="#6B5B95"/>
-    </StackPanel>
-
-    <!-- Право -->
-    <StackPanel Grid.Column="1"
-                Orientation="Horizontal"
-                Spacing="10"
-                HorizontalAlignment="Right">
-
-        <Button Content="Профиль"
-                Background="White"
-                BorderBrush="#E9D5FF"
-                CornerRadius="10"/>
-
-        <Button Content="Выход"
-                Background="White"
-                BorderBrush="#E9D5FF"
-                CornerRadius="10"/>
-    </StackPanel>
-
-</Grid>
+                    <Button Content="Logout"
+                            Padding="22,14"
+                            MinWidth="120"
+                            Background="#F9F8FD"
+                            BorderBrush="#D9D3EA"
+                            BorderThickness="1.5"
+                            CornerRadius="15"
+                            FontSize="20"
+                            FontWeight="SemiBold"
+                            Foreground="#6D28D9"/>
+                </StackPanel>
+            </Grid>
 
             <ItemsControl Grid.Row="1"
-              ItemsSource="{Binding MenuItems}">
+                          Margin="48,32,48,40"
+                          HorizontalAlignment="Center"
+                          MaxWidth="950"
+                          ItemsSource="{Binding MenuItems}">
+                <ItemsControl.Styles>
+                    <Style Selector="ContentPresenter">
+                        <Setter Property="Margin" Value="14"/>
+                    </Style>
+                </ItemsControl.Styles>
 
-    <!-- 👇 ВОТ СЮДА -->
-    <ItemsControl.Styles>
-        <Style Selector="ContentPresenter">
-            <Setter Property="Margin" Value="12"/>
-        </Style>
-    </ItemsControl.Styles>
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel ItemWidth="280" ItemHeight="220"/>
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
 
-    <ItemsControl.ItemsPanel>
-        <ItemsPanelTemplate>
-            <WrapPanel ItemWidth="260"
-                       ItemHeight="200"/>
-        </ItemsPanelTemplate>
-    </ItemsControl.ItemsPanel>
-
-    <ItemsControl.ItemTemplate>
-        <DataTemplate>
-            <controls:MenuCardControl
-                Title="{Binding Title}"
-                Description="{Binding Description}"
-                Icon="{Binding Icon}"
-                Command="{Binding Command}"/>
-        </DataTemplate>
-    </ItemsControl.ItemTemplate>
-
-</ItemsControl>
-
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <controls:MenuCardControl Title="{Binding Title}"
+                                                  Description="{Binding Description}"
+                                                  Icon="{Binding Icon}"
+                                                  Command="{Binding Command}"/>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
         </Grid>
     </Grid>
 </UserControl>

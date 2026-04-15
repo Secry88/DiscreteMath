@@ -14,32 +14,45 @@
     <Style Selector="controls|MenuCardControl">
         <Setter Property="Template">
 <ControlTemplate>
-
     <Button Command="{TemplateBinding Command}"
             Background="Transparent"
             BorderThickness="0"
-            Padding="0">
+            Padding="0"
+            HorizontalContentAlignment="Stretch"
+            VerticalContentAlignment="Stretch">
+        <Button.Styles>
+            <Style Selector="Button:pointerover">
+                <Setter Property="Background" Value="Transparent"/>
+            </Style>
+            <Style Selector="Button:pressed">
+                <Setter Property="Background" Value="Transparent"/>
+            </Style>
+            <Style Selector="Button:focus">
+                <Setter Property="Background" Value="Transparent"/>
+            </Style>
+        </Button.Styles>
 
         <Border x:Name="Root"
-                Width="260"
-                Height="200"
+                Width="280"
+                Height="220"
                 Background="White"
-                CornerRadius="20"
-                Padding="20"
+                CornerRadius="24"
+                ClipToBounds="True"
+                Padding="22"
                 BorderBrush="#E9D5FF"
-                BorderThickness="1">
+                BorderThickness="1.2">
 
             <StackPanel Spacing="12">
 
                 <!-- ИКОНКА (как ты хотел — в фиолетовой плашке) -->
-                <Border Width="48"
-                        Height="48"
+                <Border Width="52"
+                        Height="52"
                         Background="#7C3AED"
-                        CornerRadius="14"
+                        CornerRadius="16"
                         HorizontalAlignment="Left">
 
                     <TextBlock Text="{TemplateBinding Icon}"
-                               FontSize="22"
+                               FontSize="24"
                                Foreground="White"
                                HorizontalAlignment="Center"
                                VerticalAlignment="Center"/>
@@ -47,29 +60,29 @@
 
                 <!-- Заголовок -->
                 <TextBlock Text="{TemplateBinding Title}"
-                           FontSize="16"
+                           FontSize="19"
                            FontWeight="SemiBold"
                            Foreground="#1A1625"/>
 
                 <!-- Описание -->
                 <TextBlock Text="{TemplateBinding Description}"
-                           FontSize="13"
+                           FontSize="15"
                            Foreground="#6B5B95"
                            TextWrapping="Wrap"/>
 
                 <!-- CTA -->
                 <StackPanel Orientation="Horizontal" Spacing="6">
-                    <TextBlock Text="Открыть"
-                               FontSize="12"
+                    <TextBlock Text="Start"
+                               FontSize="14"
                                Foreground="#7C3AED"/>
-                    <TextBlock Text="→"
+                    <TextBlock Text=">"
+                               FontSize="14"
                                Foreground="#7C3AED"/>
                 </StackPanel>
 
             </StackPanel>
 
         </Border>
-
     </Button>
 
 </ControlTemplate>
@@ -79,7 +92,7 @@
     <!-- Hover эффект -->
     <Style Selector="controls|MenuCardControl:pointerover /template/ Border#Root">
         <Setter Property="BorderBrush" Value="#C4B5FD"/>
-        <Setter Property="BoxShadow" Value="0 8 20 0 #D8B4FE"/>
+        <Setter Property="BoxShadow" Value="0 10 26 0 #44B794F4"/>
     </Style>
 
 
