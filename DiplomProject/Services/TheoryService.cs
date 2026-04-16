@@ -1,5 +1,6 @@
 using DiplomProject.Models;
 using Microsoft.EntityFrameworkCore;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace DiplomProject.Services
@@ -52,6 +53,19 @@ namespace DiplomProject.Services
                     })
                     .ToList()
             };
+        }
+
+        public List<TheoryCategoryDto> GetCategories()
+        {
+            return _db.TheoryCategories
+                .AsNoTracking()
+                .Select(x => new TheoryCategoryDto
+                {
+                    Id = x.Id,
+                    Title = x.Title,
+                    Description = x.Description ?? string.Empty
+                })
+                .ToList();
         }
     }
 }

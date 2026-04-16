@@ -61,7 +61,6 @@ namespace DiplomProject.ViewModels
         };
         }
 
-        // методы-заглушки
         private void OpenTheory() 
         {
             MainWindowViewModel.Instance!.CurrentViewModel = new TheoryCategoryViewModel();

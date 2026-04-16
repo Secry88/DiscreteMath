@@ -203,3 +203,4 @@ D:\domashka\FOURTH_KURS\PP_DIPLOM\DiplomProject\DiplomProject\bin\Debug\net9.0\r
 D:\domashka\FOURTH_KURS\PP_DIPLOM\DiplomProject\DiplomProject\bin\Debug\net9.0\runtimes\win\lib\net6.0\System.Drawing.Common.dll
 D:\domashka\FOURTH_KURS\PP_DIPLOM\DiplomProject\DiplomProject\bin\Debug\net9.0\runtimes\win\lib\net6.0\System.Security.Cryptography.ProtectedData.dll
 D:\domashka\FOURTH_KURS\PP_DIPLOM\DiplomProject\DiplomProject\bin\Debug\net9.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
+D:\domashka\FOURTH_KURS\PP_DIPLOM\DiplomProject\DiplomProject\obj\Debug\net9.0\DiplomProject.sourcelink.json
