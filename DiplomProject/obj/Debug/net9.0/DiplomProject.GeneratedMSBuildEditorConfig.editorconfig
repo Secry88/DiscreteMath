@@ -30,50 +30,50 @@ build_property.CsWinRTAotWarningLevel =
 build_property.TargetFrameworkIdentifier = .NETCoreApp
 build_property.TargetFrameworkVersion = v9.0
 build_property.RootNamespace = DiplomProject
-build_property.ProjectDir = d:\domashka\FOURTH_KURS\PP_DIPLOM\DiplomProject\DiplomProject\
+build_property.ProjectDir = D:\domashka\FOURTH_KURS\PP_DIPLOM\DiplomProject\DiplomProject\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.EffectiveAnalysisLevelStyle = 9.0
 build_property.EnableCodeStyleSeverity = 
 
-[d:/domashka/FOURTH_KURS/PP_DIPLOM/DiplomProject/DiplomProject/App.axaml]
+[D:/domashka/FOURTH_KURS/PP_DIPLOM/DiplomProject/DiplomProject/App.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 
-[d:/domashka/FOURTH_KURS/PP_DIPLOM/DiplomProject/DiplomProject/CustomControls/MenuCardControl.axaml]
+[D:/domashka/FOURTH_KURS/PP_DIPLOM/DiplomProject/DiplomProject/CustomControls/MenuCardControl.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 
-[d:/domashka/FOURTH_KURS/PP_DIPLOM/DiplomProject/DiplomProject/CustomControls/TheoryCategoryCardControl.axaml]
+[D:/domashka/FOURTH_KURS/PP_DIPLOM/DiplomProject/DiplomProject/CustomControls/TheoryCategoryCardControl.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 
-[d:/domashka/FOURTH_KURS/PP_DIPLOM/DiplomProject/DiplomProject/Views/AuthView.axaml]
+[D:/domashka/FOURTH_KURS/PP_DIPLOM/DiplomProject/DiplomProject/Views/AuthView.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 
-[d:/domashka/FOURTH_KURS/PP_DIPLOM/DiplomProject/DiplomProject/Views/EulerView.axaml]
+[D:/domashka/FOURTH_KURS/PP_DIPLOM/DiplomProject/DiplomProject/Views/EulerView.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 
-[d:/domashka/FOURTH_KURS/PP_DIPLOM/DiplomProject/DiplomProject/Views/MainView.axaml]
+[D:/domashka/FOURTH_KURS/PP_DIPLOM/DiplomProject/DiplomProject/Views/MainView.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 
-[d:/domashka/FOURTH_KURS/PP_DIPLOM/DiplomProject/DiplomProject/Views/MainWindow.axaml]
+[D:/domashka/FOURTH_KURS/PP_DIPLOM/DiplomProject/DiplomProject/Views/MainWindow.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 
-[d:/domashka/FOURTH_KURS/PP_DIPLOM/DiplomProject/DiplomProject/Views/PracticeView.axaml]
+[D:/domashka/FOURTH_KURS/PP_DIPLOM/DiplomProject/DiplomProject/Views/PracticeView.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 
-[d:/domashka/FOURTH_KURS/PP_DIPLOM/DiplomProject/DiplomProject/Views/ProfileView.axaml]
+[D:/domashka/FOURTH_KURS/PP_DIPLOM/DiplomProject/DiplomProject/Views/ProfileView.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 
-[d:/domashka/FOURTH_KURS/PP_DIPLOM/DiplomProject/DiplomProject/Views/RegisterView.axaml]
+[D:/domashka/FOURTH_KURS/PP_DIPLOM/DiplomProject/DiplomProject/Views/RegisterView.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 
-[d:/domashka/FOURTH_KURS/PP_DIPLOM/DiplomProject/DiplomProject/Views/TestSelectionView.axaml]
+[D:/domashka/FOURTH_KURS/PP_DIPLOM/DiplomProject/DiplomProject/Views/TestSelectionView.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 
-[d:/domashka/FOURTH_KURS/PP_DIPLOM/DiplomProject/DiplomProject/Views/TestView.axaml]
+[D:/domashka/FOURTH_KURS/PP_DIPLOM/DiplomProject/DiplomProject/Views/TestView.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 
-[d:/domashka/FOURTH_KURS/PP_DIPLOM/DiplomProject/DiplomProject/Views/TheoryCategoryView.axaml]
+[D:/domashka/FOURTH_KURS/PP_DIPLOM/DiplomProject/DiplomProject/Views/TheoryCategoryView.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 
-[d:/domashka/FOURTH_KURS/PP_DIPLOM/DiplomProject/DiplomProject/Views/TheoryDetailView.axaml]
+[D:/domashka/FOURTH_KURS/PP_DIPLOM/DiplomProject/DiplomProject/Views/TheoryDetailView.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
