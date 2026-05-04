@@ -130,5 +130,133 @@ namespace DiplomProject.Services
                 _ => "Hard"
             };
         }
+
+        // ── Tests CRUD ───────────────────────────────────────────────────────────
+
+        public async Task<List<TestSelectionItemDto>> GetAllTestsForTeacherAsync()
+        {
+            return await _db.Tests
+                .Include(x => x.Questions)
+                .AsNoTracking()
+                .OrderBy(x => x.Id)
+                .Select(t => new TestSelectionItemDto
+                {
+                    Id = t.Id,
+                    Title = t.Title,
+                    Description = t.Description ?? string.Empty,
+                    Topic = t.Topic ?? string.Empty,
+                    QuestionsCount = t.Questions.Count,
+                    DurationMinutes = t.Duration ?? 15,
+                    Difficulty = t.Difficulty ?? 1,
+                    DifficultyLabel = MapDifficultyLabel(t.Difficulty ?? 1),
+                    IsCompleted = false
+                })
+                .ToListAsync();
+        }
+
+        public async Task AddTestAsync(string title, string description, string topic, int difficulty, int duration)
+        {
+            _db.Tests.Add(new Test
+            {
+                Title = title,
+                Description = description,
+                Topic = topic,
+                Difficulty = difficulty,
+                Duration = duration
+            });
+            await _db.SaveChangesAsync();
+        }
+
+        public async Task UpdateTestAsync(int id, string title, string description, string topic, int difficulty, int duration)
+        {
+            var test = await _db.Tests.FindAsync(id);
+            if (test is null) return;
+            test.Title = title;
+            test.Description = description;
+            test.Topic = topic;
+            test.Difficulty = difficulty;
+            test.Duration = duration;
+            await _db.SaveChangesAsync();
+        }
+
+        public async Task DeleteTestAsync(int id)
+        {
+            var test = await _db.Tests.FindAsync(id);
+            if (test is null) return;
+            _db.Tests.Remove(test);
+            await _db.SaveChangesAsync();
+        }
+
+        // ── Questions CRUD ───────────────────────────────────────────────────────
+
+        public async Task<List<TestQuestionDto>> GetQuestionsAsync(int testId)
+        {
+            return await _db.Questions
+                .Include(q => q.Answers)
+                .AsNoTracking()
+                .Where(q => q.TestId == testId)
+                .OrderBy(q => q.OrderIndex ?? int.MaxValue).ThenBy(q => q.Id)
+                .Select(q => new TestQuestionDto
+                {
+                    Id = q.Id,
+                    QuestionText = q.QuestionText,
+                    OrderIndex = q.OrderIndex ?? 0,
+                    Answers = q.Answers
+                        .OrderBy(a => a.OrderIndex ?? int.MaxValue).ThenBy(a => a.Id)
+                        .Select(a => new TestAnswerDto
+                        {
+                            Id = a.Id,
+                            AnswerText = a.AnswerText,
+                            IsCorrect = a.IsCorrect
+                        }).ToList()
+                }).ToListAsync();
+        }
+
+        public async Task AddQuestionAsync(int testId, string questionText)
+        {
+            _db.Questions.Add(new Question { TestId = testId, QuestionText = questionText });
+            await _db.SaveChangesAsync();
+        }
+
+        public async Task UpdateQuestionAsync(int id, string questionText)
+        {
+            var q = await _db.Questions.FindAsync(id);
+            if (q is null) return;
+            q.QuestionText = questionText;
+            await _db.SaveChangesAsync();
+        }
+
+        public async Task DeleteQuestionAsync(int id)
+        {
+            var q = await _db.Questions.FindAsync(id);
+            if (q is null) return;
+            _db.Questions.Remove(q);
+            await _db.SaveChangesAsync();
+        }
+
+        // ── Answers CRUD ─────────────────────────────────────────────────────────
+
+        public async Task AddAnswerAsync(int questionId, string answerText, bool isCorrect)
+        {
+            _db.Answers.Add(new Answer { QuestionId = questionId, AnswerText = answerText, IsCorrect = isCorrect });
+            await _db.SaveChangesAsync();
+        }
+
+        public async Task UpdateAnswerAsync(int id, string answerText, bool isCorrect)
+        {
+            var a = await _db.Answers.FindAsync(id);
+            if (a is null) return;
+            a.AnswerText = answerText;
+            a.IsCorrect = isCorrect;
+            await _db.SaveChangesAsync();
+        }
+
+        public async Task DeleteAnswerAsync(int id)
+        {
+            var a = await _db.Answers.FindAsync(id);
+            if (a is null) return;
+            _db.Answers.Remove(a);
+            await _db.SaveChangesAsync();
+        }
     }
 }

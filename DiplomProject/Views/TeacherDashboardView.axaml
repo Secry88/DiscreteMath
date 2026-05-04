@@ -1,0 +1,135 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="900" d:DesignHeight="600"
+             xmlns:vm="using:DiplomProject.ViewModels"
+             x:DataType="vm:TeacherDashboardViewModel"
+             x:Class="DiplomProject.Views.TeacherDashboardView">
+
+    <Grid Background="#F5F5F7" RowDefinitions="Auto,Auto,*" Margin="40,22,40,32">
+
+        <!-- Back -->
+        <Button Grid.Row="0"
+                HorizontalAlignment="Left"
+                Padding="0"
+                Background="Transparent"
+                BorderThickness="0"
+                Command="{Binding NavigateBackCommand}">
+            <TextBlock Text="← На главную"
+                       FontSize="17"
+                       Foreground="#6E6785"/>
+        </Button>
+
+        <!-- Title -->
+        <Grid Grid.Row="1" Margin="0,18,0,32" ColumnDefinitions="Auto,*" ColumnSpacing="14">
+            <Border Grid.Column="0"
+                    Width="56" Height="56"
+                    Background="#7C3AED"
+                    CornerRadius="16"
+                    VerticalAlignment="Center">
+                <TextBlock Text="⚙️" FontSize="26"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Center"/>
+            </Border>
+            <StackPanel Grid.Column="1" Spacing="2" VerticalAlignment="Center">
+                <TextBlock Text="Панель преподавателя"
+                           FontSize="36" FontWeight="SemiBold"
+                           Foreground="#1A1625"/>
+                <TextBlock Text="Управление учебными материалами"
+                           FontSize="15" Foreground="#6E6785"/>
+            </StackPanel>
+        </Grid>
+
+        <!-- Module Cards -->
+        <ItemsControl Grid.Row="2" HorizontalAlignment="Center" MaxWidth="960">
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel ItemWidth="200" ItemHeight="180"/>
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+            <ItemsControl.Styles>
+                <Style Selector="ContentPresenter">
+                    <Setter Property="Margin" Value="12"/>
+                </Style>
+            </ItemsControl.Styles>
+
+            <!-- Theory Card -->
+            <Button Background="Transparent" BorderThickness="0" Padding="0"
+                    Command="{Binding ManageTheoryCommand}">
+                <Border Background="White" CornerRadius="20" Padding="20"
+                        BorderBrush="#E9D5FF" BorderThickness="1.2">
+                    <StackPanel Spacing="10">
+                        <Border Width="44" Height="44" Background="#EDE9FE" CornerRadius="12"
+                                HorizontalAlignment="Left">
+                            <TextBlock Text="📖" FontSize="22"
+                                       HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                        <TextBlock Text="Теория" FontSize="18" FontWeight="SemiBold" Foreground="#1A1625"/>
+                        <TextBlock Text="Категории, темы, контент"
+                                   FontSize="12" Foreground="#6B5B95" TextWrapping="Wrap"/>
+                        <TextBlock Text="Управлять ›" FontSize="12" Foreground="#7C3AED"/>
+                    </StackPanel>
+                </Border>
+            </Button>
+
+            <!-- Practice Card -->
+            <Button Background="Transparent" BorderThickness="0" Padding="0"
+                    Command="{Binding ManagePracticeCommand}">
+                <Border Background="White" CornerRadius="20" Padding="20"
+                        BorderBrush="#E9D5FF" BorderThickness="1.2">
+                    <StackPanel Spacing="10">
+                        <Border Width="44" Height="44" Background="#EDE9FE" CornerRadius="12"
+                                HorizontalAlignment="Left">
+                            <TextBlock Text="✏️" FontSize="22"
+                                       HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                        <TextBlock Text="Практика" FontSize="18" FontWeight="SemiBold" Foreground="#1A1625"/>
+                        <TextBlock Text="Задачи с множествами"
+                                   FontSize="12" Foreground="#6B5B95" TextWrapping="Wrap"/>
+                        <TextBlock Text="Управлять ›" FontSize="12" Foreground="#7C3AED"/>
+                    </StackPanel>
+                </Border>
+            </Button>
+
+            <!-- Euler Card -->
+            <Button Background="Transparent" BorderThickness="0" Padding="0"
+                    Command="{Binding ManageEulerCommand}">
+                <Border Background="White" CornerRadius="20" Padding="20"
+                        BorderBrush="#E9D5FF" BorderThickness="1.2">
+                    <StackPanel Spacing="10">
+                        <Border Width="44" Height="44" Background="#EDE9FE" CornerRadius="12"
+                                HorizontalAlignment="Left">
+                            <TextBlock Text="🔵" FontSize="22"
+                                       HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                        <TextBlock Text="Круги Эйлера" FontSize="18" FontWeight="SemiBold" Foreground="#1A1625"/>
+                        <TextBlock Text="Диаграммы и области"
+                                   FontSize="12" Foreground="#6B5B95" TextWrapping="Wrap"/>
+                        <TextBlock Text="Управлять ›" FontSize="12" Foreground="#7C3AED"/>
+                    </StackPanel>
+                </Border>
+            </Button>
+
+            <!-- Tests Card -->
+            <Button Background="Transparent" BorderThickness="0" Padding="0"
+                    Command="{Binding ManageTestsCommand}">
+                <Border Background="White" CornerRadius="20" Padding="20"
+                        BorderBrush="#E9D5FF" BorderThickness="1.2">
+                    <StackPanel Spacing="10">
+                        <Border Width="44" Height="44" Background="#EDE9FE" CornerRadius="12"
+                                HorizontalAlignment="Left">
+                            <TextBlock Text="🧪" FontSize="22"
+                                       HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                        <TextBlock Text="Тесты" FontSize="18" FontWeight="SemiBold" Foreground="#1A1625"/>
+                        <TextBlock Text="Вопросы и ответы"
+                                   FontSize="12" Foreground="#6B5B95" TextWrapping="Wrap"/>
+                        <TextBlock Text="Управлять ›" FontSize="12" Foreground="#7C3AED"/>
+                    </StackPanel>
+                </Border>
+            </Button>
+
+        </ItemsControl>
+    </Grid>
+</UserControl>

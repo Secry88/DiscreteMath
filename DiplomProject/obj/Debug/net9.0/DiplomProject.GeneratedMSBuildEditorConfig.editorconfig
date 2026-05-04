@@ -66,6 +66,21 @@ build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 [D:/domashka/FOURTH_KURS/PP_DIPLOM/DiplomProject/DiplomProject/Views/RegisterView.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 
+[D:/domashka/FOURTH_KURS/PP_DIPLOM/DiplomProject/DiplomProject/Views/TeacherDashboardView.axaml]
+build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
+
+[D:/domashka/FOURTH_KURS/PP_DIPLOM/DiplomProject/DiplomProject/Views/TeacherEulerView.axaml]
+build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
+
+[D:/domashka/FOURTH_KURS/PP_DIPLOM/DiplomProject/DiplomProject/Views/TeacherPracticeView.axaml]
+build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
+
+[D:/domashka/FOURTH_KURS/PP_DIPLOM/DiplomProject/DiplomProject/Views/TeacherTestsView.axaml]
+build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
+
+[D:/domashka/FOURTH_KURS/PP_DIPLOM/DiplomProject/DiplomProject/Views/TeacherTheoryView.axaml]
+build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
+
 [D:/domashka/FOURTH_KURS/PP_DIPLOM/DiplomProject/DiplomProject/Views/TestSelectionView.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 

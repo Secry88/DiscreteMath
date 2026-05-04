@@ -1,0 +1,841 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\domashka\\FOURTH_KURS\\PP_DIPLOM\\DiplomProject\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{F41F331F-CFB8-5B74-F62E-81A1EB5785AC}|DiplomProject\\DiplomProject.csproj|d:\\domashka\\fourth_kurs\\pp_diplom\\diplomproject\\diplomproject\\viewmodels\\authviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F41F331F-CFB8-5B74-F62E-81A1EB5785AC}|DiplomProject\\DiplomProject.csproj|solutionrelative:diplomproject\\viewmodels\\authviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F41F331F-CFB8-5B74-F62E-81A1EB5785AC}|DiplomProject\\DiplomProject.csproj|d:\\domashka\\fourth_kurs\\pp_diplom\\diplomproject\\diplomproject\\diplomproject.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{F41F331F-CFB8-5B74-F62E-81A1EB5785AC}|DiplomProject\\DiplomProject.csproj|solutionrelative:diplomproject\\diplomproject.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F41F331F-CFB8-5B74-F62E-81A1EB5785AC}|DiplomProject\\DiplomProject.csproj|d:\\domashka\\fourth_kurs\\pp_diplom\\diplomproject\\diplomproject\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F41F331F-CFB8-5B74-F62E-81A1EB5785AC}|DiplomProject\\DiplomProject.csproj|solutionrelative:diplomproject\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F41F331F-CFB8-5B74-F62E-81A1EB5785AC}|DiplomProject\\DiplomProject.csproj|d:\\domashka\\fourth_kurs\\pp_diplom\\diplomproject\\diplomproject\\models\\role.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F41F331F-CFB8-5B74-F62E-81A1EB5785AC}|DiplomProject\\DiplomProject.csproj|solutionrelative:diplomproject\\models\\role.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F41F331F-CFB8-5B74-F62E-81A1EB5785AC}|DiplomProject\\DiplomProject.csproj|d:\\domashka\\fourth_kurs\\pp_diplom\\diplomproject\\diplomproject\\models\\group.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F41F331F-CFB8-5B74-F62E-81A1EB5785AC}|DiplomProject\\DiplomProject.csproj|solutionrelative:diplomproject\\models\\group.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F41F331F-CFB8-5B74-F62E-81A1EB5785AC}|DiplomProject\\DiplomProject.csproj|d:\\domashka\\fourth_kurs\\pp_diplom\\diplomproject\\diplomproject\\views\\authview.axaml||{6D5344A2-2FCD-49DE-A09D-6A14FD1B1224}",
+      "RelativeMoniker": "D:0:0:{F41F331F-CFB8-5B74-F62E-81A1EB5785AC}|DiplomProject\\DiplomProject.csproj|solutionrelative:diplomproject\\views\\authview.axaml||{6D5344A2-2FCD-49DE-A09D-6A14FD1B1224}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F41F331F-CFB8-5B74-F62E-81A1EB5785AC}|DiplomProject\\DiplomProject.csproj|d:\\domashka\\fourth_kurs\\pp_diplom\\diplomproject\\diplomproject\\views\\teacherdashboardview.axaml||{6D5344A2-2FCD-49DE-A09D-6A14FD1B1224}",
+      "RelativeMoniker": "D:0:0:{F41F331F-CFB8-5B74-F62E-81A1EB5785AC}|DiplomProject\\DiplomProject.csproj|solutionrelative:diplomproject\\views\\teacherdashboardview.axaml||{6D5344A2-2FCD-49DE-A09D-6A14FD1B1224}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F41F331F-CFB8-5B74-F62E-81A1EB5785AC}|DiplomProject\\DiplomProject.csproj|d:\\domashka\\fourth_kurs\\pp_diplom\\diplomproject\\diplomproject\\views\\teachereulerview.axaml||{6D5344A2-2FCD-49DE-A09D-6A14FD1B1224}",
+      "RelativeMoniker": "D:0:0:{F41F331F-CFB8-5B74-F62E-81A1EB5785AC}|DiplomProject\\DiplomProject.csproj|solutionrelative:diplomproject\\views\\teachereulerview.axaml||{6D5344A2-2FCD-49DE-A09D-6A14FD1B1224}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F41F331F-CFB8-5B74-F62E-81A1EB5785AC}|DiplomProject\\DiplomProject.csproj|d:\\domashka\\fourth_kurs\\pp_diplom\\diplomproject\\diplomproject\\viewmodels\\teacherdashboardviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F41F331F-CFB8-5B74-F62E-81A1EB5785AC}|DiplomProject\\DiplomProject.csproj|solutionrelative:diplomproject\\viewmodels\\teacherdashboardviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F41F331F-CFB8-5B74-F62E-81A1EB5785AC}|DiplomProject\\DiplomProject.csproj|d:\\domashka\\fourth_kurs\\pp_diplom\\diplomproject\\diplomproject\\views\\teachertestsview.axaml||{6D5344A2-2FCD-49DE-A09D-6A14FD1B1224}",
+      "RelativeMoniker": "D:0:0:{F41F331F-CFB8-5B74-F62E-81A1EB5785AC}|DiplomProject\\DiplomProject.csproj|solutionrelative:diplomproject\\views\\teachertestsview.axaml||{6D5344A2-2FCD-49DE-A09D-6A14FD1B1224}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F41F331F-CFB8-5B74-F62E-81A1EB5785AC}|DiplomProject\\DiplomProject.csproj|d:\\domashka\\fourth_kurs\\pp_diplom\\diplomproject\\diplomproject\\customcontrols\\theorycategorycardcontrol.axaml||{6D5344A2-2FCD-49DE-A09D-6A14FD1B1224}",
+      "RelativeMoniker": "D:0:0:{F41F331F-CFB8-5B74-F62E-81A1EB5785AC}|DiplomProject\\DiplomProject.csproj|solutionrelative:diplomproject\\customcontrols\\theorycategorycardcontrol.axaml||{6D5344A2-2FCD-49DE-A09D-6A14FD1B1224}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F41F331F-CFB8-5B74-F62E-81A1EB5785AC}|DiplomProject\\DiplomProject.csproj|d:\\domashka\\fourth_kurs\\pp_diplom\\diplomproject\\diplomproject\\views\\theorycategoryview.axaml||{6D5344A2-2FCD-49DE-A09D-6A14FD1B1224}",
+      "RelativeMoniker": "D:0:0:{F41F331F-CFB8-5B74-F62E-81A1EB5785AC}|DiplomProject\\DiplomProject.csproj|solutionrelative:diplomproject\\views\\theorycategoryview.axaml||{6D5344A2-2FCD-49DE-A09D-6A14FD1B1224}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F41F331F-CFB8-5B74-F62E-81A1EB5785AC}|DiplomProject\\DiplomProject.csproj|d:\\domashka\\fourth_kurs\\pp_diplom\\diplomproject\\diplomproject\\viewmodels\\theorycategoryviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F41F331F-CFB8-5B74-F62E-81A1EB5785AC}|DiplomProject\\DiplomProject.csproj|solutionrelative:diplomproject\\viewmodels\\theorycategoryviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F41F331F-CFB8-5B74-F62E-81A1EB5785AC}|DiplomProject\\DiplomProject.csproj|d:\\domashka\\fourth_kurs\\pp_diplom\\diplomproject\\diplomproject\\services\\theoryservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F41F331F-CFB8-5B74-F62E-81A1EB5785AC}|DiplomProject\\DiplomProject.csproj|solutionrelative:diplomproject\\services\\theoryservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F41F331F-CFB8-5B74-F62E-81A1EB5785AC}|DiplomProject\\DiplomProject.csproj|d:\\domashka\\fourth_kurs\\pp_diplom\\diplomproject\\diplomproject\\viewmodels\\theorydetailviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F41F331F-CFB8-5B74-F62E-81A1EB5785AC}|DiplomProject\\DiplomProject.csproj|solutionrelative:diplomproject\\viewmodels\\theorydetailviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F41F331F-CFB8-5B74-F62E-81A1EB5785AC}|DiplomProject\\DiplomProject.csproj|d:\\domashka\\fourth_kurs\\pp_diplom\\diplomproject\\diplomproject\\services\\practiceservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F41F331F-CFB8-5B74-F62E-81A1EB5785AC}|DiplomProject\\DiplomProject.csproj|solutionrelative:diplomproject\\services\\practiceservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F41F331F-CFB8-5B74-F62E-81A1EB5785AC}|DiplomProject\\DiplomProject.csproj|d:\\domashka\\fourth_kurs\\pp_diplom\\diplomproject\\diplomproject\\services\\testservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F41F331F-CFB8-5B74-F62E-81A1EB5785AC}|DiplomProject\\DiplomProject.csproj|solutionrelative:diplomproject\\services\\testservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F41F331F-CFB8-5B74-F62E-81A1EB5785AC}|DiplomProject\\DiplomProject.csproj|d:\\domashka\\fourth_kurs\\pp_diplom\\diplomproject\\diplomproject\\app.axaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F41F331F-CFB8-5B74-F62E-81A1EB5785AC}|DiplomProject\\DiplomProject.csproj|solutionrelative:diplomproject\\app.axaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F41F331F-CFB8-5B74-F62E-81A1EB5785AC}|DiplomProject\\DiplomProject.csproj|d:\\domashka\\fourth_kurs\\pp_diplom\\diplomproject\\diplomproject\\app.axaml||{6D5344A2-2FCD-49DE-A09D-6A14FD1B1224}",
+      "RelativeMoniker": "D:0:0:{F41F331F-CFB8-5B74-F62E-81A1EB5785AC}|DiplomProject\\DiplomProject.csproj|solutionrelative:diplomproject\\app.axaml||{6D5344A2-2FCD-49DE-A09D-6A14FD1B1224}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F41F331F-CFB8-5B74-F62E-81A1EB5785AC}|DiplomProject\\DiplomProject.csproj|d:\\domashka\\fourth_kurs\\pp_diplom\\diplomproject\\diplomproject\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F41F331F-CFB8-5B74-F62E-81A1EB5785AC}|DiplomProject\\DiplomProject.csproj|solutionrelative:diplomproject\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F41F331F-CFB8-5B74-F62E-81A1EB5785AC}|DiplomProject\\DiplomProject.csproj|d:\\domashka\\fourth_kurs\\pp_diplom\\diplomproject\\diplomproject\\viewmodels\\mainviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F41F331F-CFB8-5B74-F62E-81A1EB5785AC}|DiplomProject\\DiplomProject.csproj|solutionrelative:diplomproject\\viewmodels\\mainviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F41F331F-CFB8-5B74-F62E-81A1EB5785AC}|DiplomProject\\DiplomProject.csproj|d:\\domashka\\fourth_kurs\\pp_diplom\\diplomproject\\diplomproject\\views\\mainview.axaml||{6D5344A2-2FCD-49DE-A09D-6A14FD1B1224}",
+      "RelativeMoniker": "D:0:0:{F41F331F-CFB8-5B74-F62E-81A1EB5785AC}|DiplomProject\\DiplomProject.csproj|solutionrelative:diplomproject\\views\\mainview.axaml||{6D5344A2-2FCD-49DE-A09D-6A14FD1B1224}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{59610E3B-5AA9-4D9C-A666-8BE58B3054C9}|Tests\\Tests.csproj|d:\\domashka\\fourth_kurs\\pp_diplom\\diplomproject\\tests\\unittest1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{59610E3B-5AA9-4D9C-A666-8BE58B3054C9}|Tests\\Tests.csproj|solutionrelative:tests\\unittest1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F41F331F-CFB8-5B74-F62E-81A1EB5785AC}|DiplomProject\\DiplomProject.csproj|d:\\domashka\\fourth_kurs\\pp_diplom\\diplomproject\\diplomproject\\services\\eulerservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F41F331F-CFB8-5B74-F62E-81A1EB5785AC}|DiplomProject\\DiplomProject.csproj|solutionrelative:diplomproject\\services\\eulerservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F41F331F-CFB8-5B74-F62E-81A1EB5785AC}|DiplomProject\\DiplomProject.csproj|d:\\domashka\\fourth_kurs\\pp_diplom\\diplomproject\\diplomproject\\views\\testview.axaml||{6D5344A2-2FCD-49DE-A09D-6A14FD1B1224}",
+      "RelativeMoniker": "D:0:0:{F41F331F-CFB8-5B74-F62E-81A1EB5785AC}|DiplomProject\\DiplomProject.csproj|solutionrelative:diplomproject\\views\\testview.axaml||{6D5344A2-2FCD-49DE-A09D-6A14FD1B1224}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F41F331F-CFB8-5B74-F62E-81A1EB5785AC}|DiplomProject\\DiplomProject.csproj|d:\\domashka\\fourth_kurs\\pp_diplom\\diplomproject\\diplomproject\\views\\testselectionview.axaml||{6D5344A2-2FCD-49DE-A09D-6A14FD1B1224}",
+      "RelativeMoniker": "D:0:0:{F41F331F-CFB8-5B74-F62E-81A1EB5785AC}|DiplomProject\\DiplomProject.csproj|solutionrelative:diplomproject\\views\\testselectionview.axaml||{6D5344A2-2FCD-49DE-A09D-6A14FD1B1224}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F41F331F-CFB8-5B74-F62E-81A1EB5785AC}|DiplomProject\\DiplomProject.csproj|d:\\domashka\\fourth_kurs\\pp_diplom\\diplomproject\\diplomproject\\viewmodels\\testviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F41F331F-CFB8-5B74-F62E-81A1EB5785AC}|DiplomProject\\DiplomProject.csproj|solutionrelative:diplomproject\\viewmodels\\testviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F41F331F-CFB8-5B74-F62E-81A1EB5785AC}|DiplomProject\\DiplomProject.csproj|d:\\domashka\\fourth_kurs\\pp_diplom\\diplomproject\\diplomproject\\viewmodels\\testselectionviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F41F331F-CFB8-5B74-F62E-81A1EB5785AC}|DiplomProject\\DiplomProject.csproj|solutionrelative:diplomproject\\viewmodels\\testselectionviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F41F331F-CFB8-5B74-F62E-81A1EB5785AC}|DiplomProject\\DiplomProject.csproj|d:\\domashka\\fourth_kurs\\pp_diplom\\diplomproject\\diplomproject\\services\\itestservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F41F331F-CFB8-5B74-F62E-81A1EB5785AC}|DiplomProject\\DiplomProject.csproj|solutionrelative:diplomproject\\services\\itestservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F41F331F-CFB8-5B74-F62E-81A1EB5785AC}|DiplomProject\\DiplomProject.csproj|d:\\domashka\\fourth_kurs\\pp_diplom\\diplomproject\\diplomproject\\views\\eulerview.axaml||{6D5344A2-2FCD-49DE-A09D-6A14FD1B1224}",
+      "RelativeMoniker": "D:0:0:{F41F331F-CFB8-5B74-F62E-81A1EB5785AC}|DiplomProject\\DiplomProject.csproj|solutionrelative:diplomproject\\views\\eulerview.axaml||{6D5344A2-2FCD-49DE-A09D-6A14FD1B1224}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F41F331F-CFB8-5B74-F62E-81A1EB5785AC}|DiplomProject\\DiplomProject.csproj|d:\\domashka\\fourth_kurs\\pp_diplom\\diplomproject\\diplomproject\\viewmodels\\eulerviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F41F331F-CFB8-5B74-F62E-81A1EB5785AC}|DiplomProject\\DiplomProject.csproj|solutionrelative:diplomproject\\viewmodels\\eulerviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F41F331F-CFB8-5B74-F62E-81A1EB5785AC}|DiplomProject\\DiplomProject.csproj|d:\\domashka\\fourth_kurs\\pp_diplom\\diplomproject\\diplomproject\\views\\practiceview.axaml||{6D5344A2-2FCD-49DE-A09D-6A14FD1B1224}",
+      "RelativeMoniker": "D:0:0:{F41F331F-CFB8-5B74-F62E-81A1EB5785AC}|DiplomProject\\DiplomProject.csproj|solutionrelative:diplomproject\\views\\practiceview.axaml||{6D5344A2-2FCD-49DE-A09D-6A14FD1B1224}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F41F331F-CFB8-5B74-F62E-81A1EB5785AC}|DiplomProject\\DiplomProject.csproj|d:\\domashka\\fourth_kurs\\pp_diplom\\diplomproject\\diplomproject\\viewmodels\\practiceviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F41F331F-CFB8-5B74-F62E-81A1EB5785AC}|DiplomProject\\DiplomProject.csproj|solutionrelative:diplomproject\\viewmodels\\practiceviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F41F331F-CFB8-5B74-F62E-81A1EB5785AC}|DiplomProject\\DiplomProject.csproj|d:\\domashka\\fourth_kurs\\pp_diplom\\diplomproject\\diplomproject\\services\\ipracticeservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F41F331F-CFB8-5B74-F62E-81A1EB5785AC}|DiplomProject\\DiplomProject.csproj|solutionrelative:diplomproject\\services\\ipracticeservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F41F331F-CFB8-5B74-F62E-81A1EB5785AC}|DiplomProject\\DiplomProject.csproj|d:\\domashka\\fourth_kurs\\pp_diplom\\diplomproject\\diplomproject\\views\\theorydetailview.axaml||{6D5344A2-2FCD-49DE-A09D-6A14FD1B1224}",
+      "RelativeMoniker": "D:0:0:{F41F331F-CFB8-5B74-F62E-81A1EB5785AC}|DiplomProject\\DiplomProject.csproj|solutionrelative:diplomproject\\views\\theorydetailview.axaml||{6D5344A2-2FCD-49DE-A09D-6A14FD1B1224}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F41F331F-CFB8-5B74-F62E-81A1EB5785AC}|DiplomProject\\DiplomProject.csproj|d:\\domashka\\fourth_kurs\\pp_diplom\\diplomproject\\diplomproject\\viewmodels\\registerviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F41F331F-CFB8-5B74-F62E-81A1EB5785AC}|DiplomProject\\DiplomProject.csproj|solutionrelative:diplomproject\\viewmodels\\registerviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F41F331F-CFB8-5B74-F62E-81A1EB5785AC}|DiplomProject\\DiplomProject.csproj|d:\\domashka\\fourth_kurs\\pp_diplom\\diplomproject\\diplomproject\\views\\registerview.axaml||{6D5344A2-2FCD-49DE-A09D-6A14FD1B1224}",
+      "RelativeMoniker": "D:0:0:{F41F331F-CFB8-5B74-F62E-81A1EB5785AC}|DiplomProject\\DiplomProject.csproj|solutionrelative:diplomproject\\views\\registerview.axaml||{6D5344A2-2FCD-49DE-A09D-6A14FD1B1224}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F41F331F-CFB8-5B74-F62E-81A1EB5785AC}|DiplomProject\\DiplomProject.csproj|d:\\domashka\\fourth_kurs\\pp_diplom\\diplomproject\\diplomproject\\views\\profileview.axaml||{6D5344A2-2FCD-49DE-A09D-6A14FD1B1224}",
+      "RelativeMoniker": "D:0:0:{F41F331F-CFB8-5B74-F62E-81A1EB5785AC}|DiplomProject\\DiplomProject.csproj|solutionrelative:diplomproject\\views\\profileview.axaml||{6D5344A2-2FCD-49DE-A09D-6A14FD1B1224}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F41F331F-CFB8-5B74-F62E-81A1EB5785AC}|DiplomProject\\DiplomProject.csproj|d:\\domashka\\fourth_kurs\\pp_diplom\\diplomproject\\diplomproject\\views\\mainwindow.axaml||{6D5344A2-2FCD-49DE-A09D-6A14FD1B1224}",
+      "RelativeMoniker": "D:0:0:{F41F331F-CFB8-5B74-F62E-81A1EB5785AC}|DiplomProject\\DiplomProject.csproj|solutionrelative:diplomproject\\views\\mainwindow.axaml||{6D5344A2-2FCD-49DE-A09D-6A14FD1B1224}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F41F331F-CFB8-5B74-F62E-81A1EB5785AC}|DiplomProject\\DiplomProject.csproj|d:\\domashka\\fourth_kurs\\pp_diplom\\diplomproject\\diplomproject\\viewmodels\\viewmodelbase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F41F331F-CFB8-5B74-F62E-81A1EB5785AC}|DiplomProject\\DiplomProject.csproj|solutionrelative:diplomproject\\viewmodels\\viewmodelbase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F41F331F-CFB8-5B74-F62E-81A1EB5785AC}|DiplomProject\\DiplomProject.csproj|d:\\domashka\\fourth_kurs\\pp_diplom\\diplomproject\\diplomproject\\viewmodels\\mainwindowviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F41F331F-CFB8-5B74-F62E-81A1EB5785AC}|DiplomProject\\DiplomProject.csproj|solutionrelative:diplomproject\\viewmodels\\mainwindowviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F41F331F-CFB8-5B74-F62E-81A1EB5785AC}|DiplomProject\\DiplomProject.csproj|d:\\domashka\\fourth_kurs\\pp_diplom\\diplomproject\\diplomproject\\views\\theorydetailview.axaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F41F331F-CFB8-5B74-F62E-81A1EB5785AC}|DiplomProject\\DiplomProject.csproj|solutionrelative:diplomproject\\views\\theorydetailview.axaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F41F331F-CFB8-5B74-F62E-81A1EB5785AC}|DiplomProject\\DiplomProject.csproj|d:\\domashka\\fourth_kurs\\pp_diplom\\diplomproject\\diplomproject\\customcontrols\\theorycategorycardcontrol.axaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F41F331F-CFB8-5B74-F62E-81A1EB5785AC}|DiplomProject\\DiplomProject.csproj|solutionrelative:diplomproject\\customcontrols\\theorycategorycardcontrol.axaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F41F331F-CFB8-5B74-F62E-81A1EB5785AC}|DiplomProject\\DiplomProject.csproj|d:\\domashka\\fourth_kurs\\pp_diplom\\diplomproject\\diplomproject\\views\\theorycategoryview.axaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F41F331F-CFB8-5B74-F62E-81A1EB5785AC}|DiplomProject\\DiplomProject.csproj|solutionrelative:diplomproject\\views\\theorycategoryview.axaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F41F331F-CFB8-5B74-F62E-81A1EB5785AC}|DiplomProject\\DiplomProject.csproj|d:\\domashka\\fourth_kurs\\pp_diplom\\diplomproject\\diplomproject\\models\\theorycategorydto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F41F331F-CFB8-5B74-F62E-81A1EB5785AC}|DiplomProject\\DiplomProject.csproj|solutionrelative:diplomproject\\models\\theorycategorydto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F41F331F-CFB8-5B74-F62E-81A1EB5785AC}|DiplomProject\\DiplomProject.csproj|d:\\domashka\\fourth_kurs\\pp_diplom\\diplomproject\\diplomproject\\customcontrols\\menucardcontrol.axaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F41F331F-CFB8-5B74-F62E-81A1EB5785AC}|DiplomProject\\DiplomProject.csproj|solutionrelative:diplomproject\\customcontrols\\menucardcontrol.axaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F41F331F-CFB8-5B74-F62E-81A1EB5785AC}|DiplomProject\\DiplomProject.csproj|d:\\domashka\\fourth_kurs\\pp_diplom\\diplomproject\\diplomproject\\customcontrols\\menucardcontrol.axaml||{6D5344A2-2FCD-49DE-A09D-6A14FD1B1224}",
+      "RelativeMoniker": "D:0:0:{F41F331F-CFB8-5B74-F62E-81A1EB5785AC}|DiplomProject\\DiplomProject.csproj|solutionrelative:diplomproject\\customcontrols\\menucardcontrol.axaml||{6D5344A2-2FCD-49DE-A09D-6A14FD1B1224}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F41F331F-CFB8-5B74-F62E-81A1EB5785AC}|DiplomProject\\DiplomProject.csproj|d:\\domashka\\fourth_kurs\\pp_diplom\\diplomproject\\diplomproject\\views\\mainview.axaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F41F331F-CFB8-5B74-F62E-81A1EB5785AC}|DiplomProject\\DiplomProject.csproj|solutionrelative:diplomproject\\views\\mainview.axaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F41F331F-CFB8-5B74-F62E-81A1EB5785AC}|DiplomProject\\DiplomProject.csproj|d:\\domashka\\fourth_kurs\\pp_diplom\\diplomproject\\diplomproject\\models\\menuitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F41F331F-CFB8-5B74-F62E-81A1EB5785AC}|DiplomProject\\DiplomProject.csproj|solutionrelative:diplomproject\\models\\menuitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F41F331F-CFB8-5B74-F62E-81A1EB5785AC}|DiplomProject\\DiplomProject.csproj|d:\\domashka\\fourth_kurs\\pp_diplom\\diplomproject\\diplomproject\\views\\registerview.axaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F41F331F-CFB8-5B74-F62E-81A1EB5785AC}|DiplomProject\\DiplomProject.csproj|solutionrelative:diplomproject\\views\\registerview.axaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F41F331F-CFB8-5B74-F62E-81A1EB5785AC}|DiplomProject\\DiplomProject.csproj|d:\\domashka\\fourth_kurs\\pp_diplom\\diplomproject\\diplomproject\\views\\authview.axaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F41F331F-CFB8-5B74-F62E-81A1EB5785AC}|DiplomProject\\DiplomProject.csproj|solutionrelative:diplomproject\\views\\authview.axaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 50,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{e1b7d1f8-9b3c-49b1-8f4f-bfc63a88835d}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{73068c07-fba1-453f-99ae-6edf972119b2}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Group.cs",
+              "DocumentMoniker": "D:\\domashka\\FOURTH_KURS\\PP_DIPLOM\\DiplomProject\\DiplomProject\\Models\\Group.cs",
+              "RelativeDocumentMoniker": "DiplomProject\\Models\\Group.cs",
+              "ToolTip": "D:\\domashka\\FOURTH_KURS\\PP_DIPLOM\\DiplomProject\\DiplomProject\\Models\\Group.cs",
+              "RelativeToolTip": "DiplomProject\\Models\\Group.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-04T22:18:42.869Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Role.cs",
+              "DocumentMoniker": "D:\\domashka\\FOURTH_KURS\\PP_DIPLOM\\DiplomProject\\DiplomProject\\Models\\Role.cs",
+              "RelativeDocumentMoniker": "DiplomProject\\Models\\Role.cs",
+              "ToolTip": "D:\\domashka\\FOURTH_KURS\\PP_DIPLOM\\DiplomProject\\DiplomProject\\Models\\Role.cs",
+              "RelativeToolTip": "DiplomProject\\Models\\Role.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-04T22:00:54.797Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "TeacherEulerView.axaml",
+              "DocumentMoniker": "D:\\domashka\\FOURTH_KURS\\PP_DIPLOM\\DiplomProject\\DiplomProject\\Views\\TeacherEulerView.axaml",
+              "RelativeDocumentMoniker": "DiplomProject\\Views\\TeacherEulerView.axaml",
+              "ToolTip": "D:\\domashka\\FOURTH_KURS\\PP_DIPLOM\\DiplomProject\\DiplomProject\\Views\\TeacherEulerView.axaml",
+              "RelativeToolTip": "DiplomProject\\Views\\TeacherEulerView.axaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-05-04T21:50:22.452Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "TeacherDashboardView.axaml",
+              "DocumentMoniker": "D:\\domashka\\FOURTH_KURS\\PP_DIPLOM\\DiplomProject\\DiplomProject\\Views\\TeacherDashboardView.axaml",
+              "RelativeDocumentMoniker": "DiplomProject\\Views\\TeacherDashboardView.axaml",
+              "ToolTip": "D:\\domashka\\FOURTH_KURS\\PP_DIPLOM\\DiplomProject\\DiplomProject\\Views\\TeacherDashboardView.axaml",
+              "RelativeToolTip": "DiplomProject\\Views\\TeacherDashboardView.axaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-05-04T21:47:36.644Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "TeacherDashboardViewModel.cs",
+              "DocumentMoniker": "D:\\domashka\\FOURTH_KURS\\PP_DIPLOM\\DiplomProject\\DiplomProject\\ViewModels\\TeacherDashboardViewModel.cs",
+              "RelativeDocumentMoniker": "DiplomProject\\ViewModels\\TeacherDashboardViewModel.cs",
+              "ToolTip": "D:\\domashka\\FOURTH_KURS\\PP_DIPLOM\\DiplomProject\\DiplomProject\\ViewModels\\TeacherDashboardViewModel.cs",
+              "RelativeToolTip": "DiplomProject\\ViewModels\\TeacherDashboardViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-04T21:47:33.214Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "TeacherTestsView.axaml",
+              "DocumentMoniker": "D:\\domashka\\FOURTH_KURS\\PP_DIPLOM\\DiplomProject\\DiplomProject\\Views\\TeacherTestsView.axaml",
+              "RelativeDocumentMoniker": "DiplomProject\\Views\\TeacherTestsView.axaml",
+              "ToolTip": "D:\\domashka\\FOURTH_KURS\\PP_DIPLOM\\DiplomProject\\DiplomProject\\Views\\TeacherTestsView.axaml",
+              "RelativeToolTip": "DiplomProject\\Views\\TeacherTestsView.axaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-05-04T00:27:40.545Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "App.axaml.cs",
+              "DocumentMoniker": "D:\\domashka\\FOURTH_KURS\\PP_DIPLOM\\DiplomProject\\DiplomProject\\App.axaml.cs",
+              "RelativeDocumentMoniker": "DiplomProject\\App.axaml.cs",
+              "ToolTip": "D:\\domashka\\FOURTH_KURS\\PP_DIPLOM\\DiplomProject\\DiplomProject\\App.axaml.cs",
+              "RelativeToolTip": "DiplomProject\\App.axaml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-16T14:47:55.021Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\domashka\\FOURTH_KURS\\PP_DIPLOM\\DiplomProject\\DiplomProject\\Program.cs",
+              "RelativeDocumentMoniker": "DiplomProject\\Program.cs",
+              "ToolTip": "D:\\domashka\\FOURTH_KURS\\PP_DIPLOM\\DiplomProject\\DiplomProject\\Program.cs",
+              "RelativeToolTip": "DiplomProject\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-16T14:47:50.148Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "UnitTest1.cs",
+              "DocumentMoniker": "D:\\domashka\\FOURTH_KURS\\PP_DIPLOM\\DiplomProject\\Tests\\UnitTest1.cs",
+              "RelativeDocumentMoniker": "Tests\\UnitTest1.cs",
+              "ToolTip": "D:\\domashka\\FOURTH_KURS\\PP_DIPLOM\\DiplomProject\\Tests\\UnitTest1.cs",
+              "RelativeToolTip": "Tests\\UnitTest1.cs",
+              "ViewState": "AgIAAAUBAAAAAAAAAAAYwBoBAAAOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-16T11:11:39.28Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "TestSelectionView.axaml",
+              "DocumentMoniker": "D:\\domashka\\FOURTH_KURS\\PP_DIPLOM\\DiplomProject\\DiplomProject\\Views\\TestSelectionView.axaml",
+              "RelativeDocumentMoniker": "DiplomProject\\Views\\TestSelectionView.axaml",
+              "ToolTip": "D:\\domashka\\FOURTH_KURS\\PP_DIPLOM\\DiplomProject\\DiplomProject\\Views\\TestSelectionView.axaml",
+              "RelativeToolTip": "DiplomProject\\Views\\TestSelectionView.axaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-04-16T00:08:32.785Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 31,
+              "Title": "PracticeView.axaml",
+              "DocumentMoniker": "D:\\domashka\\FOURTH_KURS\\PP_DIPLOM\\DiplomProject\\DiplomProject\\Views\\PracticeView.axaml",
+              "RelativeDocumentMoniker": "DiplomProject\\Views\\PracticeView.axaml",
+              "ToolTip": "D:\\domashka\\FOURTH_KURS\\PP_DIPLOM\\DiplomProject\\DiplomProject\\Views\\PracticeView.axaml",
+              "RelativeToolTip": "DiplomProject\\Views\\PracticeView.axaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-04-15T23:58:56.51Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "TheoryService.cs",
+              "DocumentMoniker": "D:\\domashka\\FOURTH_KURS\\PP_DIPLOM\\DiplomProject\\DiplomProject\\Services\\TheoryService.cs",
+              "RelativeDocumentMoniker": "DiplomProject\\Services\\TheoryService.cs",
+              "ToolTip": "D:\\domashka\\FOURTH_KURS\\PP_DIPLOM\\DiplomProject\\DiplomProject\\Services\\TheoryService.cs",
+              "RelativeToolTip": "DiplomProject\\Services\\TheoryService.cs",
+              "ViewState": "AgIAABEAAAAAAAAAAAAkwEQAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-15T23:54:12.991Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "PracticeService.cs",
+              "DocumentMoniker": "D:\\domashka\\FOURTH_KURS\\PP_DIPLOM\\DiplomProject\\DiplomProject\\Services\\PracticeService.cs",
+              "RelativeDocumentMoniker": "DiplomProject\\Services\\PracticeService.cs",
+              "ToolTip": "D:\\domashka\\FOURTH_KURS\\PP_DIPLOM\\DiplomProject\\DiplomProject\\Services\\PracticeService.cs",
+              "RelativeToolTip": "DiplomProject\\Services\\PracticeService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-15T22:02:44.701Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 33,
+              "Title": "IPracticeService.cs",
+              "DocumentMoniker": "D:\\domashka\\FOURTH_KURS\\PP_DIPLOM\\DiplomProject\\DiplomProject\\Services\\IPracticeService.cs",
+              "RelativeDocumentMoniker": "DiplomProject\\Services\\IPracticeService.cs",
+              "ToolTip": "D:\\domashka\\FOURTH_KURS\\PP_DIPLOM\\DiplomProject\\DiplomProject\\Services\\IPracticeService.cs",
+              "RelativeToolTip": "DiplomProject\\Services\\IPracticeService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-15T22:02:34.313Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "EulerService.cs",
+              "DocumentMoniker": "D:\\domashka\\FOURTH_KURS\\PP_DIPLOM\\DiplomProject\\DiplomProject\\Services\\EulerService.cs",
+              "RelativeDocumentMoniker": "DiplomProject\\Services\\EulerService.cs",
+              "ToolTip": "D:\\domashka\\FOURTH_KURS\\PP_DIPLOM\\DiplomProject\\DiplomProject\\Services\\EulerService.cs",
+              "RelativeToolTip": "DiplomProject\\Services\\EulerService.cs",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAswBIAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-15T22:02:14.194Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 30,
+              "Title": "EulerViewModel.cs",
+              "DocumentMoniker": "D:\\domashka\\FOURTH_KURS\\PP_DIPLOM\\DiplomProject\\DiplomProject\\ViewModels\\EulerViewModel.cs",
+              "RelativeDocumentMoniker": "DiplomProject\\ViewModels\\EulerViewModel.cs",
+              "ToolTip": "D:\\domashka\\FOURTH_KURS\\PP_DIPLOM\\DiplomProject\\DiplomProject\\ViewModels\\EulerViewModel.cs",
+              "RelativeToolTip": "DiplomProject\\ViewModels\\EulerViewModel.cs",
+              "ViewState": "AgIAAHwAAAAAAAAAAAAowKwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-15T21:10:20.194Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 37,
+              "Title": "ProfileView.axaml",
+              "DocumentMoniker": "D:\\domashka\\FOURTH_KURS\\PP_DIPLOM\\DiplomProject\\DiplomProject\\Views\\ProfileView.axaml",
+              "RelativeDocumentMoniker": "DiplomProject\\Views\\ProfileView.axaml",
+              "ToolTip": "D:\\domashka\\FOURTH_KURS\\PP_DIPLOM\\DiplomProject\\DiplomProject\\Views\\ProfileView.axaml",
+              "RelativeToolTip": "DiplomProject\\Views\\ProfileView.axaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-04-15T21:56:21.851Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "TestView.axaml",
+              "DocumentMoniker": "D:\\domashka\\FOURTH_KURS\\PP_DIPLOM\\DiplomProject\\DiplomProject\\Views\\TestView.axaml",
+              "RelativeDocumentMoniker": "DiplomProject\\Views\\TestView.axaml",
+              "ToolTip": "D:\\domashka\\FOURTH_KURS\\PP_DIPLOM\\DiplomProject\\DiplomProject\\Views\\TestView.axaml",
+              "RelativeToolTip": "DiplomProject\\Views\\TestView.axaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-04-15T21:44:39.513Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "TestViewModel.cs",
+              "DocumentMoniker": "D:\\domashka\\FOURTH_KURS\\PP_DIPLOM\\DiplomProject\\DiplomProject\\ViewModels\\TestViewModel.cs",
+              "RelativeDocumentMoniker": "DiplomProject\\ViewModels\\TestViewModel.cs",
+              "ToolTip": "D:\\domashka\\FOURTH_KURS\\PP_DIPLOM\\DiplomProject\\DiplomProject\\ViewModels\\TestViewModel.cs",
+              "RelativeToolTip": "DiplomProject\\ViewModels\\TestViewModel.cs",
+              "ViewState": "AgIAAMEAAAAAAAAAAAAwwPIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-15T21:44:21.358Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "TestSelectionViewModel.cs",
+              "DocumentMoniker": "D:\\domashka\\FOURTH_KURS\\PP_DIPLOM\\DiplomProject\\DiplomProject\\ViewModels\\TestSelectionViewModel.cs",
+              "RelativeDocumentMoniker": "DiplomProject\\ViewModels\\TestSelectionViewModel.cs",
+              "ToolTip": "D:\\domashka\\FOURTH_KURS\\PP_DIPLOM\\DiplomProject\\DiplomProject\\ViewModels\\TestSelectionViewModel.cs",
+              "RelativeToolTip": "DiplomProject\\ViewModels\\TestSelectionViewModel.cs",
+              "ViewState": "AgIAACMAAAAAAAAAAAAmwFYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-15T21:44:12.098Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "TestService.cs",
+              "DocumentMoniker": "D:\\domashka\\FOURTH_KURS\\PP_DIPLOM\\DiplomProject\\DiplomProject\\Services\\TestService.cs",
+              "RelativeDocumentMoniker": "DiplomProject\\Services\\TestService.cs",
+              "ToolTip": "D:\\domashka\\FOURTH_KURS\\PP_DIPLOM\\DiplomProject\\DiplomProject\\Services\\TestService.cs",
+              "RelativeToolTip": "DiplomProject\\Services\\TestService.cs",
+              "ViewState": "AgIAAFIAAAAAAAAAAAAuwIYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-15T21:43:35.718Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 28,
+              "Title": "ITestService.cs",
+              "DocumentMoniker": "D:\\domashka\\FOURTH_KURS\\PP_DIPLOM\\DiplomProject\\DiplomProject\\Services\\ITestService.cs",
+              "RelativeDocumentMoniker": "DiplomProject\\Services\\ITestService.cs",
+              "ToolTip": "D:\\domashka\\FOURTH_KURS\\PP_DIPLOM\\DiplomProject\\DiplomProject\\Services\\ITestService.cs",
+              "RelativeToolTip": "DiplomProject\\Services\\ITestService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-15T21:43:02.999Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 32,
+              "Title": "PracticeViewModel.cs",
+              "DocumentMoniker": "D:\\domashka\\FOURTH_KURS\\PP_DIPLOM\\DiplomProject\\DiplomProject\\ViewModels\\PracticeViewModel.cs",
+              "RelativeDocumentMoniker": "DiplomProject\\ViewModels\\PracticeViewModel.cs",
+              "ToolTip": "D:\\domashka\\FOURTH_KURS\\PP_DIPLOM\\DiplomProject\\DiplomProject\\ViewModels\\PracticeViewModel.cs",
+              "RelativeToolTip": "DiplomProject\\ViewModels\\PracticeViewModel.cs",
+              "ViewState": "AgIAAKoAAAAAAAAAAAAcwNwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-15T21:23:12.47Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 29,
+              "Title": "EulerView.axaml",
+              "DocumentMoniker": "D:\\domashka\\FOURTH_KURS\\PP_DIPLOM\\DiplomProject\\DiplomProject\\Views\\EulerView.axaml",
+              "RelativeDocumentMoniker": "DiplomProject\\Views\\EulerView.axaml",
+              "ToolTip": "D:\\domashka\\FOURTH_KURS\\PP_DIPLOM\\DiplomProject\\DiplomProject\\Views\\EulerView.axaml",
+              "RelativeToolTip": "DiplomProject\\Views\\EulerView.axaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-04-15T21:11:05.244Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 34,
+              "Title": "TheoryDetailView.axaml",
+              "DocumentMoniker": "D:\\domashka\\FOURTH_KURS\\PP_DIPLOM\\DiplomProject\\DiplomProject\\Views\\TheoryDetailView.axaml",
+              "RelativeDocumentMoniker": "DiplomProject\\Views\\TheoryDetailView.axaml",
+              "ToolTip": "D:\\domashka\\FOURTH_KURS\\PP_DIPLOM\\DiplomProject\\DiplomProject\\Views\\TheoryDetailView.axaml",
+              "RelativeToolTip": "DiplomProject\\Views\\TheoryDetailView.axaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-04-15T20:39:22.886Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 41,
+              "Title": "TheoryDetailView.axaml.cs",
+              "DocumentMoniker": "D:\\domashka\\FOURTH_KURS\\PP_DIPLOM\\DiplomProject\\DiplomProject\\Views\\TheoryDetailView.axaml.cs",
+              "RelativeDocumentMoniker": "DiplomProject\\Views\\TheoryDetailView.axaml.cs",
+              "ToolTip": "D:\\domashka\\FOURTH_KURS\\PP_DIPLOM\\DiplomProject\\DiplomProject\\Views\\TheoryDetailView.axaml.cs",
+              "RelativeToolTip": "DiplomProject\\Views\\TheoryDetailView.axaml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-15T20:39:22.796Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "TheoryDetailViewModel.cs",
+              "DocumentMoniker": "D:\\domashka\\FOURTH_KURS\\PP_DIPLOM\\DiplomProject\\DiplomProject\\ViewModels\\TheoryDetailViewModel.cs",
+              "RelativeDocumentMoniker": "DiplomProject\\ViewModels\\TheoryDetailViewModel.cs",
+              "ToolTip": "D:\\domashka\\FOURTH_KURS\\PP_DIPLOM\\DiplomProject\\DiplomProject\\ViewModels\\TheoryDetailViewModel.cs",
+              "RelativeToolTip": "DiplomProject\\ViewModels\\TheoryDetailViewModel.cs",
+              "ViewState": "AgIAAB0AAAAAAAAAAAAIwE4AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-15T20:37:53.001Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "TheoryCategoryView.axaml",
+              "DocumentMoniker": "D:\\domashka\\FOURTH_KURS\\PP_DIPLOM\\DiplomProject\\DiplomProject\\Views\\TheoryCategoryView.axaml",
+              "RelativeDocumentMoniker": "DiplomProject\\Views\\TheoryCategoryView.axaml",
+              "ToolTip": "D:\\domashka\\FOURTH_KURS\\PP_DIPLOM\\DiplomProject\\DiplomProject\\Views\\TheoryCategoryView.axaml",
+              "RelativeToolTip": "DiplomProject\\Views\\TheoryCategoryView.axaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-04-15T20:19:56.529Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 43,
+              "Title": "TheoryCategoryView.axaml.cs",
+              "DocumentMoniker": "D:\\domashka\\FOURTH_KURS\\PP_DIPLOM\\DiplomProject\\DiplomProject\\Views\\TheoryCategoryView.axaml.cs",
+              "RelativeDocumentMoniker": "DiplomProject\\Views\\TheoryCategoryView.axaml.cs",
+              "ToolTip": "D:\\domashka\\FOURTH_KURS\\PP_DIPLOM\\DiplomProject\\DiplomProject\\Views\\TheoryCategoryView.axaml.cs",
+              "RelativeToolTip": "DiplomProject\\Views\\TheoryCategoryView.axaml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-15T20:19:56.464Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "TheoryCategoryViewModel.cs",
+              "DocumentMoniker": "D:\\domashka\\FOURTH_KURS\\PP_DIPLOM\\DiplomProject\\DiplomProject\\ViewModels\\TheoryCategoryViewModel.cs",
+              "RelativeDocumentMoniker": "DiplomProject\\ViewModels\\TheoryCategoryViewModel.cs",
+              "ToolTip": "D:\\domashka\\FOURTH_KURS\\PP_DIPLOM\\DiplomProject\\DiplomProject\\ViewModels\\TheoryCategoryViewModel.cs",
+              "RelativeToolTip": "DiplomProject\\ViewModels\\TheoryCategoryViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAYwBwAAAA8AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-15T20:18:39.529Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 44,
+              "Title": "TheoryCategoryDto.cs",
+              "DocumentMoniker": "D:\\domashka\\FOURTH_KURS\\PP_DIPLOM\\DiplomProject\\DiplomProject\\Models\\TheoryCategoryDto.cs",
+              "RelativeDocumentMoniker": "DiplomProject\\Models\\TheoryCategoryDto.cs",
+              "ToolTip": "D:\\domashka\\FOURTH_KURS\\PP_DIPLOM\\DiplomProject\\DiplomProject\\Models\\TheoryCategoryDto.cs",
+              "RelativeToolTip": "DiplomProject\\Models\\TheoryCategoryDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-15T20:17:14.147Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "TheoryCategoryCardControl.axaml",
+              "DocumentMoniker": "D:\\domashka\\FOURTH_KURS\\PP_DIPLOM\\DiplomProject\\DiplomProject\\CustomControls\\TheoryCategoryCardControl.axaml",
+              "RelativeDocumentMoniker": "DiplomProject\\CustomControls\\TheoryCategoryCardControl.axaml",
+              "ToolTip": "D:\\domashka\\FOURTH_KURS\\PP_DIPLOM\\DiplomProject\\DiplomProject\\CustomControls\\TheoryCategoryCardControl.axaml",
+              "RelativeToolTip": "DiplomProject\\CustomControls\\TheoryCategoryCardControl.axaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-04-15T18:21:26.348Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 42,
+              "Title": "TheoryCategoryCardControl.axaml.cs",
+              "DocumentMoniker": "D:\\domashka\\FOURTH_KURS\\PP_DIPLOM\\DiplomProject\\DiplomProject\\CustomControls\\TheoryCategoryCardControl.axaml.cs",
+              "RelativeDocumentMoniker": "DiplomProject\\CustomControls\\TheoryCategoryCardControl.axaml.cs",
+              "ToolTip": "D:\\domashka\\FOURTH_KURS\\PP_DIPLOM\\DiplomProject\\DiplomProject\\CustomControls\\TheoryCategoryCardControl.axaml.cs",
+              "RelativeToolTip": "DiplomProject\\CustomControls\\TheoryCategoryCardControl.axaml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-15T18:21:25.955Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 48,
+              "Title": "MenuItem.cs",
+              "DocumentMoniker": "D:\\domashka\\FOURTH_KURS\\PP_DIPLOM\\DiplomProject\\DiplomProject\\Models\\MenuItem.cs",
+              "RelativeDocumentMoniker": "DiplomProject\\Models\\MenuItem.cs",
+              "ToolTip": "D:\\domashka\\FOURTH_KURS\\PP_DIPLOM\\DiplomProject\\DiplomProject\\Models\\MenuItem.cs",
+              "RelativeToolTip": "DiplomProject\\Models\\MenuItem.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAkAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-15T15:36:28.013Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "MainViewModel.cs",
+              "DocumentMoniker": "D:\\domashka\\FOURTH_KURS\\PP_DIPLOM\\DiplomProject\\DiplomProject\\ViewModels\\MainViewModel.cs",
+              "RelativeDocumentMoniker": "DiplomProject\\ViewModels\\MainViewModel.cs",
+              "ToolTip": "D:\\domashka\\FOURTH_KURS\\PP_DIPLOM\\DiplomProject\\DiplomProject\\ViewModels\\MainViewModel.cs",
+              "RelativeToolTip": "DiplomProject\\ViewModels\\MainViewModel.cs",
+              "ViewState": "AgIAAB8AAAAAAAAAAAAcwB4AAAA2AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-15T15:35:31.674Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 46,
+              "Title": "MenuCardControl.axaml",
+              "DocumentMoniker": "D:\\domashka\\FOURTH_KURS\\PP_DIPLOM\\DiplomProject\\DiplomProject\\CustomControls\\MenuCardControl.axaml",
+              "RelativeDocumentMoniker": "DiplomProject\\CustomControls\\MenuCardControl.axaml",
+              "ToolTip": "D:\\domashka\\FOURTH_KURS\\PP_DIPLOM\\DiplomProject\\DiplomProject\\CustomControls\\MenuCardControl.axaml",
+              "RelativeToolTip": "DiplomProject\\CustomControls\\MenuCardControl.axaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-04-15T15:32:12.027Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 45,
+              "Title": "MenuCardControl.axaml.cs",
+              "DocumentMoniker": "D:\\domashka\\FOURTH_KURS\\PP_DIPLOM\\DiplomProject\\DiplomProject\\CustomControls\\MenuCardControl.axaml.cs",
+              "RelativeDocumentMoniker": "DiplomProject\\CustomControls\\MenuCardControl.axaml.cs",
+              "ToolTip": "D:\\domashka\\FOURTH_KURS\\PP_DIPLOM\\DiplomProject\\DiplomProject\\CustomControls\\MenuCardControl.axaml.cs",
+              "RelativeToolTip": "DiplomProject\\CustomControls\\MenuCardControl.axaml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACsAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-15T15:32:11.944Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "MainView.axaml",
+              "DocumentMoniker": "D:\\domashka\\FOURTH_KURS\\PP_DIPLOM\\DiplomProject\\DiplomProject\\Views\\MainView.axaml",
+              "RelativeDocumentMoniker": "DiplomProject\\Views\\MainView.axaml",
+              "ToolTip": "D:\\domashka\\FOURTH_KURS\\PP_DIPLOM\\DiplomProject\\DiplomProject\\Views\\MainView.axaml",
+              "RelativeToolTip": "DiplomProject\\Views\\MainView.axaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-04-15T15:17:01.746Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 47,
+              "Title": "MainView.axaml.cs",
+              "DocumentMoniker": "D:\\domashka\\FOURTH_KURS\\PP_DIPLOM\\DiplomProject\\DiplomProject\\Views\\MainView.axaml.cs",
+              "RelativeDocumentMoniker": "DiplomProject\\Views\\MainView.axaml.cs",
+              "ToolTip": "D:\\domashka\\FOURTH_KURS\\PP_DIPLOM\\DiplomProject\\DiplomProject\\Views\\MainView.axaml.cs",
+              "RelativeToolTip": "DiplomProject\\Views\\MainView.axaml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-15T15:17:01.647Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 36,
+              "Title": "RegisterView.axaml",
+              "DocumentMoniker": "D:\\domashka\\FOURTH_KURS\\PP_DIPLOM\\DiplomProject\\DiplomProject\\Views\\RegisterView.axaml",
+              "RelativeDocumentMoniker": "DiplomProject\\Views\\RegisterView.axaml",
+              "ToolTip": "D:\\domashka\\FOURTH_KURS\\PP_DIPLOM\\DiplomProject\\DiplomProject\\Views\\RegisterView.axaml",
+              "RelativeToolTip": "DiplomProject\\Views\\RegisterView.axaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-04-14T22:24:40.573Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 49,
+              "Title": "RegisterView.axaml.cs",
+              "DocumentMoniker": "D:\\domashka\\FOURTH_KURS\\PP_DIPLOM\\DiplomProject\\DiplomProject\\Views\\RegisterView.axaml.cs",
+              "RelativeDocumentMoniker": "DiplomProject\\Views\\RegisterView.axaml.cs",
+              "ToolTip": "D:\\domashka\\FOURTH_KURS\\PP_DIPLOM\\DiplomProject\\DiplomProject\\Views\\RegisterView.axaml.cs",
+              "RelativeToolTip": "DiplomProject\\Views\\RegisterView.axaml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-14T22:24:40.499Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 35,
+              "Title": "RegisterViewModel.cs",
+              "DocumentMoniker": "D:\\domashka\\FOURTH_KURS\\PP_DIPLOM\\DiplomProject\\DiplomProject\\ViewModels\\RegisterViewModel.cs",
+              "RelativeDocumentMoniker": "DiplomProject\\ViewModels\\RegisterViewModel.cs",
+              "ToolTip": "D:\\domashka\\FOURTH_KURS\\PP_DIPLOM\\DiplomProject\\DiplomProject\\ViewModels\\RegisterViewModel.cs",
+              "RelativeToolTip": "DiplomProject\\ViewModels\\RegisterViewModel.cs",
+              "ViewState": "AgIAACQAAAAAAAAAAAAnwDkAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-14T22:20:36.668Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "User.cs",
+              "DocumentMoniker": "D:\\domashka\\FOURTH_KURS\\PP_DIPLOM\\DiplomProject\\DiplomProject\\Models\\User.cs",
+              "RelativeDocumentMoniker": "DiplomProject\\Models\\User.cs",
+              "ToolTip": "D:\\domashka\\FOURTH_KURS\\PP_DIPLOM\\DiplomProject\\DiplomProject\\Models\\User.cs",
+              "RelativeToolTip": "DiplomProject\\Models\\User.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-14T22:10:42.397Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "App.axaml",
+              "DocumentMoniker": "D:\\domashka\\FOURTH_KURS\\PP_DIPLOM\\DiplomProject\\DiplomProject\\App.axaml",
+              "RelativeDocumentMoniker": "DiplomProject\\App.axaml",
+              "ToolTip": "D:\\domashka\\FOURTH_KURS\\PP_DIPLOM\\DiplomProject\\DiplomProject\\App.axaml",
+              "RelativeToolTip": "DiplomProject\\App.axaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-04-14T22:04:01.322Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "AuthView.axaml",
+              "DocumentMoniker": "D:\\domashka\\FOURTH_KURS\\PP_DIPLOM\\DiplomProject\\DiplomProject\\Views\\AuthView.axaml",
+              "RelativeDocumentMoniker": "DiplomProject\\Views\\AuthView.axaml",
+              "ToolTip": "D:\\domashka\\FOURTH_KURS\\PP_DIPLOM\\DiplomProject\\DiplomProject\\Views\\AuthView.axaml",
+              "RelativeToolTip": "DiplomProject\\Views\\AuthView.axaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-04-14T22:02:04.532Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 50,
+              "Title": "AuthView.axaml.cs",
+              "DocumentMoniker": "D:\\domashka\\FOURTH_KURS\\PP_DIPLOM\\DiplomProject\\DiplomProject\\Views\\AuthView.axaml.cs",
+              "RelativeDocumentMoniker": "DiplomProject\\Views\\AuthView.axaml.cs",
+              "ToolTip": "D:\\domashka\\FOURTH_KURS\\PP_DIPLOM\\DiplomProject\\DiplomProject\\Views\\AuthView.axaml.cs",
+              "RelativeToolTip": "DiplomProject\\Views\\AuthView.axaml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-14T22:02:04.463Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 39,
+              "Title": "ViewModelBase.cs",
+              "DocumentMoniker": "D:\\domashka\\FOURTH_KURS\\PP_DIPLOM\\DiplomProject\\DiplomProject\\ViewModels\\ViewModelBase.cs",
+              "RelativeDocumentMoniker": "DiplomProject\\ViewModels\\ViewModelBase.cs",
+              "ToolTip": "D:\\domashka\\FOURTH_KURS\\PP_DIPLOM\\DiplomProject\\DiplomProject\\ViewModels\\ViewModelBase.cs",
+              "RelativeToolTip": "DiplomProject\\ViewModels\\ViewModelBase.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAABBAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-14T21:56:08.649Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "AuthViewModel.cs",
+              "DocumentMoniker": "D:\\domashka\\FOURTH_KURS\\PP_DIPLOM\\DiplomProject\\DiplomProject\\ViewModels\\AuthViewModel.cs",
+              "RelativeDocumentMoniker": "DiplomProject\\ViewModels\\AuthViewModel.cs",
+              "ToolTip": "D:\\domashka\\FOURTH_KURS\\PP_DIPLOM\\DiplomProject\\DiplomProject\\ViewModels\\AuthViewModel.cs",
+              "RelativeToolTip": "DiplomProject\\ViewModels\\AuthViewModel.cs",
+              "ViewState": "AgIAAD0AAAAAAAAAAAAgwFYAAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-14T21:55:54.735Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "DiplomProject.csproj",
+              "DocumentMoniker": "D:\\domashka\\FOURTH_KURS\\PP_DIPLOM\\DiplomProject\\DiplomProject\\DiplomProject.csproj",
+              "RelativeDocumentMoniker": "DiplomProject\\DiplomProject.csproj",
+              "ToolTip": "D:\\domashka\\FOURTH_KURS\\PP_DIPLOM\\DiplomProject\\DiplomProject\\DiplomProject.csproj",
+              "RelativeToolTip": "DiplomProject\\DiplomProject.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2026-04-14T21:05:18.613Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 38,
+              "Title": "MainWindow.axaml",
+              "DocumentMoniker": "D:\\domashka\\FOURTH_KURS\\PP_DIPLOM\\DiplomProject\\DiplomProject\\Views\\MainWindow.axaml",
+              "RelativeDocumentMoniker": "DiplomProject\\Views\\MainWindow.axaml",
+              "ToolTip": "D:\\domashka\\FOURTH_KURS\\PP_DIPLOM\\DiplomProject\\DiplomProject\\Views\\MainWindow.axaml",
+              "RelativeToolTip": "DiplomProject\\Views\\MainWindow.axaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-04-14T20:56:07.203Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 40,
+              "Title": "MainWindowViewModel.cs",
+              "DocumentMoniker": "D:\\domashka\\FOURTH_KURS\\PP_DIPLOM\\DiplomProject\\DiplomProject\\ViewModels\\MainWindowViewModel.cs",
+              "RelativeDocumentMoniker": "DiplomProject\\ViewModels\\MainWindowViewModel.cs",
+              "ToolTip": "D:\\domashka\\FOURTH_KURS\\PP_DIPLOM\\DiplomProject\\DiplomProject\\ViewModels\\MainWindowViewModel.cs",
+              "RelativeToolTip": "DiplomProject\\ViewModels\\MainWindowViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-14T20:56:06.858Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

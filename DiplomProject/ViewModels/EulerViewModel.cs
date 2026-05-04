@@ -32,6 +32,8 @@ namespace DiplomProject.ViewModels
         [ObservableProperty]
         private bool isSessionFinished;
 
+        private bool _scoredForCurrent;
+
         public IRelayCommand<string> SelectRegionCommand { get; }
         public IRelayCommand NextCommand { get; }
         public IRelayCommand ResetCommand { get; }
@@ -63,10 +65,8 @@ namespace DiplomProject.ViewModels
 
         private void SelectRegion(string? regionCode)
         {
-            if (CurrentProblem is null || string.IsNullOrWhiteSpace(regionCode) || FeedbackState != "None")
-            {
+            if (CurrentProblem is null || string.IsNullOrWhiteSpace(regionCode) || IsSessionFinished)
                 return;
-            }
 
             SelectedRegion = regionCode;
 
@@ -74,8 +74,10 @@ namespace DiplomProject.ViewModels
             var isCorrect = selected is not null && selected.IsCorrect;
             FeedbackState = isCorrect ? "Correct" : "Incorrect";
 
-            if (isCorrect)
+            // Очко начисляется только один раз за вопрос (при первом правильном ответе)
+            if (isCorrect && !_scoredForCurrent)
             {
+                _scoredForCurrent = true;
                 Score++;
                 OnPropertyChanged(nameof(ScoreText));
             }
@@ -100,6 +102,7 @@ namespace DiplomProject.ViewModels
             CurrentProblem = Problems[CurrentIndex];
             SelectedRegion = null;
             FeedbackState = "None";
+            _scoredForCurrent = false;
 
             OnPropertyChanged(nameof(CurrentProblemDescription));
             OnPropertyChanged(nameof(ProgressText));
@@ -115,6 +118,7 @@ namespace DiplomProject.ViewModels
             SelectedRegion = null;
             FeedbackState = "None";
             IsSessionFinished = false;
+            _scoredForCurrent = false;
 
             OnPropertyChanged(nameof(ScoreText));
             OnPropertyChanged(nameof(ProgressText));

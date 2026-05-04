@@ -47,8 +47,10 @@
             </Border>
         </Grid>
 
-        <Border Grid.Row="1"
-                Background="#F4F1FA"
+        <ScrollViewer Grid.Row="1"
+                      VerticalScrollBarVisibility="Auto"
+                      HorizontalScrollBarVisibility="Disabled">
+        <Border Background="#F4F1FA"
                 BorderBrush="#BFA9F6"
                 BorderThickness="1.2"
                 CornerRadius="18"
@@ -207,5 +209,6 @@
                 </Button>
             </StackPanel>
         </Border>
+        </ScrollViewer>
     </Grid>
 </UserControl>

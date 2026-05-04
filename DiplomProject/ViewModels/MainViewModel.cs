@@ -1,5 +1,6 @@
 ﻿using CommunityToolkit.Mvvm.Input;
 using DiplomProject.Models;
+using System;
 using System.Collections.ObjectModel;
 
 namespace DiplomProject.ViewModels
@@ -22,62 +23,82 @@ namespace DiplomProject.ViewModels
             LogoutCommand = new RelayCommand(Logout);
 
             MenuItems = new ObservableCollection<MenuItem>
-        {
-            new MenuItem
             {
-                Title = "Теория",
-                Description = "Изучение теории множеств",
-                Icon = "📘",
-                Command = new RelayCommand(OpenTheory)
-            },
-            new MenuItem
+                new MenuItem
+                {
+                    Title = "Теория",
+                    Description = "Изучение теории множеств",
+                    Icon = "📘",
+                    Command = new RelayCommand(OpenTheory)
+                },
+                new MenuItem
+                {
+                    Title = "Практика",
+                    Description = "Решение задач",
+                    Icon = "✏️",
+                    Command = new RelayCommand(OpenPractice)
+                },
+                new MenuItem
+                {
+                    Title = "Круги Эйлера",
+                    Description = "Визуальные задания",
+                    Icon = "🔵",
+                    Command = new RelayCommand(OpenEuler)
+                },
+                new MenuItem
+                {
+                    Title = "Тесты",
+                    Description = "Проверка знаний",
+                    Icon = "🧪",
+                    Command = new RelayCommand(OpenTests)
+                },
+                new MenuItem
+                {
+                    Title = "Результаты",
+                    Description = "Ваш прогресс",
+                    Icon = "🏆",
+                    Command = new RelayCommand(OpenResults)
+                }
+            };
+
+            if (user.Role?.Name?.Equals("Teacher", StringComparison.OrdinalIgnoreCase) == true)
             {
-                Title = "Практика",
-                Description = "Решение задач",
-                Icon = "✏️",
-                Command = new RelayCommand(OpenPractice)
-            },
-            new MenuItem
-            {
-                Title = "Круги Эйлера",
-                Description = "Визуальные задания",
-                Icon = "🔵",
-                Command = new RelayCommand(OpenEuler)
-            },
-            new MenuItem
-            {
-                Title = "Тесты",
-                Description = "Проверка знаний",
-                Icon = "🧪",
-                Command = new RelayCommand(OpenTests)
-            },
-            new MenuItem
-            {
-                Title = "Результаты",
-                Description = "Ваш прогресс",
-                Icon = "🏆",
-                Command = new RelayCommand(OpenResults)
+                MenuItems.Add(new MenuItem
+                {
+                    Title = "Управление",
+                    Description = "Редактирование материалов",
+                    Icon = "⚙️",
+                    Command = new RelayCommand(OpenTeacherDashboard)
+                });
             }
-        };
         }
 
-        private void OpenTheory() 
+        private void OpenTheory()
         {
             MainWindowViewModel.Instance!.CurrentViewModel = new TheoryCategoryViewModel();
         }
+
         private void OpenPractice()
         {
             MainWindowViewModel.Instance!.CurrentViewModel = new PracticeViewModel();
         }
+
         private void OpenEuler()
         {
             MainWindowViewModel.Instance!.CurrentViewModel = new EulerViewModel();
         }
+
         private void OpenTests()
         {
             MainWindowViewModel.Instance!.CurrentViewModel = new TestSelectionViewModel();
         }
+
         private void OpenResults() { }
+
+        private void OpenTeacherDashboard()
+        {
+            MainWindowViewModel.Instance!.CurrentViewModel = new TeacherDashboardViewModel();
+        }
 
         private void OpenProfile()
         {

@@ -1,0 +1,357 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="960" d:DesignHeight="800"
+             xmlns:vm="using:DiplomProject.ViewModels"
+             x:DataType="vm:TeacherTestsViewModel"
+             x:Class="DiplomProject.Views.TeacherTestsView">
+
+    <UserControl.Styles>
+        <Style Selector="Button.primary">
+            <Setter Property="Background" Value="#7C3AED"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="CornerRadius" Value="10"/>
+            <Setter Property="Padding" Value="14,8"/>
+            <Setter Property="FontSize" Value="13"/>
+        </Style>
+        <Style Selector="Button.secondary">
+            <Setter Property="Background" Value="#F9F8FD"/>
+            <Setter Property="Foreground" Value="#6D28D9"/>
+            <Setter Property="BorderBrush" Value="#CDB8F6"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="CornerRadius" Value="10"/>
+            <Setter Property="Padding" Value="14,8"/>
+            <Setter Property="FontSize" Value="13"/>
+        </Style>
+        <Style Selector="Button.danger">
+            <Setter Property="Background" Value="#FEE2E2"/>
+            <Setter Property="Foreground" Value="#DC2626"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="CornerRadius" Value="10"/>
+            <Setter Property="Padding" Value="14,8"/>
+            <Setter Property="FontSize" Value="13"/>
+        </Style>
+        <Style Selector="TextBox.field">
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="BorderBrush" Value="#CDB8F6"/>
+            <Setter Property="CornerRadius" Value="8"/>
+            <Setter Property="Padding" Value="10,8"/>
+            <Setter Property="FontSize" Value="14"/>
+        </Style>
+    </UserControl.Styles>
+
+    <Grid Background="#F5F5F7" RowDefinitions="Auto,*">
+
+        <!-- Header -->
+        <Grid Grid.Row="0" Margin="28,18,28,0" ColumnDefinitions="Auto,*,Auto">
+            <Button Grid.Column="0" Classes="secondary"
+                    Command="{Binding NavigateBackCommand}">← Назад</Button>
+            <TextBlock Grid.Column="1" Margin="16,0,0,0"
+                       Text="Управление: Тесты"
+                       FontSize="26" FontWeight="SemiBold" Foreground="#1A1625"
+                       VerticalAlignment="Center"/>
+            <TextBlock Grid.Column="2"
+                       Text="{Binding StatusMessage}"
+                       FontSize="13" Foreground="#7C3AED"
+                       VerticalAlignment="Center"
+                       IsVisible="{Binding HasStatus}"/>
+        </Grid>
+
+        <ScrollViewer Grid.Row="1" Margin="28,14,28,24">
+            <StackPanel Spacing="16">
+
+                <!-- ═══════════ TESTS ═══════════ -->
+                <Border Background="White" BorderBrush="#CDB8F6" BorderThickness="1.2"
+                        CornerRadius="16" Padding="18">
+                    <StackPanel Spacing="14">
+
+                        <Grid ColumnDefinitions="*,Auto">
+                            <TextBlock Grid.Column="0" Text="Тесты"
+                                       FontSize="20" FontWeight="SemiBold" Foreground="#1A1625"/>
+                            <Button Grid.Column="1" Classes="primary"
+                                    Command="{Binding ShowAddTestFormCommand}">
+                                + Добавить тест
+                            </Button>
+                        </Grid>
+
+                        <!-- Test edit form -->
+                        <Border IsVisible="{Binding IsTestFormVisible}"
+                                Background="#F9F8FD" BorderBrush="#E9D5FF"
+                                BorderThickness="1" CornerRadius="12" Padding="16">
+                            <StackPanel Spacing="10">
+                                <Grid ColumnDefinitions="*,16,*">
+                                    <StackPanel Grid.Column="0" Spacing="6">
+                                        <TextBlock Text="Название *" FontSize="13" Foreground="#6E6785"/>
+                                        <TextBox Classes="field" Text="{Binding EditTestTitle}"/>
+                                    </StackPanel>
+                                    <StackPanel Grid.Column="2" Spacing="6">
+                                        <TextBlock Text="Тема" FontSize="13" Foreground="#6E6785"/>
+                                        <TextBox Classes="field" Text="{Binding EditTestTopic}"
+                                                 Watermark="Operations on Sets"/>
+                                    </StackPanel>
+                                </Grid>
+                                <StackPanel Spacing="6">
+                                    <TextBlock Text="Описание" FontSize="13" Foreground="#6E6785"/>
+                                    <TextBox Classes="field" Text="{Binding EditTestDescription}"
+                                             AcceptsReturn="True" Height="60"/>
+                                </StackPanel>
+                                <Grid ColumnDefinitions="*,16,*">
+                                    <StackPanel Grid.Column="0" Spacing="6">
+                                        <TextBlock Text="Сложность (1-3)" FontSize="13" Foreground="#6E6785"/>
+                                        <ComboBox ItemsSource="{Binding Difficulties}"
+                                                  SelectedItem="{Binding EditTestDifficulty}"
+                                                  Background="White" BorderBrush="#CDB8F6"
+                                                  CornerRadius="8" Padding="10,8"/>
+                                    </StackPanel>
+                                    <StackPanel Grid.Column="2" Spacing="6">
+                                        <TextBlock Text="Длительность (мин)" FontSize="13" Foreground="#6E6785"/>
+                                        <NumericUpDown Value="{Binding EditTestDuration}"
+                                                       Minimum="5" Maximum="120"
+                                                       Background="White" BorderBrush="#CDB8F6"
+                                                       CornerRadius="8" Padding="10,4"/>
+                                    </StackPanel>
+                                </Grid>
+                                <StackPanel Orientation="Horizontal" Spacing="8">
+                                    <Button Classes="primary" Command="{Binding SaveTestCommand}">Сохранить</Button>
+                                    <Button Classes="secondary" Command="{Binding CancelTestCommand}">Отмена</Button>
+                                </StackPanel>
+                            </StackPanel>
+                        </Border>
+
+                        <!-- Tests list -->
+                        <ItemsControl ItemsSource="{Binding Tests}">
+                            <ItemsControl.Styles>
+                                <Style Selector="ContentPresenter">
+                                    <Setter Property="Margin" Value="0,4"/>
+                                </Style>
+                            </ItemsControl.Styles>
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <Border Background="#F9F8FD" BorderBrush="#E9D5FF"
+                                            BorderThickness="1" CornerRadius="12" Padding="14">
+                                        <Grid ColumnDefinitions="*,Auto">
+                                            <StackPanel Grid.Column="0" Spacing="2">
+                                                <TextBlock Text="{Binding Title}"
+                                                           FontSize="15" FontWeight="SemiBold"
+                                                           Foreground="#1A1625"/>
+                                                <StackPanel Orientation="Horizontal" Spacing="12">
+                                                    <TextBlock Text="{Binding Topic}" FontSize="12" Foreground="#7C3AED"/>
+                                                    <TextBlock Text="{Binding QuestionsCount, StringFormat='{}{0} вопросов'}"
+                                                               FontSize="12" Foreground="#6E6785"/>
+                                                    <TextBlock Text="{Binding DifficultyLabel}" FontSize="12" Foreground="#6E6785"/>
+                                                </StackPanel>
+                                            </StackPanel>
+                                            <StackPanel Grid.Column="1"
+                                                        Orientation="Horizontal" Spacing="6"
+                                                        VerticalAlignment="Center">
+                                                <Button Classes="secondary"
+                                                        Command="{Binding $parent[UserControl].DataContext.SelectTestCommand}"
+                                                        CommandParameter="{Binding}">
+                                                    Вопросы
+                                                </Button>
+                                                <Button Classes="secondary"
+                                                        Command="{Binding $parent[UserControl].DataContext.ShowEditTestFormCommand}"
+                                                        CommandParameter="{Binding}">
+                                                    ✏ Изменить
+                                                </Button>
+                                                <Button Classes="danger"
+                                                        Command="{Binding $parent[UserControl].DataContext.DeleteTestCommand}"
+                                                        CommandParameter="{Binding}">
+                                                    🗑 Удалить
+                                                </Button>
+                                            </StackPanel>
+                                        </Grid>
+                                    </Border>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+
+                    </StackPanel>
+                </Border>
+
+                <!-- ═══════════ QUESTIONS ═══════════ -->
+                <Border Background="White" BorderBrush="#CDB8F6" BorderThickness="1.2"
+                        CornerRadius="16" Padding="18"
+                        IsVisible="{Binding HasSelectedTest}">
+                    <StackPanel Spacing="14">
+
+                        <Grid ColumnDefinitions="*,Auto">
+                            <StackPanel Grid.Column="0">
+                                <TextBlock Text="Вопросы"
+                                           FontSize="20" FontWeight="SemiBold" Foreground="#1A1625"/>
+                                <TextBlock Text="{Binding SelectedTest.Title}"
+                                           FontSize="13" Foreground="#7C3AED"/>
+                            </StackPanel>
+                            <Button Grid.Column="1" Classes="primary"
+                                    Command="{Binding ShowAddQuestionFormCommand}">
+                                + Добавить вопрос
+                            </Button>
+                        </Grid>
+
+                        <!-- Question edit form -->
+                        <Border IsVisible="{Binding IsQuestionFormVisible}"
+                                Background="#F9F8FD" BorderBrush="#E9D5FF"
+                                BorderThickness="1" CornerRadius="12" Padding="16">
+                            <StackPanel Spacing="10">
+                                <TextBlock Text="Текст вопроса *" FontSize="13" Foreground="#6E6785"/>
+                                <TextBox Classes="field" Text="{Binding EditQuestionText}"
+                                         AcceptsReturn="True" Height="72"/>
+                                <StackPanel Orientation="Horizontal" Spacing="8">
+                                    <Button Classes="primary" Command="{Binding SaveQuestionCommand}">Сохранить</Button>
+                                    <Button Classes="secondary" Command="{Binding CancelQuestionCommand}">Отмена</Button>
+                                </StackPanel>
+                            </StackPanel>
+                        </Border>
+
+                        <!-- Questions list -->
+                        <ItemsControl ItemsSource="{Binding Questions}">
+                            <ItemsControl.Styles>
+                                <Style Selector="ContentPresenter">
+                                    <Setter Property="Margin" Value="0,4"/>
+                                </Style>
+                            </ItemsControl.Styles>
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <Border Background="#F9F8FD" BorderBrush="#E9D5FF"
+                                            BorderThickness="1" CornerRadius="12" Padding="14">
+                                        <Grid ColumnDefinitions="*,Auto">
+                                            <TextBlock Grid.Column="0"
+                                                       Text="{Binding QuestionText}"
+                                                       FontSize="14" Foreground="#1A1625"
+                                                       TextWrapping="Wrap"
+                                                       VerticalAlignment="Center"
+                                                       MaxWidth="480"/>
+                                            <StackPanel Grid.Column="1"
+                                                        Orientation="Horizontal" Spacing="6"
+                                                        VerticalAlignment="Center">
+                                                <Button Classes="secondary"
+                                                        Command="{Binding $parent[UserControl].DataContext.SelectQuestionCommand}"
+                                                        CommandParameter="{Binding}">
+                                                    Ответы
+                                                </Button>
+                                                <Button Classes="secondary"
+                                                        Command="{Binding $parent[UserControl].DataContext.ShowEditQuestionFormCommand}"
+                                                        CommandParameter="{Binding}">
+                                                    ✏
+                                                </Button>
+                                                <Button Classes="danger"
+                                                        Command="{Binding $parent[UserControl].DataContext.DeleteQuestionCommand}"
+                                                        CommandParameter="{Binding}">
+                                                    🗑
+                                                </Button>
+                                            </StackPanel>
+                                        </Grid>
+                                    </Border>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+
+                    </StackPanel>
+                </Border>
+
+                <!-- ═══════════ ANSWERS ═══════════ -->
+                <Border Background="White" BorderBrush="#CDB8F6" BorderThickness="1.2"
+                        CornerRadius="16" Padding="18"
+                        IsVisible="{Binding HasSelectedQuestion}">
+                    <StackPanel Spacing="14">
+
+                        <Grid ColumnDefinitions="*,Auto">
+                            <StackPanel Grid.Column="0">
+                                <TextBlock Text="Варианты ответов"
+                                           FontSize="20" FontWeight="SemiBold" Foreground="#1A1625"/>
+                                <TextBlock Text="{Binding SelectedQuestion.QuestionText}"
+                                           FontSize="12" Foreground="#7C3AED"
+                                           TextWrapping="Wrap" MaxWidth="500"/>
+                            </StackPanel>
+                            <Button Grid.Column="1" Classes="primary"
+                                    Command="{Binding ShowAddAnswerFormCommand}">
+                                + Добавить ответ
+                            </Button>
+                        </Grid>
+
+                        <!-- Answer edit form -->
+                        <Border IsVisible="{Binding IsAnswerFormVisible}"
+                                Background="#F9F8FD" BorderBrush="#E9D5FF"
+                                BorderThickness="1" CornerRadius="12" Padding="16">
+                            <StackPanel Spacing="10">
+                                <TextBlock Text="Текст ответа *" FontSize="13" Foreground="#6E6785"/>
+                                <TextBox Classes="field" Text="{Binding EditAnswerText}"/>
+                                <CheckBox IsChecked="{Binding EditAnswerIsCorrect}"
+                                          Content="Этот ответ правильный"
+                                          FontSize="14" Foreground="#2B2142"/>
+                                <StackPanel Orientation="Horizontal" Spacing="8">
+                                    <Button Classes="primary" Command="{Binding SaveAnswerCommand}">Сохранить</Button>
+                                    <Button Classes="secondary" Command="{Binding CancelAnswerCommand}">Отмена</Button>
+                                </StackPanel>
+                            </StackPanel>
+                        </Border>
+
+                        <!-- Answers list -->
+                        <ItemsControl ItemsSource="{Binding Answers}">
+                            <ItemsControl.Styles>
+                                <Style Selector="ContentPresenter">
+                                    <Setter Property="Margin" Value="0,4"/>
+                                </Style>
+                            </ItemsControl.Styles>
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <Border CornerRadius="12" Padding="14"
+                                            BorderThickness="1">
+                                        <Border.Background>
+                                            <SolidColorBrush Color="#F9F8FD"/>
+                                        </Border.Background>
+                                        <Border.BorderBrush>
+                                            <SolidColorBrush Color="#E9D5FF"/>
+                                        </Border.BorderBrush>
+                                        <Grid ColumnDefinitions="Auto,*,Auto">
+                                            <!-- Correct indicator dot -->
+                                            <Border Grid.Column="0"
+                                                    Width="8" Height="8"
+                                                    CornerRadius="4"
+                                                    Margin="0,0,10,0"
+                                                    Background="#7C3AED"
+                                                    VerticalAlignment="Center"
+                                                    IsVisible="{Binding IsCorrect}"/>
+                                            <Border Grid.Column="0"
+                                                    Width="8" Height="8"
+                                                    CornerRadius="4"
+                                                    Margin="0,0,10,0"
+                                                    Background="#D1D5DB"
+                                                    VerticalAlignment="Center"
+                                                    IsVisible="{Binding !IsCorrect}"/>
+                                            <StackPanel Grid.Column="1" VerticalAlignment="Center">
+                                                <TextBlock Text="{Binding AnswerText}"
+                                                           FontSize="14" Foreground="#1A1625"/>
+                                                <TextBlock Text="✓ Правильный"
+                                                           FontSize="11" Foreground="#059669"
+                                                           IsVisible="{Binding IsCorrect}"/>
+                                            </StackPanel>
+                                            <StackPanel Grid.Column="2"
+                                                        Orientation="Horizontal" Spacing="6"
+                                                        VerticalAlignment="Center">
+                                                <Button Classes="secondary"
+                                                        Command="{Binding $parent[UserControl].DataContext.ShowEditAnswerFormCommand}"
+                                                        CommandParameter="{Binding}">
+                                                    ✏
+                                                </Button>
+                                                <Button Classes="danger"
+                                                        Command="{Binding $parent[UserControl].DataContext.DeleteAnswerCommand}"
+                                                        CommandParameter="{Binding}">
+                                                    🗑
+                                                </Button>
+                                            </StackPanel>
+                                        </Grid>
+                                    </Border>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+
+                    </StackPanel>
+                </Border>
+
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</UserControl>

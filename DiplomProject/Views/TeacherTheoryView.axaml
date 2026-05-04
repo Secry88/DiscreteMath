@@ -1,0 +1,322 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="960" d:DesignHeight="700"
+             xmlns:vm="using:DiplomProject.ViewModels"
+             x:DataType="vm:TeacherTheoryViewModel"
+             x:Class="DiplomProject.Views.TeacherTheoryView">
+
+    <UserControl.Resources>
+        <SolidColorBrush x:Key="PrimaryBrush"   Color="#7C3AED"/>
+        <SolidColorBrush x:Key="BorderBrush"    Color="#CDB8F6"/>
+        <SolidColorBrush x:Key="SurfaceBrush"   Color="#F9F8FD"/>
+        <SolidColorBrush x:Key="DeleteBrush"    Color="#FEE2E2"/>
+        <SolidColorBrush x:Key="DeleteTextBrush" Color="#DC2626"/>
+    </UserControl.Resources>
+
+    <UserControl.Styles>
+        <Style Selector="Button.primary">
+            <Setter Property="Background"    Value="#7C3AED"/>
+            <Setter Property="Foreground"    Value="White"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="CornerRadius"  Value="10"/>
+            <Setter Property="Padding"       Value="14,8"/>
+            <Setter Property="FontSize"      Value="13"/>
+        </Style>
+        <Style Selector="Button.secondary">
+            <Setter Property="Background"    Value="#F9F8FD"/>
+            <Setter Property="Foreground"    Value="#6D28D9"/>
+            <Setter Property="BorderBrush"   Value="#CDB8F6"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="CornerRadius"  Value="10"/>
+            <Setter Property="Padding"       Value="14,8"/>
+            <Setter Property="FontSize"      Value="13"/>
+        </Style>
+        <Style Selector="Button.danger">
+            <Setter Property="Background"    Value="#FEE2E2"/>
+            <Setter Property="Foreground"    Value="#DC2626"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="CornerRadius"  Value="10"/>
+            <Setter Property="Padding"       Value="14,8"/>
+            <Setter Property="FontSize"      Value="13"/>
+        </Style>
+        <Style Selector="TextBox.field">
+            <Setter Property="Background"    Value="White"/>
+            <Setter Property="BorderBrush"   Value="#CDB8F6"/>
+            <Setter Property="CornerRadius"  Value="8"/>
+            <Setter Property="Padding"       Value="10,8"/>
+            <Setter Property="FontSize"      Value="14"/>
+        </Style>
+    </UserControl.Styles>
+
+    <Grid Background="#F5F5F7" RowDefinitions="Auto,*">
+
+        <!-- Header -->
+        <Grid Grid.Row="0" Margin="28,18,28,0" ColumnDefinitions="Auto,*,Auto">
+            <Button Grid.Column="0" Classes="secondary"
+                    Command="{Binding NavigateBackCommand}">
+                ← Назад
+            </Button>
+            <StackPanel Grid.Column="1" Margin="16,0,0,0" VerticalAlignment="Center">
+                <TextBlock Text="Управление: Теория"
+                           FontSize="26" FontWeight="SemiBold" Foreground="#1A1625"/>
+            </StackPanel>
+            <TextBlock Grid.Column="2"
+                       Text="{Binding StatusMessage}"
+                       FontSize="13" Foreground="#7C3AED"
+                       VerticalAlignment="Center"
+                       IsVisible="{Binding HasStatus}"/>
+        </Grid>
+
+        <!-- Scrollable content -->
+        <ScrollViewer Grid.Row="1" Margin="28,14,28,24">
+            <StackPanel Spacing="16">
+
+                <!-- ═══════════ CATEGORIES ═══════════ -->
+                <Border Background="White" BorderBrush="#CDB8F6" BorderThickness="1.2"
+                        CornerRadius="16" Padding="18">
+                    <StackPanel Spacing="14">
+
+                        <Grid ColumnDefinitions="*,Auto">
+                            <TextBlock Grid.Column="0"
+                                       Text="Категории"
+                                       FontSize="20" FontWeight="SemiBold" Foreground="#1A1625"/>
+                            <Button Grid.Column="1" Classes="primary"
+                                    Command="{Binding ShowAddCategoryFormCommand}">
+                                + Добавить категорию
+                            </Button>
+                        </Grid>
+
+                        <!-- Category edit form -->
+                        <Border IsVisible="{Binding IsCategoryFormVisible}"
+                                Background="#F9F8FD" BorderBrush="#E9D5FF"
+                                BorderThickness="1" CornerRadius="12" Padding="16">
+                            <StackPanel Spacing="10">
+                                <TextBlock Text="Название *" FontSize="13" Foreground="#6E6785"/>
+                                <TextBox Classes="field" Text="{Binding EditCategoryTitle}"/>
+                                <TextBlock Text="Описание" FontSize="13" Foreground="#6E6785"/>
+                                <TextBox Classes="field" Text="{Binding EditCategoryDescription}"
+                                         AcceptsReturn="True" Height="72"/>
+                                <StackPanel Orientation="Horizontal" Spacing="8">
+                                    <Button Classes="primary" Command="{Binding SaveCategoryCommand}">
+                                        Сохранить
+                                    </Button>
+                                    <Button Classes="secondary" Command="{Binding CancelCategoryCommand}">
+                                        Отмена
+                                    </Button>
+                                </StackPanel>
+                            </StackPanel>
+                        </Border>
+
+                        <!-- Category list -->
+                        <ItemsControl ItemsSource="{Binding Categories}">
+                            <ItemsControl.Styles>
+                                <Style Selector="ContentPresenter">
+                                    <Setter Property="Margin" Value="0,4"/>
+                                </Style>
+                            </ItemsControl.Styles>
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <Border Background="#F9F8FD" BorderBrush="#E9D5FF"
+                                            BorderThickness="1" CornerRadius="12" Padding="14">
+                                        <Grid ColumnDefinitions="*,Auto">
+                                            <StackPanel Grid.Column="0" Spacing="2">
+                                                <TextBlock Text="{Binding Title}"
+                                                           FontSize="15" FontWeight="SemiBold"
+                                                           Foreground="#1A1625"/>
+                                                <TextBlock Text="{Binding Description}"
+                                                           FontSize="12" Foreground="#6E6785"
+                                                           TextWrapping="Wrap"/>
+                                            </StackPanel>
+                                            <StackPanel Grid.Column="1"
+                                                        Orientation="Horizontal" Spacing="6"
+                                                        VerticalAlignment="Center">
+                                                <Button Classes="secondary"
+                                                        Command="{Binding $parent[UserControl].DataContext.SelectCategoryCommand}"
+                                                        CommandParameter="{Binding}">
+                                                    Темы
+                                                </Button>
+                                                <Button Classes="secondary"
+                                                        Command="{Binding $parent[UserControl].DataContext.ShowEditCategoryFormCommand}"
+                                                        CommandParameter="{Binding}">
+                                                    ✏ Изменить
+                                                </Button>
+                                                <Button Classes="danger"
+                                                        Command="{Binding $parent[UserControl].DataContext.DeleteCategoryCommand}"
+                                                        CommandParameter="{Binding}">
+                                                    🗑 Удалить
+                                                </Button>
+                                            </StackPanel>
+                                        </Grid>
+                                    </Border>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+
+                    </StackPanel>
+                </Border>
+
+                <!-- ═══════════ TOPICS ═══════════ -->
+                <Border Background="White" BorderBrush="#CDB8F6" BorderThickness="1.2"
+                        CornerRadius="16" Padding="18"
+                        IsVisible="{Binding HasSelectedCategory}">
+                    <StackPanel Spacing="14">
+
+                        <Grid ColumnDefinitions="*,Auto">
+                            <StackPanel Grid.Column="0">
+                                <TextBlock Text="Темы" FontSize="20" FontWeight="SemiBold" Foreground="#1A1625"/>
+                                <TextBlock Text="{Binding SelectedCategory.Title}"
+                                           FontSize="13" Foreground="#7C3AED"/>
+                            </StackPanel>
+                            <Button Grid.Column="1" Classes="primary"
+                                    Command="{Binding ShowAddTopicFormCommand}">
+                                + Добавить тему
+                            </Button>
+                        </Grid>
+
+                        <!-- Topic edit form -->
+                        <Border IsVisible="{Binding IsTopicFormVisible}"
+                                Background="#F9F8FD" BorderBrush="#E9D5FF"
+                                BorderThickness="1" CornerRadius="12" Padding="16">
+                            <StackPanel Spacing="10">
+                                <TextBlock Text="Название темы *" FontSize="13" Foreground="#6E6785"/>
+                                <TextBox Classes="field" Text="{Binding EditTopicTitle}"/>
+                                <StackPanel Orientation="Horizontal" Spacing="8">
+                                    <Button Classes="primary" Command="{Binding SaveTopicCommand}">
+                                        Сохранить
+                                    </Button>
+                                    <Button Classes="secondary" Command="{Binding CancelTopicCommand}">
+                                        Отмена
+                                    </Button>
+                                </StackPanel>
+                            </StackPanel>
+                        </Border>
+
+                        <!-- Topic list -->
+                        <ItemsControl ItemsSource="{Binding Topics}">
+                            <ItemsControl.Styles>
+                                <Style Selector="ContentPresenter">
+                                    <Setter Property="Margin" Value="0,4"/>
+                                </Style>
+                            </ItemsControl.Styles>
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <Border Background="#F9F8FD" BorderBrush="#E9D5FF"
+                                            BorderThickness="1" CornerRadius="12" Padding="14">
+                                        <Grid ColumnDefinitions="*,Auto">
+                                            <TextBlock Grid.Column="0"
+                                                       Text="{Binding Title}"
+                                                       FontSize="14" FontWeight="SemiBold"
+                                                       Foreground="#1A1625"
+                                                       VerticalAlignment="Center"/>
+                                            <StackPanel Grid.Column="1"
+                                                        Orientation="Horizontal" Spacing="6">
+                                                <Button Classes="secondary"
+                                                        Command="{Binding $parent[UserControl].DataContext.SelectTopicCommand}"
+                                                        CommandParameter="{Binding}">
+                                                    Контент
+                                                </Button>
+                                                <Button Classes="secondary"
+                                                        Command="{Binding $parent[UserControl].DataContext.ShowEditTopicFormCommand}"
+                                                        CommandParameter="{Binding}">
+                                                    ✏ Изменить
+                                                </Button>
+                                                <Button Classes="danger"
+                                                        Command="{Binding $parent[UserControl].DataContext.DeleteTopicCommand}"
+                                                        CommandParameter="{Binding}">
+                                                    🗑 Удалить
+                                                </Button>
+                                            </StackPanel>
+                                        </Grid>
+                                    </Border>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+
+                    </StackPanel>
+                </Border>
+
+                <!-- ═══════════ CONTENT ═══════════ -->
+                <Border Background="White" BorderBrush="#CDB8F6" BorderThickness="1.2"
+                        CornerRadius="16" Padding="18"
+                        IsVisible="{Binding HasSelectedTopic}">
+                    <StackPanel Spacing="14">
+
+                        <Grid ColumnDefinitions="*,Auto">
+                            <StackPanel Grid.Column="0">
+                                <TextBlock Text="Блоки контента"
+                                           FontSize="20" FontWeight="SemiBold" Foreground="#1A1625"/>
+                                <TextBlock Text="{Binding SelectedTopic.Title}"
+                                           FontSize="13" Foreground="#7C3AED"/>
+                            </StackPanel>
+                            <Button Grid.Column="1" Classes="primary"
+                                    Command="{Binding ShowAddContentFormCommand}">
+                                + Добавить блок
+                            </Button>
+                        </Grid>
+
+                        <!-- Content edit form -->
+                        <Border IsVisible="{Binding IsContentFormVisible}"
+                                Background="#F9F8FD" BorderBrush="#E9D5FF"
+                                BorderThickness="1" CornerRadius="12" Padding="16">
+                            <StackPanel Spacing="10">
+                                <TextBlock Text="Текст блока *" FontSize="13" Foreground="#6E6785"/>
+                                <TextBox Classes="field" Text="{Binding EditContent}"
+                                         AcceptsReturn="True" Height="100"/>
+                                <StackPanel Orientation="Horizontal" Spacing="8">
+                                    <Button Classes="primary" Command="{Binding SaveContentCommand}">
+                                        Сохранить
+                                    </Button>
+                                    <Button Classes="secondary" Command="{Binding CancelContentCommand}">
+                                        Отмена
+                                    </Button>
+                                </StackPanel>
+                            </StackPanel>
+                        </Border>
+
+                        <!-- Content list -->
+                        <ItemsControl ItemsSource="{Binding Contents}">
+                            <ItemsControl.Styles>
+                                <Style Selector="ContentPresenter">
+                                    <Setter Property="Margin" Value="0,4"/>
+                                </Style>
+                            </ItemsControl.Styles>
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <Border Background="#F9F8FD" BorderBrush="#E9D5FF"
+                                            BorderThickness="1" CornerRadius="12" Padding="14">
+                                        <Grid ColumnDefinitions="*,Auto">
+                                            <TextBlock Grid.Column="0"
+                                                       Text="{Binding Content}"
+                                                       FontSize="13" Foreground="#2B2142"
+                                                       TextWrapping="Wrap"
+                                                       VerticalAlignment="Center"
+                                                       MaxWidth="560"/>
+                                            <StackPanel Grid.Column="1"
+                                                        Orientation="Horizontal" Spacing="6"
+                                                        VerticalAlignment="Center">
+                                                <Button Classes="secondary"
+                                                        Command="{Binding $parent[UserControl].DataContext.ShowEditContentFormCommand}"
+                                                        CommandParameter="{Binding}">
+                                                    ✏ Изменить
+                                                </Button>
+                                                <Button Classes="danger"
+                                                        Command="{Binding $parent[UserControl].DataContext.DeleteContentCommand}"
+                                                        CommandParameter="{Binding}">
+                                                    🗑 Удалить
+                                                </Button>
+                                            </StackPanel>
+                                        </Grid>
+                                    </Border>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+
+                    </StackPanel>
+                </Border>
+
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</UserControl>

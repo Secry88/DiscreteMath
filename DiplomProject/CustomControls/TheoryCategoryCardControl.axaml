@@ -37,7 +37,7 @@
 
 					<Border x:Name="Root"
 							Width="280"
-							Height="180"
+							Height="200"
 							Background="White"
 							CornerRadius="24"
 							Padding="22"

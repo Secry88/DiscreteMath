@@ -68,7 +68,7 @@ namespace DiplomProject.ViewModels
         private void AuthProcess()
         {
             User? user = db.Users.Include(x => x.Role)
-                .Include(x => x.Group)                
+                .Include(x => x.Group)
                 .FirstOrDefault(x => x.Login == Login);
 
             if (user == null)
@@ -84,7 +84,11 @@ namespace DiplomProject.ViewModels
             else
             {
                 MainWindowViewModel.Instance!.CurrentUser = user;
-                MainWindowViewModel.Instance!.CurrentViewModel = new MainViewModel(user);
+                if (user.RoleId == 2)
+                {
+                    MainWindowViewModel.Instance!.CurrentViewModel = new TeacherDashboardViewModel();
+                }
+                else MainWindowViewModel.Instance!.CurrentViewModel = new MainViewModel(user);
             }
         }
 
