@@ -61,7 +61,7 @@
                        FontSize="24" FontWeight="SemiBold" Foreground="#1A1625"
                        VerticalAlignment="Center"/>
             <TextBlock Grid.Column="2" Text="{Binding StatusMessage}"
-                       FontSize="13" Foreground="#7C3AED" VerticalAlignment="Center"
+                       FontSize="14" Foreground="#7C3AED" VerticalAlignment="Center"
                        IsVisible="{Binding HasStatus}"/>
         </Grid>
 
@@ -83,12 +83,12 @@
                         <!-- Row 1: Title + Expression -->
                         <Grid ColumnDefinitions="*,*" ColumnSpacing="12">
                             <StackPanel Grid.Column="0" Spacing="6">
-                                <TextBlock Text="Заголовок" FontSize="13" Foreground="#6E6785"/>
+                                <TextBlock Text="Заголовок" FontSize="14" Foreground="#6E6785"/>
                                 <TextBox Classes="field" Text="{Binding EditTitle}"
                                          Watermark="Например: (A ∪ B) ∩ A"/>
                             </StackPanel>
                             <StackPanel Grid.Column="1" Spacing="6">
-                                <TextBlock Text="Выражение *" FontSize="13" Foreground="#6E6785"/>
+                                <TextBlock Text="Выражение *" FontSize="14" Foreground="#6E6785"/>
                                 <TextBox Classes="field" Text="{Binding EditExpression}"
                                          Watermark="(A ∪ B) ∩ A"/>
                             </StackPanel>
@@ -96,7 +96,7 @@
 
                         <!-- Description -->
                         <StackPanel Spacing="6">
-                            <TextBlock Text="Описание" FontSize="13" Foreground="#6E6785"/>
+                            <TextBlock Text="Описание" FontSize="14" Foreground="#6E6785"/>
                             <TextBox Classes="field" Text="{Binding EditDescription}"
                                      AcceptsReturn="True" Height="60"
                                      Watermark="Дополнительное описание задания (необязательно)"/>
@@ -105,21 +105,21 @@
                         <!-- Row 2: Sets -->
                         <Grid ColumnDefinitions="*,*,*,*" ColumnSpacing="10">
                             <StackPanel Grid.Column="0" Spacing="6">
-                                <TextBlock Text="Множество A" FontSize="13" Foreground="#6E6785"/>
+                                <TextBlock Text="Множество A" FontSize="14" Foreground="#6E6785"/>
                                 <TextBox Classes="field" Text="{Binding EditSetA}" Watermark="1,2,3"/>
                             </StackPanel>
                             <StackPanel Grid.Column="1" Spacing="6">
-                                <TextBlock Text="Множество B" FontSize="13" Foreground="#6E6785"/>
+                                <TextBlock Text="Множество B" FontSize="14" Foreground="#6E6785"/>
                                 <TextBox Classes="field" Text="{Binding EditSetB}" Watermark="4,5,6"/>
                             </StackPanel>
                             <StackPanel Grid.Column="2" Spacing="6">
-                                <TextBlock Text="Множество C" FontSize="13" Foreground="#6E6785"/>
+                                <TextBlock Text="Множество C" FontSize="14" Foreground="#6E6785"/>
                                 <TextBox Classes="field" Text="{Binding EditSetC}"
                                          Watermark="7,8,9 (для 3 множеств)"
                                          IsEnabled="{Binding IsEditingThreeSet}"/>
                             </StackPanel>
                             <StackPanel Grid.Column="3" Spacing="6">
-                                <TextBlock Text="Универсальное U" FontSize="13" Foreground="#6E6785"/>
+                                <TextBlock Text="Универсальное U" FontSize="14" Foreground="#6E6785"/>
                                 <TextBox Classes="field" Text="{Binding EditUniversalSet}" Watermark="1,...,9"/>
                             </StackPanel>
                         </Grid>
@@ -127,14 +127,14 @@
                         <!-- Row 3: DiagramType + Difficulty -->
                         <Grid ColumnDefinitions="Auto,Auto,*" ColumnSpacing="24">
                             <StackPanel Grid.Column="0" Spacing="6">
-                                <TextBlock Text="Тип диаграммы" FontSize="13" Foreground="#6E6785"/>
+                                <TextBlock Text="Тип диаграммы" FontSize="14" Foreground="#6E6785"/>
                                 <ComboBox ItemsSource="{Binding DiagramTypes}"
                                           SelectedItem="{Binding EditDiagramType}"
                                           Background="White" BorderBrush="#CDB8F6"
                                           CornerRadius="8" Padding="10,8" MinWidth="120"/>
                             </StackPanel>
                             <StackPanel Grid.Column="1" Spacing="6">
-                                <TextBlock Text="Сложность" FontSize="13" Foreground="#6E6785"/>
+                                <TextBlock Text="Сложность" FontSize="14" Foreground="#6E6785"/>
                                 <ComboBox ItemsSource="{Binding Difficulties}"
                                           SelectedItem="{Binding EditDifficulty}"
                                           Background="White" BorderBrush="#CDB8F6"
@@ -154,7 +154,7 @@
                                 </Grid>
 
                                 <TextBlock Text="Добавьте шаги в порядке решения. Пример: шаг 1 — вычислить A ∪ B, шаг 2 — пересечь с A."
-                                           FontSize="12" Foreground="#6E6785" TextWrapping="Wrap"/>
+                                           FontSize="14" Foreground="#6E6785" TextWrapping="Wrap"/>
 
                                 <ItemsControl ItemsSource="{Binding EditSteps}">
                                     <ItemsControl.Styles>
@@ -169,9 +169,9 @@
                                                 <Grid ColumnDefinitions="*,Auto" RowDefinitions="Auto,Auto,Auto" RowSpacing="8">
                                                     <!-- Description -->
                                                     <StackPanel Grid.Row="0" Grid.Column="0" Spacing="4">
-                                                        <TextBlock Text="Описание шага" FontSize="12" Foreground="#6E6785"/>
+                                                        <TextBlock Text="Описание шага" FontSize="14" Foreground="#6E6785"/>
                                                         <TextBox Background="White" BorderBrush="#CDB8F6"
-                                                                 CornerRadius="6" Padding="8,6" FontSize="13"
+                                                                 CornerRadius="6" Padding="8,6" FontSize="14"
                                                                  Text="{Binding Description}"
                                                                  Watermark="Что нужно вычислить на этом шаге"/>
                                                     </StackPanel>
@@ -191,17 +191,17 @@
                                                     </StackPanel>
                                                     <!-- Expression -->
                                                     <StackPanel Grid.Row="1" Grid.Column="0" Spacing="4">
-                                                        <TextBlock Text="Выражение шага" FontSize="12" Foreground="#6E6785"/>
+                                                        <TextBlock Text="Выражение шага" FontSize="14" Foreground="#6E6785"/>
                                                         <TextBox Background="White" BorderBrush="#CDB8F6"
-                                                                 CornerRadius="6" Padding="8,6" FontSize="13"
+                                                                 CornerRadius="6" Padding="8,6" FontSize="14"
                                                                  Text="{Binding Expression}"
                                                                  Watermark="A ∪ B"/>
                                                     </StackPanel>
                                                     <!-- Correct answer -->
                                                     <StackPanel Grid.Row="2" Grid.Column="0" Spacing="4">
-                                                        <TextBlock Text="Правильный ответ" FontSize="12" Foreground="#6E6785"/>
+                                                        <TextBlock Text="Правильный ответ" FontSize="14" Foreground="#6E6785"/>
                                                         <TextBox Background="White" BorderBrush="#CDB8F6"
-                                                                 CornerRadius="6" Padding="8,6" FontSize="13"
+                                                                 CornerRadius="6" Padding="8,6" FontSize="14"
                                                                  Text="{Binding CorrectAnswer}"
                                                                  Watermark="1,2,3,4"/>
                                                     </StackPanel>
@@ -223,70 +223,70 @@
                                 <!-- 2-set regions (always visible) -->
                                 <Grid ColumnDefinitions="*,*,*,*" ColumnSpacing="8">
                                     <Border Grid.Column="0" Background="#EDE9FE" CornerRadius="8" Height="50">
-                                        <TextBlock Text="Только A" FontSize="12" Foreground="#7C3AED"
+                                        <TextBlock Text="Только A" FontSize="14" Foreground="#7C3AED"
                                                    FontWeight="SemiBold" HorizontalAlignment="Center"
                                                    VerticalAlignment="Center"/>
                                     </Border>
                                     <Border Grid.Column="1" Background="#DDD6FE" CornerRadius="8" Height="50">
-                                        <TextBlock Text="A ∩ B" FontSize="12" Foreground="#5B21B6"
+                                        <TextBlock Text="A ∩ B" FontSize="14" Foreground="#5B21B6"
                                                    FontWeight="SemiBold" HorizontalAlignment="Center"
                                                    VerticalAlignment="Center"/>
                                     </Border>
                                     <Border Grid.Column="2" Background="#EDE9FE" CornerRadius="8" Height="50">
-                                        <TextBlock Text="Только B" FontSize="12" Foreground="#7C3AED"
+                                        <TextBlock Text="Только B" FontSize="14" Foreground="#7C3AED"
                                                    FontWeight="SemiBold" HorizontalAlignment="Center"
                                                    VerticalAlignment="Center"/>
                                     </Border>
                                     <Border Grid.Column="3" Background="#F3F0FB" CornerRadius="8" Height="50">
-                                        <TextBlock Text="Вне множеств" FontSize="12" Foreground="#7C3AED"
+                                        <TextBlock Text="Вне множеств" FontSize="14" Foreground="#7C3AED"
                                                    FontWeight="SemiBold" HorizontalAlignment="Center"
                                                    VerticalAlignment="Center"/>
                                     </Border>
                                 </Grid>
                                 <Grid ColumnDefinitions="*,*,*,*" ColumnSpacing="8">
                                     <CheckBox Grid.Column="0" IsChecked="{Binding EditAOnlyCorrect}"
-                                              Content="a-only" FontSize="13" Foreground="#2B2142"/>
+                                              Content="a-only" FontSize="14" Foreground="#2B2142"/>
                                     <CheckBox Grid.Column="1" IsChecked="{Binding EditAbCorrect}"
-                                              Content="ab" FontSize="13" Foreground="#2B2142"/>
+                                              Content="ab" FontSize="14" Foreground="#2B2142"/>
                                     <CheckBox Grid.Column="2" IsChecked="{Binding EditBOnlyCorrect}"
-                                              Content="b-only" FontSize="13" Foreground="#2B2142"/>
+                                              Content="b-only" FontSize="14" Foreground="#2B2142"/>
                                     <CheckBox Grid.Column="3" IsChecked="{Binding EditOutsideCorrect}"
-                                              Content="outside" FontSize="13" Foreground="#2B2142"/>
+                                              Content="outside" FontSize="14" Foreground="#2B2142"/>
                                 </Grid>
 
                                 <!-- 3-set extra regions -->
                                 <StackPanel IsVisible="{Binding IsEditingThreeSet}" Spacing="8">
                                     <Grid ColumnDefinitions="*,*,*,*" ColumnSpacing="8">
                                         <Border Grid.Column="0" Background="#DDD6FE" CornerRadius="8" Height="50">
-                                            <TextBlock Text="A ∩ C" FontSize="12" Foreground="#5B21B6"
+                                            <TextBlock Text="A ∩ C" FontSize="14" Foreground="#5B21B6"
                                                        FontWeight="SemiBold" HorizontalAlignment="Center"
                                                        VerticalAlignment="Center"/>
                                         </Border>
                                         <Border Grid.Column="1" Background="#C4B5FD" CornerRadius="8" Height="50">
-                                            <TextBlock Text="A ∩ B ∩ C" FontSize="12" Foreground="#3730A3"
+                                            <TextBlock Text="A ∩ B ∩ C" FontSize="14" Foreground="#3730A3"
                                                        FontWeight="SemiBold" HorizontalAlignment="Center"
                                                        VerticalAlignment="Center"/>
                                         </Border>
                                         <Border Grid.Column="2" Background="#DDD6FE" CornerRadius="8" Height="50">
-                                            <TextBlock Text="B ∩ C" FontSize="12" Foreground="#5B21B6"
+                                            <TextBlock Text="B ∩ C" FontSize="14" Foreground="#5B21B6"
                                                        FontWeight="SemiBold" HorizontalAlignment="Center"
                                                        VerticalAlignment="Center"/>
                                         </Border>
                                         <Border Grid.Column="3" Background="#EDE9FE" CornerRadius="8" Height="50">
-                                            <TextBlock Text="Только C" FontSize="12" Foreground="#7C3AED"
+                                            <TextBlock Text="Только C" FontSize="14" Foreground="#7C3AED"
                                                        FontWeight="SemiBold" HorizontalAlignment="Center"
                                                        VerticalAlignment="Center"/>
                                         </Border>
                                     </Grid>
                                     <Grid ColumnDefinitions="*,*,*,*" ColumnSpacing="8">
                                         <CheckBox Grid.Column="0" IsChecked="{Binding EditAcCorrect}"
-                                                  Content="ac" FontSize="13" Foreground="#2B2142"/>
+                                                  Content="ac" FontSize="14" Foreground="#2B2142"/>
                                         <CheckBox Grid.Column="1" IsChecked="{Binding EditAbcCorrect}"
-                                                  Content="abc" FontSize="13" Foreground="#2B2142"/>
+                                                  Content="abc" FontSize="14" Foreground="#2B2142"/>
                                         <CheckBox Grid.Column="2" IsChecked="{Binding EditBcCorrect}"
-                                                  Content="bc" FontSize="13" Foreground="#2B2142"/>
+                                                  Content="bc" FontSize="14" Foreground="#2B2142"/>
                                         <CheckBox Grid.Column="3" IsChecked="{Binding EditCOnlyCorrect}"
-                                                  Content="c-only" FontSize="13" Foreground="#2B2142"/>
+                                                  Content="c-only" FontSize="14" Foreground="#2B2142"/>
                                     </Grid>
                                 </StackPanel>
                             </StackPanel>
@@ -319,13 +319,13 @@
                                                    Foreground="#5B21B6" FontWeight="SemiBold"/>
                                         <StackPanel Orientation="Horizontal" Spacing="8">
                                             <TextBlock Text="{Binding DiagramType, StringFormat='Множеств: {0}'}"
-                                                       FontSize="12" Foreground="#6E6785"/>
+                                                       FontSize="14" Foreground="#6E6785"/>
                                             <TextBlock Text="{Binding Difficulty, StringFormat='Сложность: {0}'}"
-                                                       FontSize="12" Foreground="#7C3AED"/>
+                                                       FontSize="14" Foreground="#7C3AED"/>
                                             <TextBlock Text="{Binding Steps.Count, StringFormat='Шагов: {0}'}"
-                                                       FontSize="12" Foreground="#6E6785"/>
+                                                       FontSize="14" Foreground="#6E6785"/>
                                         </StackPanel>
-                                        <TextBlock Text="{Binding Description}" FontSize="12"
+                                        <TextBlock Text="{Binding Description}" FontSize="14"
                                                    Foreground="#6E6785" TextWrapping="Wrap" MaxWidth="520"/>
                                     </StackPanel>
                                     <StackPanel Grid.Column="1" Orientation="Horizontal" Spacing="6"

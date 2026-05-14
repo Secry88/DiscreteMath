@@ -62,7 +62,7 @@
 
 				<TextBlock Text="{Binding MessageToUser}"
 						   Foreground="Red"
-						   FontSize="12"
+						   FontSize="14"
 						   TextWrapping="Wrap"/>
 
 				<Button Content="Зарегистрироваться"

@@ -66,12 +66,12 @@
 									   Foreground="#1A1625"/>
 
 							<TextBlock Text="{TemplateBinding Description}"
-									   FontSize="13"
+									   FontSize="14"
 									   Foreground="#6B5B95"
 									   TextWrapping="Wrap"/>
 
 							<TextBlock Text="Открыть ›"
-									   FontSize="13"
+									   FontSize="14"
 									   Foreground="#7C3AED"/>
 
 						</StackPanel>

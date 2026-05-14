@@ -57,8 +57,8 @@
                                     <TextBlock Text="Теория" FontSize="19"
                                                FontWeight="SemiBold" Foreground="#1A1625"/>
                                     <TextBlock Text="Категории, темы, контент"
-                                               FontSize="13" Foreground="#6B5B95" TextWrapping="Wrap"/>
-                                    <TextBlock Text="Управлять ›" FontSize="13" Foreground="#7C3AED"/>
+                                               FontSize="14" Foreground="#6B5B95" TextWrapping="Wrap"/>
+                                    <TextBlock Text="Управлять ›" FontSize="14" Foreground="#7C3AED"/>
                                 </StackPanel>
                             </Border>
                         </Button>
@@ -79,8 +79,8 @@
                                     <TextBlock Text="Тесты" FontSize="19"
                                                FontWeight="SemiBold" Foreground="#1A1625"/>
                                     <TextBlock Text="Вопросы и ответы"
-                                               FontSize="13" Foreground="#6B5B95" TextWrapping="Wrap"/>
-                                    <TextBlock Text="Управлять ›" FontSize="13" Foreground="#7C3AED"/>
+                                               FontSize="14" Foreground="#6B5B95" TextWrapping="Wrap"/>
+                                    <TextBlock Text="Управлять ›" FontSize="14" Foreground="#7C3AED"/>
                                 </StackPanel>
                             </Border>
                         </Button>
@@ -106,8 +106,8 @@
                                     <TextBlock Text="Практика" FontSize="19"
                                                FontWeight="SemiBold" Foreground="#1A1625"/>
                                     <TextBlock Text="Задачи с множествами"
-                                               FontSize="13" Foreground="#6B5B95" TextWrapping="Wrap"/>
-                                    <TextBlock Text="Управлять ›" FontSize="13" Foreground="#7C3AED"/>
+                                               FontSize="14" Foreground="#6B5B95" TextWrapping="Wrap"/>
+                                    <TextBlock Text="Управлять ›" FontSize="14" Foreground="#7C3AED"/>
                                 </StackPanel>
                             </Border>
                         </Button>
@@ -128,8 +128,8 @@
                                     <TextBlock Text="Круги Эйлера" FontSize="19"
                                                FontWeight="SemiBold" Foreground="#1A1625"/>
                                     <TextBlock Text="Диаграммы и области"
-                                               FontSize="13" Foreground="#6B5B95" TextWrapping="Wrap"/>
-                                    <TextBlock Text="Управлять ›" FontSize="13" Foreground="#7C3AED"/>
+                                               FontSize="14" Foreground="#6B5B95" TextWrapping="Wrap"/>
+                                    <TextBlock Text="Управлять ›" FontSize="14" Foreground="#7C3AED"/>
                                 </StackPanel>
                             </Border>
                         </Button>
@@ -150,8 +150,8 @@
                                     <TextBlock Text="Пошаговые задания" FontSize="19"
                                                FontWeight="SemiBold" Foreground="#1A1625"/>
                                     <TextBlock Text="Операции над множествами"
-                                               FontSize="13" Foreground="#6B5B95" TextWrapping="Wrap"/>
-                                    <TextBlock Text="Управлять ›" FontSize="13" Foreground="#7C3AED"/>
+                                               FontSize="14" Foreground="#6B5B95" TextWrapping="Wrap"/>
+                                    <TextBlock Text="Управлять ›" FontSize="14" Foreground="#7C3AED"/>
                                 </StackPanel>
                             </Border>
                         </Button>
@@ -172,8 +172,8 @@
                                     <TextBlock Text="Области диаграмм" FontSize="19"
                                                FontWeight="SemiBold" Foreground="#1A1625"/>
                                     <TextBlock Text="Элементы и области"
-                                               FontSize="13" Foreground="#6B5B95" TextWrapping="Wrap"/>
-                                    <TextBlock Text="Управлять ›" FontSize="13" Foreground="#7C3AED"/>
+                                               FontSize="14" Foreground="#6B5B95" TextWrapping="Wrap"/>
+                                    <TextBlock Text="Управлять ›" FontSize="14" Foreground="#7C3AED"/>
                                 </StackPanel>
                             </Border>
                         </Button>

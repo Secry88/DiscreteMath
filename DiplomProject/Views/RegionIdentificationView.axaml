@@ -72,7 +72,7 @@
                             CornerRadius="14" Padding="16" HorizontalAlignment="Center"
                             IsVisible="{Binding HasCustomImage}">
                         <StackPanel Spacing="6">
-                            <TextBlock Text="Диаграмма Эйлера-Венна" FontSize="13"
+                            <TextBlock Text="Диаграмма Эйлера-Венна" FontSize="14"
                                        Foreground="#6E6785" HorizontalAlignment="Center"/>
                             <Image Source="{Binding DiagramImageBase64,
                                            Converter={StaticResource Base64ImageConverter}}"
@@ -86,7 +86,7 @@
                             IsVisible="{Binding ShowFallback2Set}">
                         <StackPanel Spacing="8">
                             <TextBlock Text="Диаграмма (нажмите на область для справки)"
-                                       FontSize="13" Foreground="#6E6785" HorizontalAlignment="Center"/>
+                                       FontSize="14" Foreground="#6E6785" HorizontalAlignment="Center"/>
                             <Canvas Width="480" Height="300">
                                 <!-- Circle A -->
                                 <Ellipse Width="220" Height="220" Stroke="#8B5CF6" StrokeThickness="2"
@@ -128,16 +128,16 @@
                             <!-- Legend -->
                             <WrapPanel HorizontalAlignment="Center">
                                 <Border Margin="3" Background="#EDE9FE" CornerRadius="8" Padding="8,4">
-                                    <TextBlock Text="1 — Только A" FontSize="12" Foreground="#5B21B6"/>
+                                    <TextBlock Text="1 — Только A" FontSize="14" Foreground="#5B21B6"/>
                                 </Border>
                                 <Border Margin="3" Background="#EDE9FE" CornerRadius="8" Padding="8,4">
-                                    <TextBlock Text="2 — A ∩ B" FontSize="12" Foreground="#5B21B6"/>
+                                    <TextBlock Text="2 — A ∩ B" FontSize="14" Foreground="#5B21B6"/>
                                 </Border>
                                 <Border Margin="3" Background="#EDE9FE" CornerRadius="8" Padding="8,4">
-                                    <TextBlock Text="3 — Только B" FontSize="12" Foreground="#5B21B6"/>
+                                    <TextBlock Text="3 — Только B" FontSize="14" Foreground="#5B21B6"/>
                                 </Border>
                                 <Border Margin="3" Background="#EDE9FE" CornerRadius="8" Padding="8,4">
-                                    <TextBlock Text="4 — Вне множеств" FontSize="12" Foreground="#5B21B6"/>
+                                    <TextBlock Text="4 — Вне множеств" FontSize="14" Foreground="#5B21B6"/>
                                 </Border>
                             </WrapPanel>
                         </StackPanel>
@@ -148,7 +148,7 @@
                             CornerRadius="14" Padding="16" HorizontalAlignment="Center"
                             IsVisible="{Binding ShowFallback3Set}">
                         <StackPanel Spacing="8">
-                            <TextBlock Text="Диаграмма" FontSize="13" Foreground="#6E6785"
+                            <TextBlock Text="Диаграмма" FontSize="14" Foreground="#6E6785"
                                        HorizontalAlignment="Center"/>
                             <Canvas Width="520" Height="400">
                                 <!-- Circle A -->
@@ -169,35 +169,35 @@
                                            FontSize="20" FontWeight="SemiBold" Foreground="#5B21B6"/>
                                 <!-- Region numbers -->
                                 <Border Canvas.Left="82" Canvas.Top="128" Background="#7C3AED" CornerRadius="12" Width="28" Height="28">
-                                    <TextBlock Text="1" FontSize="13" FontWeight="Bold" Foreground="White"
+                                    <TextBlock Text="1" FontSize="14" FontWeight="Bold" Foreground="White"
                                                HorizontalAlignment="Center" VerticalAlignment="Center"/>
                                 </Border>
                                 <Border Canvas.Left="242" Canvas.Top="63" Background="#7C3AED" CornerRadius="12" Width="28" Height="28">
-                                    <TextBlock Text="2" FontSize="13" FontWeight="Bold" Foreground="White"
+                                    <TextBlock Text="2" FontSize="14" FontWeight="Bold" Foreground="White"
                                                HorizontalAlignment="Center" VerticalAlignment="Center"/>
                                 </Border>
                                 <Border Canvas.Left="398" Canvas.Top="128" Background="#7C3AED" CornerRadius="12" Width="28" Height="28">
-                                    <TextBlock Text="3" FontSize="13" FontWeight="Bold" Foreground="White"
+                                    <TextBlock Text="3" FontSize="14" FontWeight="Bold" Foreground="White"
                                                HorizontalAlignment="Center" VerticalAlignment="Center"/>
                                 </Border>
                                 <Border Canvas.Left="140" Canvas.Top="268" Background="#7C3AED" CornerRadius="12" Width="28" Height="28">
-                                    <TextBlock Text="4" FontSize="13" FontWeight="Bold" Foreground="White"
+                                    <TextBlock Text="4" FontSize="14" FontWeight="Bold" Foreground="White"
                                                HorizontalAlignment="Center" VerticalAlignment="Center"/>
                                 </Border>
                                 <Border Canvas.Left="242" Canvas.Top="220" Background="#7C3AED" CornerRadius="12" Width="28" Height="28">
-                                    <TextBlock Text="5" FontSize="13" FontWeight="Bold" Foreground="White"
+                                    <TextBlock Text="5" FontSize="14" FontWeight="Bold" Foreground="White"
                                                HorizontalAlignment="Center" VerticalAlignment="Center"/>
                                 </Border>
                                 <Border Canvas.Left="350" Canvas.Top="268" Background="#7C3AED" CornerRadius="12" Width="28" Height="28">
-                                    <TextBlock Text="6" FontSize="13" FontWeight="Bold" Foreground="White"
+                                    <TextBlock Text="6" FontSize="14" FontWeight="Bold" Foreground="White"
                                                HorizontalAlignment="Center" VerticalAlignment="Center"/>
                                 </Border>
                                 <Border Canvas.Left="242" Canvas.Top="348" Background="#7C3AED" CornerRadius="12" Width="28" Height="28">
-                                    <TextBlock Text="7" FontSize="13" FontWeight="Bold" Foreground="White"
+                                    <TextBlock Text="7" FontSize="14" FontWeight="Bold" Foreground="White"
                                                HorizontalAlignment="Center" VerticalAlignment="Center"/>
                                 </Border>
                                 <Border Canvas.Left="10" Canvas.Top="10" Background="#5B21B6" CornerRadius="12" Width="28" Height="28">
-                                    <TextBlock Text="8" FontSize="13" FontWeight="Bold" Foreground="White"
+                                    <TextBlock Text="8" FontSize="14" FontWeight="Bold" Foreground="White"
                                                HorizontalAlignment="Center" VerticalAlignment="Center"/>
                                 </Border>
                             </Canvas>

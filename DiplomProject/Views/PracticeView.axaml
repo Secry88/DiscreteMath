@@ -53,7 +53,7 @@
                     <Border Background="White" BorderBrush="#D9C9F2" BorderThickness="1"
                             CornerRadius="14" Padding="18,14">
                         <StackPanel Spacing="10">
-                            <TextBlock Text="Данные множества:" FontSize="13"
+                            <TextBlock Text="Данные множества:" FontSize="14"
                                        Foreground="#6B5B95" FontWeight="SemiBold"/>
                             <WrapPanel>
                                 <Border Margin="0,0,12,8" Background="#EDE9FE"
@@ -149,10 +149,10 @@
                         <StackPanel Spacing="4">
                             <TextBlock Text="Подсказка по операциям" FontSize="15"
                                        FontWeight="SemiBold" Foreground="#2B2142"/>
-                            <TextBlock Text="A ∪ B — все элементы из A и B." FontSize="13" Foreground="#5D5573"/>
-                            <TextBlock Text="A ∩ B — элементы, которые есть и в A, и в B." FontSize="13" Foreground="#5D5573"/>
-                            <TextBlock Text="A \ B — элементы из A, которых нет в B." FontSize="13" Foreground="#5D5573"/>
-                            <TextBlock Text="Скобки выполняются первыми, как в математике." FontSize="13" Foreground="#5D5573"/>
+                            <TextBlock Text="A ∪ B — все элементы из A и B." FontSize="14" Foreground="#5D5573"/>
+                            <TextBlock Text="A ∩ B — элементы, которые есть и в A, и в B." FontSize="14" Foreground="#5D5573"/>
+                            <TextBlock Text="A \ B — элементы из A, которых нет в B." FontSize="14" Foreground="#5D5573"/>
+                            <TextBlock Text="Скобки выполняются первыми, как в математике." FontSize="14" Foreground="#5D5573"/>
                         </StackPanel>
                     </Border>
 

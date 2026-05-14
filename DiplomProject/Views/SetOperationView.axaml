@@ -92,7 +92,7 @@
                     <Border Background="White" BorderBrush="#CDB8F6" BorderThickness="1.4"
                             CornerRadius="14" Padding="24,14" HorizontalAlignment="Center">
                         <StackPanel Spacing="6" HorizontalAlignment="Center">
-                            <TextBlock Text="Выражение:" FontSize="13" Foreground="#6E6785"
+                            <TextBlock Text="Выражение:" FontSize="14" Foreground="#6E6785"
                                        HorizontalAlignment="Center"/>
                             <TextBlock Text="{Binding FullExpression}" FontSize="32"
                                        FontWeight="SemiBold" Foreground="#5B21B6"
@@ -109,7 +109,7 @@
                                 <TextBlock Grid.Column="0" Text="Шаговое решение"
                                            FontSize="17" FontWeight="SemiBold" Foreground="#1A1625"/>
                                 <Border Grid.Column="1" Background="#EDE9FE" CornerRadius="8" Padding="10,4">
-                                    <TextBlock Text="{Binding StepProgressText}" FontSize="13" Foreground="#5B21B6"/>
+                                    <TextBlock Text="{Binding StepProgressText}" FontSize="14" Foreground="#5B21B6"/>
                                 </Border>
                             </Grid>
 
@@ -137,7 +137,7 @@
                             <!-- Input -->
                             <StackPanel Spacing="6">
                                 <TextBlock Text="Ваш ответ (через запятую):"
-                                           FontSize="13" Foreground="#6E6785"/>
+                                           FontSize="14" Foreground="#6E6785"/>
                                 <TextBox Text="{Binding StepUserAnswer}"
                                          Watermark="{}{1,2,3}"
                                          Background="White" BorderBrush="#CDB8F6"
@@ -146,7 +146,7 @@
                                         Command="{Binding InsertEmptySetCommand}"
                                         Padding="12,6" Background="#F5F3FA"
                                         BorderBrush="#CDB8F6" BorderThickness="1"
-                                        CornerRadius="8" FontSize="13" Foreground="#6D28D9"
+                                        CornerRadius="8" FontSize="14" Foreground="#6D28D9"
                                         HorizontalAlignment="Left"/>
                             </StackPanel>
 

@@ -53,7 +53,7 @@
                        FontSize="24" FontWeight="SemiBold" Foreground="#1A1625"
                        VerticalAlignment="Center"/>
             <TextBlock Grid.Column="2" Text="{Binding StatusMessage}"
-                       FontSize="13" Foreground="#7C3AED" VerticalAlignment="Center"
+                       FontSize="14" Foreground="#7C3AED" VerticalAlignment="Center"
                        IsVisible="{Binding HasStatus}"/>
         </Grid>
 
@@ -74,14 +74,14 @@
 
                         <!-- Title -->
                         <StackPanel Spacing="6">
-                            <TextBlock Text="Заголовок" FontSize="13" Foreground="#6E6785"/>
+                            <TextBlock Text="Заголовок" FontSize="14" Foreground="#6E6785"/>
                             <TextBox Classes="field" Text="{Binding EditTitle}"
                                      Watermark="Название задания"/>
                         </StackPanel>
 
                         <!-- Description -->
                         <StackPanel Spacing="6">
-                            <TextBlock Text="Описание" FontSize="13" Foreground="#6E6785"/>
+                            <TextBlock Text="Описание" FontSize="14" Foreground="#6E6785"/>
                             <TextBox Classes="field" Text="{Binding EditDescription}"
                                      AcceptsReturn="True" Height="60"
                                      Watermark="Описание (необязательно)"/>
@@ -90,21 +90,21 @@
                         <!-- Sets -->
                         <Grid ColumnDefinitions="*,*,*,*" ColumnSpacing="10">
                             <StackPanel Grid.Column="0" Spacing="6">
-                                <TextBlock Text="Множество A" FontSize="13" Foreground="#6E6785"/>
+                                <TextBlock Text="Множество A" FontSize="14" Foreground="#6E6785"/>
                                 <TextBox Classes="field" Text="{Binding EditSetA}" Watermark="1,2,3"/>
                             </StackPanel>
                             <StackPanel Grid.Column="1" Spacing="6">
-                                <TextBlock Text="Множество B" FontSize="13" Foreground="#6E6785"/>
+                                <TextBlock Text="Множество B" FontSize="14" Foreground="#6E6785"/>
                                 <TextBox Classes="field" Text="{Binding EditSetB}" Watermark="4,5,6"/>
                             </StackPanel>
                             <StackPanel Grid.Column="2" Spacing="6">
-                                <TextBlock Text="Множество C" FontSize="13" Foreground="#6E6785"/>
+                                <TextBlock Text="Множество C" FontSize="14" Foreground="#6E6785"/>
                                 <TextBox Classes="field" Text="{Binding EditSetC}"
                                          Watermark="(для 3 множеств)"
                                          IsEnabled="{Binding IsEditingThreeSet}"/>
                             </StackPanel>
                             <StackPanel Grid.Column="3" Spacing="6">
-                                <TextBlock Text="Универсальное U" FontSize="13" Foreground="#6E6785"/>
+                                <TextBlock Text="Универсальное U" FontSize="14" Foreground="#6E6785"/>
                                 <TextBox Classes="field" Text="{Binding EditUniversalSet}" Watermark="1,...,9"/>
                             </StackPanel>
                         </Grid>
@@ -112,14 +112,14 @@
                         <!-- DiagramType + Difficulty -->
                         <Grid ColumnDefinitions="Auto,Auto,*" ColumnSpacing="24">
                             <StackPanel Grid.Column="0" Spacing="6">
-                                <TextBlock Text="Тип диаграммы" FontSize="13" Foreground="#6E6785"/>
+                                <TextBlock Text="Тип диаграммы" FontSize="14" Foreground="#6E6785"/>
                                 <ComboBox ItemsSource="{Binding DiagramTypes}"
                                           SelectedItem="{Binding EditDiagramType}"
                                           Background="White" BorderBrush="#CDB8F6"
                                           CornerRadius="8" Padding="10,8" MinWidth="120"/>
                             </StackPanel>
                             <StackPanel Grid.Column="1" Spacing="6">
-                                <TextBlock Text="Сложность" FontSize="13" Foreground="#6E6785"/>
+                                <TextBlock Text="Сложность" FontSize="14" Foreground="#6E6785"/>
                                 <ComboBox ItemsSource="{Binding Difficulties}"
                                           SelectedItem="{Binding EditDifficulty}"
                                           Background="White" BorderBrush="#CDB8F6"
@@ -134,7 +134,7 @@
                                 <TextBlock Text="Изображение диаграммы"
                                            FontSize="14" FontWeight="SemiBold" Foreground="#1A1625"/>
                                 <TextBlock Text="Прикрепите картинку с готовой пронумерованной диаграммой Эйлера-Венна."
-                                           FontSize="12" Foreground="#6E6785" TextWrapping="Wrap"/>
+                                           FontSize="14" Foreground="#6E6785" TextWrapping="Wrap"/>
 
                                 <StackPanel Orientation="Horizontal" Spacing="8">
                                     <Button Classes="primary" x:Name="SelectImageBtn"
@@ -159,7 +159,7 @@
                                 </Border>
 
                                 <TextBlock Text="Изображение не загружено"
-                                           FontSize="13" Foreground="#9CA3AF"
+                                           FontSize="14" Foreground="#9CA3AF"
                                            IsVisible="{Binding !HasEditImage}"
                                            HorizontalAlignment="Center"/>
                             </StackPanel>
@@ -177,7 +177,7 @@
                                 </Grid>
 
                                 <TextBlock Text="Для каждого элемента укажите его числовое значение и номер области на диаграмме."
-                                           FontSize="12" Foreground="#6E6785" TextWrapping="Wrap"/>
+                                           FontSize="14" Foreground="#6E6785" TextWrapping="Wrap"/>
 
                                 <!-- Elements list -->
                                 <ItemsControl ItemsSource="{Binding EditElements}">
@@ -246,19 +246,19 @@
                                                    FontWeight="SemiBold" Foreground="#1A1625"/>
                                         <StackPanel Orientation="Horizontal" Spacing="8">
                                             <TextBlock Text="{Binding SetA, StringFormat='A = \{{0}\}'}"
-                                                       FontSize="13" Foreground="#3730A3"/>
+                                                       FontSize="14" Foreground="#3730A3"/>
                                             <TextBlock Text="{Binding SetB, StringFormat='B = \{{0}\}'}"
-                                                       FontSize="13" Foreground="#3730A3"/>
+                                                       FontSize="14" Foreground="#3730A3"/>
                                             <TextBlock Text="{Binding SetC, StringFormat='C = \{{0}\}'}"
-                                                       FontSize="13" Foreground="#3730A3"/>
+                                                       FontSize="14" Foreground="#3730A3"/>
                                         </StackPanel>
                                         <StackPanel Orientation="Horizontal" Spacing="8">
                                             <TextBlock Text="{Binding DiagramType, StringFormat='Множеств: {0}'}"
-                                                       FontSize="12" Foreground="#6E6785"/>
+                                                       FontSize="14" Foreground="#6E6785"/>
                                             <TextBlock Text="{Binding Difficulty, StringFormat='Сложность: {0}'}"
-                                                       FontSize="12" Foreground="#7C3AED"/>
+                                                       FontSize="14" Foreground="#7C3AED"/>
                                             <TextBlock Text="{Binding Elements.Count, StringFormat='Элементов: {0}'}"
-                                                       FontSize="12" Foreground="#6E6785"/>
+                                                       FontSize="14" Foreground="#6E6785"/>
                                         </StackPanel>
                                     </StackPanel>
                                     <StackPanel Grid.Column="1" Orientation="Horizontal" Spacing="6"

@@ -61,7 +61,7 @@
                                    TextAlignment="Center"
                                    Foreground="#1A1625"/>
                         <TextBlock Text="{Binding GroupName}"
-                                   FontSize="13" Foreground="#6E6785"
+                                   FontSize="14" Foreground="#6E6785"
                                    HorizontalAlignment="Center" TextWrapping="Wrap"
                                    TextAlignment="Center"/>
 
@@ -102,7 +102,7 @@
                             <Border Grid.Column="0" Background="#F5F3FA" BorderBrush="#E9D5FF"
                                     BorderThickness="1" CornerRadius="14" Padding="14,12">
                                 <StackPanel Spacing="4">
-                                    <TextBlock Text="Темы изучены" FontSize="12" Foreground="#6E6785"/>
+                                    <TextBlock Text="Темы изучены" FontSize="14" Foreground="#6E6785"/>
                                     <TextBlock Text="{Binding LessonsCompletedText}"
                                                FontSize="22" FontWeight="SemiBold" Foreground="#7C3AED"/>
                                 </StackPanel>
@@ -110,7 +110,7 @@
                             <Border Grid.Column="1" Background="#F5F3FA" BorderBrush="#E9D5FF"
                                     BorderThickness="1" CornerRadius="14" Padding="14,12">
                                 <StackPanel Spacing="4">
-                                    <TextBlock Text="Тестов пройдено" FontSize="12" Foreground="#6E6785"/>
+                                    <TextBlock Text="Тестов пройдено" FontSize="14" Foreground="#6E6785"/>
                                     <TextBlock Text="{Binding TestsCompleted}"
                                                FontSize="22" FontWeight="SemiBold" Foreground="#7C3AED"/>
                                 </StackPanel>
@@ -118,7 +118,7 @@
                             <Border Grid.Column="2" Background="#F5F3FA" BorderBrush="#E9D5FF"
                                     BorderThickness="1" CornerRadius="14" Padding="14,12">
                                 <StackPanel Spacing="4">
-                                    <TextBlock Text="Средний балл" FontSize="12" Foreground="#6E6785"/>
+                                    <TextBlock Text="Средний балл" FontSize="14" Foreground="#6E6785"/>
                                     <TextBlock Text="{Binding AverageScoreText}"
                                                FontSize="22" FontWeight="SemiBold" Foreground="#7C3AED"/>
                                 </StackPanel>
@@ -148,7 +148,7 @@
                                                            FontSize="14" FontWeight="SemiBold"
                                                            Foreground="#1A1625" TextWrapping="Wrap"/>
                                                 <TextBlock Text="{Binding DateText}"
-                                                           FontSize="12" Foreground="#9CA3AF"/>
+                                                           FontSize="14" Foreground="#9CA3AF"/>
                                             </StackPanel>
                                             <TextBlock Grid.Column="1"
                                                        Text="{Binding ResultText}"

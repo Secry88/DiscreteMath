@@ -36,7 +36,7 @@
                         <TextBlock Text="🎉" FontSize="36" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                     </Border>
                     <TextBlock Text="Task Completed" FontSize="34" FontWeight="SemiBold"/>
-                    <TextBlock Text="You've finished the discrete mathematics test" FontSize="13" Foreground="#6E6785"/>
+                    <TextBlock Text="You've finished the discrete mathematics test" FontSize="14" Foreground="#6E6785"/>
                     <Border Background="#DCCAF9" CornerRadius="16" Padding="20" Width="420">
                         <StackPanel HorizontalAlignment="Center" Spacing="4">
                             <TextBlock Text="{Binding ResultPercent, StringFormat={}{0}%}" FontSize="62" Foreground="#6D28D9"/>
@@ -101,7 +101,7 @@
                         <ProgressBar Minimum="0" Maximum="100" Value="{Binding ProgressValue}" Height="8" Foreground="#8B5CF6" Background="#E9DDFE"/>
 
                         <Border Background="#DCCAF9" CornerRadius="12" Padding="20,6" HorizontalAlignment="Left">
-                            <TextBlock Text="{Binding QuestionProgress}" FontSize="13" Foreground="#4C1D95"/>
+                            <TextBlock Text="{Binding QuestionProgress}" FontSize="14" Foreground="#4C1D95"/>
                         </Border>
 
                         <TextBlock Text="{Binding CurrentQuestion.QuestionText}"

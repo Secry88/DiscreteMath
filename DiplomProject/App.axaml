@@ -20,18 +20,22 @@
         <StyleInclude Source="avares://DiscreteMath/CustomControls/MenuCardControl.axaml"/>
         <StyleInclude Source="avares://DiscreteMath/CustomControls/TheoryCategoryCardControl.axaml"/>
 
-        <!-- Manrope: глобальный шрифт для всего текста -->
+        <!-- Manrope: глобальный шрифт, Medium вес для плотности -->
         <Style Selector="TextBlock">
             <Setter Property="FontFamily" Value="{StaticResource ManropeFontFamily}"/>
+            <Setter Property="FontWeight" Value="Medium"/>
         </Style>
         <Style Selector="TextBox">
             <Setter Property="FontFamily" Value="{StaticResource ManropeFontFamily}"/>
+            <Setter Property="FontWeight" Value="Medium"/>
+            <Setter Property="FontSize" Value="15"/>
         </Style>
         <Style Selector="Button">
             <Setter Property="FontFamily" Value="{StaticResource ManropeFontFamily}"/>
+            <Setter Property="FontWeight" Value="Medium"/>
         </Style>
 
-        <!-- Syne: акцентный шрифт для всех жирных заголовков -->
+        <!-- Syne: акцентный шрифт для заголовков (SemiBold/Bold) -->
         <Style Selector="TextBlock[FontWeight=SemiBold]">
             <Setter Property="FontFamily" Value="{StaticResource SyneFontFamily}"/>
         </Style>

@@ -95,9 +95,9 @@
                                             </Border>
                                             <TextBlock Text="{Binding Title}" FontSize="19"
                                                        FontWeight="SemiBold" Foreground="#1A1625"/>
-                                            <TextBlock Text="{Binding Description}" FontSize="13"
+                                            <TextBlock Text="{Binding Description}" FontSize="14"
                                                        Foreground="#6B5B95" TextWrapping="Wrap"/>
-                                            <TextBlock Text="Открыть ›" FontSize="13" Foreground="#7C3AED"/>
+                                            <TextBlock Text="Открыть ›" FontSize="14" Foreground="#7C3AED"/>
                                         </StackPanel>
                                     </Border>
                                 </Button>
@@ -135,9 +135,9 @@
                                             </Border>
                                             <TextBlock Text="{Binding Title}" FontSize="19"
                                                        FontWeight="SemiBold" Foreground="#1A1625"/>
-                                            <TextBlock Text="{Binding Description}" FontSize="13"
+                                            <TextBlock Text="{Binding Description}" FontSize="14"
                                                        Foreground="#6B5B95" TextWrapping="Wrap"/>
-                                            <TextBlock Text="Открыть ›" FontSize="13" Foreground="#7C3AED"/>
+                                            <TextBlock Text="Открыть ›" FontSize="14" Foreground="#7C3AED"/>
                                         </StackPanel>
                                     </Border>
                                 </Button>

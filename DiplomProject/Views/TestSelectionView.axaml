@@ -50,19 +50,19 @@
                     <Border Grid.Column="0" Background="#F9F8FD" BorderBrush="#CDB8F6" BorderThickness="1.2" CornerRadius="12" Padding="10">
                         <StackPanel>
                             <TextBlock Text="{Binding AvailableTestsCount}" FontSize="18" Foreground="#4C1D95"/>
-                            <TextBlock Text="Available Tests" FontSize="12" Foreground="#6E6785"/>
+                            <TextBlock Text="Available Tests" FontSize="14" Foreground="#6E6785"/>
                         </StackPanel>
                     </Border>
                     <Border Grid.Column="1" Background="#F9F8FD" BorderBrush="#CDB8F6" BorderThickness="1.2" CornerRadius="12" Padding="10">
                         <StackPanel>
                             <TextBlock Text="{Binding CompletedCount}" FontSize="18" Foreground="#4C1D95"/>
-                            <TextBlock Text="Completed" FontSize="12" Foreground="#6E6785"/>
+                            <TextBlock Text="Completed" FontSize="14" Foreground="#6E6785"/>
                         </StackPanel>
                     </Border>
                     <Border Grid.Column="2" Background="#F9F8FD" BorderBrush="#CDB8F6" BorderThickness="1.2" CornerRadius="12" Padding="10">
                         <StackPanel>
                             <TextBlock Text="{Binding AverageScoreText}" FontSize="18" Foreground="#4C1D95"/>
-                            <TextBlock Text="Average Score" FontSize="12" Foreground="#6E6785"/>
+                            <TextBlock Text="Average Score" FontSize="14" Foreground="#6E6785"/>
                         </StackPanel>
                     </Border>
                 </Grid>
@@ -85,7 +85,7 @@
                                     <Grid ColumnDefinitions="*,Auto">
                                         <StackPanel Grid.Column="0" Spacing="2">
                                             <TextBlock Text="{Binding Title}" FontSize="23" FontWeight="SemiBold" Foreground="#151022"/>
-                                            <TextBlock Text="{Binding Description}" FontSize="13" Foreground="#6E6785" TextWrapping="Wrap"/>
+                                            <TextBlock Text="{Binding Description}" FontSize="14" Foreground="#6E6785" TextWrapping="Wrap"/>
                                         </StackPanel>
 
                                         <Border Grid.Column="1"
@@ -93,17 +93,17 @@
                                                 Classes.easy="{Binding IsEasy}"
                                                 Classes.medium="{Binding IsMedium}"
                                                 Classes.hard="{Binding IsHard}">
-                                            <TextBlock Text="{Binding DifficultyLabel}" FontSize="12"/>
+                                            <TextBlock Text="{Binding DifficultyLabel}" FontSize="14"/>
                                         </Border>
                                     </Grid>
 
-                                    <TextBlock Text="{Binding Topic}" FontSize="13" Foreground="#7C3AED"/>
+                                    <TextBlock Text="{Binding Topic}" FontSize="14" Foreground="#7C3AED"/>
 
                                     <Separator Background="#E6DDF8"/>
 
                                     <Grid ColumnDefinitions="Auto,Auto,*,Auto" VerticalAlignment="Center">
-                                        <TextBlock Grid.Column="0" Text="{Binding QuestionsCount, StringFormat={}{0} questions}" FontSize="13" Foreground="#2B2142"/>
-                                        <TextBlock Grid.Column="1" Margin="16,0,0,0" Text="{Binding DurationMinutes, StringFormat={}{0} min}" FontSize="13" Foreground="#2B2142"/>
+                                        <TextBlock Grid.Column="0" Text="{Binding QuestionsCount, StringFormat={}{0} questions}" FontSize="14" Foreground="#2B2142"/>
+                                        <TextBlock Grid.Column="1" Margin="16,0,0,0" Text="{Binding DurationMinutes, StringFormat={}{0} min}" FontSize="14" Foreground="#2B2142"/>
 
                                         <Button Grid.Column="3"
                                                 Content="{Binding StartButtonText}"

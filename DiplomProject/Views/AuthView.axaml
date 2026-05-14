@@ -55,7 +55,7 @@
 
                 <TextBlock Text="{Binding MessageError}"
                            Foreground="Red"
-                           FontSize="12"
+                           FontSize="14"
                            TextWrapping="Wrap"/>
 
                 <Button Content="Вход"
