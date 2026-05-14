@@ -1680,7 +1680,7 @@
           "build/net6.0/xunit.runner.visualstudio.props": {}
         }
       },
-      "DiplomProject/1.0.0": {
+      "DiscreteMath/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v9.0",
         "dependencies": {
@@ -1695,10 +1695,10 @@
           "Npgsql.EntityFrameworkCore.PostgreSQL": "9.0.4"
         },
         "compile": {
-          "bin/placeholder/DiplomProject.dll": {}
+          "bin/placeholder/DiscreteMath.dll": {}
         },
         "runtime": {
-          "bin/placeholder/DiplomProject.dll": {}
+          "bin/placeholder/DiscreteMath.dll": {}
         }
       }
     }
@@ -4163,7 +4163,7 @@
         "xunit.runner.visualstudio.nuspec"
       ]
     },
-    "DiplomProject/1.0.0": {
+    "DiscreteMath/1.0.0": {
       "type": "project",
       "path": "../DiplomProject/DiplomProject.csproj",
       "msbuildProject": "../DiplomProject/DiplomProject.csproj"
@@ -4171,7 +4171,7 @@
   },
   "projectFileDependencyGroups": {
     "net9.0": [
-      "DiplomProject >= 1.0.0",
+      "DiscreteMath >= 1.0.0",
       "Microsoft.NET.Test.Sdk >= 17.12.0",
       "coverlet.collector >= 6.0.2",
       "xunit >= 2.9.2",
