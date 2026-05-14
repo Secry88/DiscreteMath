@@ -1,6 +1,6 @@
-using CommunityToolkit.Mvvm.ComponentModel;
+﻿using CommunityToolkit.Mvvm.ComponentModel;
 
-namespace DiplomProject.Models
+namespace DiscreteMath.Models
 {
     public partial class TestAnswerDto : ObservableObject
     {

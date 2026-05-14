@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 
-namespace DiplomProject.Models;
+namespace DiscreteMath.Models;
 
 public partial class KarmanovContext : DbContext
 {
@@ -52,6 +52,8 @@ public partial class KarmanovContext : DbContext
     public virtual DbSet<User> Users { get; set; }
 
     public virtual DbSet<UserTestSession> UserTestSessions { get; set; }
+
+    public virtual DbSet<UserTheoryProgress> UserTheoryProgresses { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
@@ -459,6 +461,31 @@ public partial class KarmanovContext : DbContext
             entity.HasOne(d => d.User).WithMany(p => p.UserTestSessions)
                 .HasForeignKey(d => d.UserId)
                 .HasConstraintName("user_test_sessions_user_id_fkey");
+        });
+
+        modelBuilder.Entity<UserTheoryProgress>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("user_theory_progress_pkey");
+
+            entity.ToTable("user_theory_progress", "Diplom");
+
+            entity.HasIndex(e => new { e.UserId, e.TopicId }, "user_theory_progress_user_id_topic_id_key").IsUnique();
+
+            entity.Property(e => e.Id).HasColumnName("id");
+            entity.Property(e => e.CompletedAt)
+                .HasDefaultValueSql("CURRENT_TIMESTAMP")
+                .HasColumnType("timestamp without time zone")
+                .HasColumnName("completed_at");
+            entity.Property(e => e.TopicId).HasColumnName("topic_id");
+            entity.Property(e => e.UserId).HasColumnName("user_id");
+
+            entity.HasOne(d => d.Topic).WithMany(p => p.UserTheoryProgresses)
+                .HasForeignKey(d => d.TopicId)
+                .HasConstraintName("user_theory_progress_topic_id_fkey");
+
+            entity.HasOne(d => d.User).WithMany(p => p.UserTheoryProgresses)
+                .HasForeignKey(d => d.UserId)
+                .HasConstraintName("user_theory_progress_user_id_fkey");
         });
 
         OnModelCreatingPartial(modelBuilder);

@@ -1,11 +1,11 @@
-using CommunityToolkit.Mvvm.Input;
-using DiplomProject.Models;
+﻿using CommunityToolkit.Mvvm.Input;
+using DiscreteMath.Models;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.ObjectModel;
 using System.Linq;
 
-namespace DiplomProject.ViewModels
+namespace DiscreteMath.ViewModels
 {
     public partial class ResultsViewModel : ViewModelBase
     {

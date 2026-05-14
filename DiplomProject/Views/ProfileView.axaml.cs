@@ -1,11 +1,11 @@
-using Avalonia.Controls;
+﻿using Avalonia.Controls;
 using Avalonia.Interactivity;
 using Avalonia.Platform.Storage;
-using DiplomProject.ViewModels;
+using DiscreteMath.ViewModels;
 using System;
 using System.IO;
 
-namespace DiplomProject.Views;
+namespace DiscreteMath.Views;
 
 public partial class ProfileView : UserControl
 {

@@ -1,8 +1,8 @@
-using Avalonia;
+﻿using Avalonia;
 using Avalonia.Controls.Primitives;
 using System.Windows.Input;
 
-namespace DiplomProject.CustomControls;
+namespace DiscreteMath.CustomControls;
 
 public class TheoryCategoryCardControl : TemplatedControl
 {

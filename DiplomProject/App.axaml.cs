@@ -1,13 +1,13 @@
-using Avalonia;
+﻿using Avalonia;
 using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Data.Core;
 using Avalonia.Data.Core.Plugins;
 using Avalonia.Markup.Xaml;
-using DiplomProject.ViewModels;
-using DiplomProject.Views;
+using DiscreteMath.ViewModels;
+using DiscreteMath.Views;
 using System.Linq;
 
-namespace DiplomProject
+namespace DiscreteMath
 {
     public partial class App : Application
     {

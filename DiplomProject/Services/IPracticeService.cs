@@ -1,8 +1,8 @@
-using DiplomProject.Models;
+﻿using DiscreteMath.Models;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace DiplomProject.Services
+namespace DiscreteMath.Services
 {
     public interface IPracticeService
     {

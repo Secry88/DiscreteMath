@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace DiplomProject.Models;
+namespace DiscreteMath.Models;
 
 public partial class TheoryTopic
 {
@@ -16,4 +16,6 @@ public partial class TheoryTopic
     public virtual TheoryCategory Category { get; set; } = null!;
 
     public virtual ICollection<TheoryContent> TheoryContents { get; set; } = new List<TheoryContent>();
+
+    public virtual ICollection<UserTheoryProgress> UserTheoryProgresses { get; set; } = new List<UserTheoryProgress>();
 }

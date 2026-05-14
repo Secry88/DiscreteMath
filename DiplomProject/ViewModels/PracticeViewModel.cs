@@ -1,11 +1,11 @@
-using CommunityToolkit.Mvvm.ComponentModel;
+﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
-using DiplomProject.Models;
-using DiplomProject.Services;
+using DiscreteMath.Models;
+using DiscreteMath.Services;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace DiplomProject.ViewModels
+namespace DiscreteMath.ViewModels
 {
     public partial class PracticeViewModel : ViewModelBase
     {
@@ -26,6 +26,7 @@ namespace DiplomProject.ViewModels
         public IRelayCommand NextTaskCommand { get; }
         public IRelayCommand ResetCommand { get; }
         public IRelayCommand NavigateBackCommand { get; }
+        public IRelayCommand InsertEmptySetCommand { get; }
 
         public string ScoreText => $"{Score} / {Attempts}";
         public string ProgressText => $"Задача {CurrentTaskIndex + 1} из {_tasks.Count}";
@@ -50,10 +51,11 @@ namespace DiplomProject.ViewModels
 
         public PracticeViewModel()
         {
-            CheckAnswerCommand = new RelayCommand(CheckAnswer, () => CanCheck);
-            NextTaskCommand    = new RelayCommand(NextTask);
-            ResetCommand       = new RelayCommand(Reset);
+            CheckAnswerCommand  = new RelayCommand(CheckAnswer, () => CanCheck);
+            NextTaskCommand     = new RelayCommand(NextTask);
+            ResetCommand        = new RelayCommand(Reset);
             NavigateBackCommand = new RelayCommand(NavigateBack);
+            InsertEmptySetCommand = new RelayCommand(() => UserAnswer = "∅");
 
             GenerateSession();
         }

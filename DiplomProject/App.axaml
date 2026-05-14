@@ -1,8 +1,8 @@
-<Application xmlns="https://github.com/avaloniaui"
+﻿<Application xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             x:Class="DiplomProject.App"
-             xmlns:local="using:DiplomProject"
-             xmlns:conv="using:DiplomProject.Converters"
+             x:Class="DiscreteMath.App"
+             xmlns:local="using:DiscreteMath"
+             xmlns:conv="using:DiscreteMath.Converters"
              RequestedThemeVariant="Light">
              <!-- "Default" ThemeVariant follows system theme variant. "Dark" or "Light" are other available options. -->
 
@@ -16,7 +16,7 @@
   
     <Application.Styles>
         <FluentTheme />
-        <StyleInclude Source="avares://DiplomProject/CustomControls/MenuCardControl.axaml"/>
-        <StyleInclude Source="avares://DiplomProject/CustomControls/TheoryCategoryCardControl.axaml"/>
+        <StyleInclude Source="avares://DiscreteMath/CustomControls/MenuCardControl.axaml"/>
+        <StyleInclude Source="avares://DiscreteMath/CustomControls/TheoryCategoryCardControl.axaml"/>
     </Application.Styles>
 </Application>

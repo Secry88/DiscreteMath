@@ -1,12 +1,12 @@
-using CommunityToolkit.Mvvm.ComponentModel;
+﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
-using DiplomProject.Models;
-using DiplomProject.Services;
+using DiscreteMath.Models;
+using DiscreteMath.Services;
 using System.Collections.ObjectModel;
 using System.Threading.Tasks;
 using Task = System.Threading.Tasks.Task;
 
-namespace DiplomProject.ViewModels
+namespace DiscreteMath.ViewModels
 {
     public partial class TeacherPracticeViewModel : ViewModelBase
     {

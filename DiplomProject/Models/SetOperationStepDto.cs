@@ -1,4 +1,4 @@
-namespace DiplomProject.Models;
+﻿namespace DiscreteMath.Models;
 
 public class SetOperationStepDto
 {

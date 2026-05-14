@@ -1,11 +1,11 @@
-<UserControl xmlns="https://github.com/avaloniaui"
+﻿<UserControl xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="600"
-             xmlns:vm="using:DiplomProject.ViewModels"
+             xmlns:vm="using:DiscreteMath.ViewModels"
              x:DataType="vm:PracticeViewModel"
-             x:Class="DiplomProject.Views.PracticeView">
+             x:Class="DiscreteMath.Views.PracticeView">
 
     <Grid Background="#F5F5F7" RowDefinitions="Auto,*" Margin="28,18,28,24">
 
@@ -83,13 +83,19 @@
 
                     <!-- Answer input -->
                     <StackPanel Spacing="8">
-                        <TextBlock Text="Введите ответ через запятую (или ∅ если пусто):"
+                        <TextBlock Text="Введите ответ через запятую:"
                                    FontSize="14" Foreground="#6B5B95"/>
                         <TextBox Text="{Binding UserAnswer}"
                                  Watermark="Например: 1, 2, 3"
                                  FontSize="18" Padding="12"
                                  Background="White" BorderBrush="#CDB8F6"
                                  BorderThickness="1.2" CornerRadius="10"/>
+                        <Button Content="∅ Пустое множество"
+                                Command="{Binding InsertEmptySetCommand}"
+                                Padding="14,8" Background="#F5F3FA"
+                                BorderBrush="#CDB8F6" BorderThickness="1"
+                                CornerRadius="8" FontSize="14" Foreground="#6D28D9"
+                                HorizontalAlignment="Left"/>
                     </StackPanel>
 
                     <!-- Feedback -->

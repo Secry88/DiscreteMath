@@ -1,11 +1,11 @@
-<UserControl xmlns="https://github.com/avaloniaui"
+﻿<UserControl xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d" d:DesignWidth="900" d:DesignHeight="700"
-             xmlns:vm="using:DiplomProject.ViewModels"
+             xmlns:vm="using:DiscreteMath.ViewModels"
              x:DataType="vm:SetOperationViewModel"
-             x:Class="DiplomProject.Views.SetOperationView">
+             x:Class="DiscreteMath.Views.SetOperationView">
 
     <UserControl.Styles>
         <Style Selector="Border.Region">
@@ -136,12 +136,18 @@
 
                             <!-- Input -->
                             <StackPanel Spacing="6">
-                                <TextBlock Text="Ваш ответ (например: 1,2,3 или {1,2,3}):"
+                                <TextBlock Text="Ваш ответ (через запятую):"
                                            FontSize="13" Foreground="#6E6785"/>
                                 <TextBox Text="{Binding StepUserAnswer}"
                                          Watermark="{}{1,2,3}"
                                          Background="White" BorderBrush="#CDB8F6"
                                          CornerRadius="8" Padding="10,8" FontSize="16"/>
+                                <Button Content="∅ Пустое множество"
+                                        Command="{Binding InsertEmptySetCommand}"
+                                        Padding="12,6" Background="#F5F3FA"
+                                        BorderBrush="#CDB8F6" BorderThickness="1"
+                                        CornerRadius="8" FontSize="13" Foreground="#6D28D9"
+                                        HorizontalAlignment="Left"/>
                             </StackPanel>
 
                             <!-- Check button -->

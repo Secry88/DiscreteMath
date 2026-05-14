@@ -1,12 +1,12 @@
-using CommunityToolkit.Mvvm.ComponentModel;
+﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
-using DiplomProject.Models;
-using DiplomProject.Services;
+using DiscreteMath.Models;
+using DiscreteMath.Services;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 
-namespace DiplomProject.ViewModels
+namespace DiscreteMath.ViewModels
 {
     public partial class SetOperationViewModel : ViewModelBase
     {
@@ -35,6 +35,7 @@ namespace DiplomProject.ViewModels
         public IRelayCommand CheckDiagramCommand { get; }
         public IRelayCommand NextTaskCommand { get; }
         public IRelayCommand ResetCommand { get; }
+        public IRelayCommand InsertEmptySetCommand { get; }
 
         public SetOperationStepDto? CurrentStep =>
             CurrentTask?.Steps.ElementAtOrDefault(CurrentStepIndex);
@@ -82,13 +83,14 @@ namespace DiplomProject.ViewModels
         {
             _service = new SetOperationService(db);
 
-            NavigateBackCommand = new RelayCommand(NavigateBack);
-            CheckStepCommand = new RelayCommand(CheckStep, () => CanCheckStep);
-            NextStepCommand = new RelayCommand(GoToNextStep, () => CanShowNextStep);
-            ToggleRegionCommand = new RelayCommand<string>(ToggleRegion);
-            CheckDiagramCommand = new RelayCommand(CheckDiagram);
-            NextTaskCommand = new RelayCommand(NextTask);
-            ResetCommand = new RelayCommand(Reset);
+            NavigateBackCommand   = new RelayCommand(NavigateBack);
+            CheckStepCommand      = new RelayCommand(CheckStep, () => CanCheckStep);
+            NextStepCommand       = new RelayCommand(GoToNextStep, () => CanShowNextStep);
+            ToggleRegionCommand   = new RelayCommand<string>(ToggleRegion);
+            CheckDiagramCommand   = new RelayCommand(CheckDiagram);
+            NextTaskCommand       = new RelayCommand(NextTask);
+            ResetCommand          = new RelayCommand(Reset);
+            InsertEmptySetCommand = new RelayCommand(() => StepUserAnswer = "∅");
 
             LoadTasks();
         }

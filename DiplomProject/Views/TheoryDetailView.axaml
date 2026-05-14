@@ -1,24 +1,25 @@
-<UserControl xmlns="https://github.com/avaloniaui"
+﻿<UserControl xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
-             xmlns:vm="using:DiplomProject.ViewModels"
+             mc:Ignorable="d" d:DesignWidth="1000" d:DesignHeight="700"
+             xmlns:vm="using:DiscreteMath.ViewModels"
              x:DataType="vm:TheoryDetailViewModel"
-             x:Class="DiplomProject.Views.TheoryDetailView">
+             x:Class="DiscreteMath.Views.TheoryDetailView">
+
     <UserControl.Styles>
-        <Style Selector="Border.TopicItemContainer">
+        <Style Selector="Border.TopicItem">
             <Setter Property="Background" Value="White"/>
             <Setter Property="BorderBrush" Value="#E6DFF7"/>
             <Setter Property="BorderThickness" Value="1"/>
             <Setter Property="CornerRadius" Value="12"/>
         </Style>
-        <Style Selector="Border.TopicItemContainer.active">
+        <Style Selector="Border.TopicItem.active">
             <Setter Property="Background" Value="#F3EEFF"/>
             <Setter Property="BorderBrush" Value="#7C3AED"/>
             <Setter Property="BorderThickness" Value="1.4"/>
         </Style>
-        <Style Selector="Button.TopicItemButton:pointerover Border.TopicItemContainer">
+        <Style Selector="Button.TopicBtn:pointerover Border.TopicItem">
             <Setter Property="BorderBrush" Value="#B49AF1"/>
             <Setter Property="Background" Value="#FAF8FF"/>
         </Style>
@@ -32,106 +33,117 @@
                 Background="Transparent"
                 BorderThickness="0"
                 Command="{Binding NavigateBackCommand}">
-            <TextBlock Text="← Back to Dashboard"
-                       FontSize="17"
-                       Foreground="#2B2142"/>
+            <TextBlock Text="← На главную" FontSize="17" Foreground="#2B2142"/>
         </Button>
 
-        <Grid Grid.Row="1" ColumnDefinitions="360,*">
+        <Grid Grid.Row="1" ColumnDefinitions="400,*">
+
+            <!-- LEFT SIDEBAR -->
             <Border Grid.Column="0"
-                Margin="28,20,0,20"
-                Background="White"
-                BorderBrush="#E9D5FF"
-                BorderThickness="1"
-                CornerRadius="20"
-                Padding="18">
-            <Grid RowDefinitions="Auto,*">
-                <StackPanel Grid.Row="0" Spacing="8" Margin="4,4,4,16">
-                    <TextBlock Text="{Binding Title}"
-                               FontSize="30"
-                               FontWeight="SemiBold"
-                               Foreground="#1A1625"/>
-                    <TextBlock Text="{Binding Description}"
-                               FontSize="15"
-                               Foreground="#6B5B95"
-                               TextWrapping="Wrap"/>
-                </StackPanel>
+                    Margin="28,20,0,20"
+                    Background="White"
+                    BorderBrush="#E9D5FF"
+                    BorderThickness="1"
+                    CornerRadius="20"
+                    Padding="18">
+                <Grid RowDefinitions="Auto,*">
+                    <StackPanel Grid.Row="0" Spacing="6" Margin="4,4,4,14">
+                        <TextBlock Text="{Binding Title}"
+                                   FontSize="26"
+                                   FontWeight="SemiBold"
+                                   Foreground="#1A1625"
+                                   TextWrapping="Wrap"/>
+                        <TextBlock Text="{Binding Description}"
+                                   FontSize="14"
+                                   Foreground="#6B5B95"
+                                   TextWrapping="Wrap"/>
+                    </StackPanel>
 
-                <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto">
-                    <ItemsControl ItemsSource="{Binding Topics}">
-                        <ItemsControl.Styles>
-                            <Style Selector="ContentPresenter">
-                                <Setter Property="Margin" Value="0,0,0,10"/>
-                            </Style>
-                        </ItemsControl.Styles>
-                        <ItemsControl.ItemTemplate>
-                            <DataTemplate>
-                                <Button Classes="TopicItemButton"
-                                        Command="{Binding $parent[UserControl].DataContext.SelectTopicCommand}"
-                                        CommandParameter="{Binding}"
-                                        Background="Transparent"
-                                        BorderThickness="0"
-                                        Padding="0">
-                                    <Border Classes="TopicItemContainer"
-                                            Classes.active="{Binding IsSelected}"
-                                            Padding="14,12">
-                                        <TextBlock Text="{Binding Title}"
-                                                   FontSize="16"
-                                                   FontWeight="Medium"
-                                                   Foreground="#2B2142"
-                                                   TextWrapping="Wrap"/>
-                                    </Border>
-                                </Button>
-                            </DataTemplate>
-                        </ItemsControl.ItemTemplate>
-                    </ItemsControl>
-                </ScrollViewer>
-            </Grid>
-        </Border>
+                    <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto">
+                        <ItemsControl ItemsSource="{Binding Topics}">
+                            <ItemsControl.Styles>
+                                <Style Selector="ContentPresenter">
+                                    <Setter Property="Margin" Value="0,0,0,8"/>
+                                </Style>
+                            </ItemsControl.Styles>
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <Button Classes="TopicBtn"
+                                            Command="{Binding $parent[UserControl].DataContext.SelectTopicCommand}"
+                                            CommandParameter="{Binding}"
+                                            Background="Transparent"
+                                            BorderThickness="0"
+                                            Padding="0"
+                                            HorizontalAlignment="Stretch"
+                                            HorizontalContentAlignment="Stretch">
+                                        <Border Classes="TopicItem"
+                                                Classes.active="{Binding IsSelected}"
+                                                Padding="14,10">
+                                            <TextBlock Text="{Binding Title}"
+                                                       FontSize="15"
+                                                       FontWeight="Medium"
+                                                       Foreground="#2B2142"
+                                                       TextWrapping="Wrap"/>
+                                        </Border>
+                                    </Button>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+                    </ScrollViewer>
+                </Grid>
+            </Border>
 
+            <!-- RIGHT CONTENT -->
             <ScrollViewer Grid.Column="1"
-                          Margin="24,20,28,20"
+                          Margin="20,20,28,20"
                           VerticalScrollBarVisibility="Auto">
-                <StackPanel Spacing="18">
-                    <Border Background="White"
-                            BorderBrush="#E9D5FF"
-                            BorderThickness="1"
-                            CornerRadius="20"
-                            Padding="26">
-                        <StackPanel Spacing="8">
-                            <TextBlock Text="{Binding SelectedTopicTitle}"
-                                       FontSize="34"
-                                       FontWeight="SemiBold"
-                                       Foreground="#1A1625"/>
-                            <TextBlock Text="Study the theory and switch topics in the left sidebar."
-                                       FontSize="15"
-                                       Foreground="#6E6785"/>
+                <StackPanel Spacing="16">
+
+                    <!-- Topic title -->
+                    <Border Background="White" BorderBrush="#E9D5FF" BorderThickness="1"
+                            CornerRadius="20" Padding="26,20">
+                        <TextBlock Text="{Binding SelectedTopicTitle}"
+                                   FontSize="28"
+                                   FontWeight="SemiBold"
+                                   Foreground="#1A1625"
+                                   TextWrapping="Wrap"/>
+                    </Border>
+
+                    <!-- All content in one block -->
+                    <Border Background="White" BorderBrush="#E9D5FF" BorderThickness="1"
+                            CornerRadius="20" Padding="26">
+                        <TextBlock Text="{Binding SelectedTopicContent}"
+                                   FontSize="16"
+                                   LineHeight="26"
+                                   Foreground="#2B2142"
+                                   TextWrapping="Wrap"/>
+                    </Border>
+
+                    <!-- "Материал изучен" button — shown on last topic -->
+                    <Border IsVisible="{Binding IsLastTopicSelected}"
+                            Background="White" BorderBrush="#E9D5FF" BorderThickness="1"
+                            CornerRadius="20" Padding="26,20">
+                        <StackPanel Spacing="12">
+                            <TextBlock Text="Вы изучили все темы этой категории!"
+                                       FontSize="15" Foreground="#6E6785" TextWrapping="Wrap"/>
+                            <Button Content="✓ Отметить как изученное"
+                                    Command="{Binding MarkCompletedCommand}"
+                                    Padding="22,12" CornerRadius="14"
+                                    Background="#7C3AED" Foreground="White"
+                                    BorderThickness="0" FontSize="15" FontWeight="SemiBold"
+                                    HorizontalAlignment="Left"/>
+                            <!-- Confirmation message -->
+                            <Border IsVisible="{Binding ShowCompletionMessage}"
+                                    Background="#DCFCE7" CornerRadius="10" Padding="14,10">
+                                <TextBlock Text="{Binding CompletionMessage}"
+                                           FontSize="14" Foreground="#166534" FontWeight="SemiBold"/>
+                            </Border>
                         </StackPanel>
                     </Border>
 
-                    <ItemsControl ItemsSource="{Binding SelectedTopicContents}">
-                        <ItemsControl.Styles>
-                            <Style Selector="ContentPresenter">
-                                <Setter Property="Margin" Value="0,0,0,12"/>
-                            </Style>
-                        </ItemsControl.Styles>
-                        <ItemsControl.ItemTemplate>
-                            <DataTemplate>
-                                <Border Background="White"
-                                        BorderBrush="#E9D5FF"
-                                        BorderThickness="1"
-                                        CornerRadius="16"
-                                        Padding="22">
-                                    <TextBlock Text="{Binding Content}"
-                                               FontSize="17"
-                                               Foreground="#2B2142"
-                                               TextWrapping="Wrap"/>
-                                </Border>
-                            </DataTemplate>
-                        </ItemsControl.ItemTemplate>
-                    </ItemsControl>
                 </StackPanel>
             </ScrollViewer>
+
         </Grid>
     </Grid>
 </UserControl>

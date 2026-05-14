@@ -1,9 +1,9 @@
-using DiplomProject.Models;
+﻿using DiscreteMath.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace DiplomProject.Services;
+namespace DiscreteMath.Services;
 
 public class PracticeGenerator
 {

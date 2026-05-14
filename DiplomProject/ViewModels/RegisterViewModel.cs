@@ -1,10 +1,10 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
-using DiplomProject.Models;
+using DiscreteMath.Models;
 using System;
 using System.Linq;
 
-namespace DiplomProject.ViewModels
+namespace DiscreteMath.ViewModels
 {
     public partial class RegisterViewModel : ViewModelBase
     {

@@ -1,7 +1,7 @@
-using CommunityToolkit.Mvvm.ComponentModel;
+﻿using CommunityToolkit.Mvvm.ComponentModel;
 using System.Collections.Generic;
 
-namespace DiplomProject.Models
+namespace DiscreteMath.Models
 {
     public partial class TheoryTopicDto : ObservableObject
     {

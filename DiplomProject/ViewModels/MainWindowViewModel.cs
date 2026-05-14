@@ -1,8 +1,8 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
-using DiplomProject.Models;
+using DiscreteMath.Models;
 using System;
 
-namespace DiplomProject.ViewModels
+namespace DiscreteMath.ViewModels
 {
     public partial class MainWindowViewModel : ViewModelBase
     {

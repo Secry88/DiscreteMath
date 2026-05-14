@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace DiplomProject.Models;
+namespace DiscreteMath.Models;
 
 public partial class Question
 {

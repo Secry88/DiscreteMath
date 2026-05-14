@@ -1,7 +1,7 @@
-using DiplomProject.Models;
+﻿using DiscreteMath.Models;
 using System.Collections.Generic;
 
-namespace DiplomProject.Services;
+namespace DiscreteMath.Services;
 
 public interface IRegionIdentificationService
 {

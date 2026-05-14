@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
-namespace DiplomProject.Models
+namespace DiscreteMath.Models
 {
     public class MenuItem
     {

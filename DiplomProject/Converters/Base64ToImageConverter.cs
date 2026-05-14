@@ -1,10 +1,10 @@
-using Avalonia.Data.Converters;
+﻿using Avalonia.Data.Converters;
 using Avalonia.Media.Imaging;
 using System;
 using System.Globalization;
 using System.IO;
 
-namespace DiplomProject.Converters;
+namespace DiscreteMath.Converters;
 
 public class Base64ToImageConverter : IValueConverter
 {

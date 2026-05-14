@@ -1,11 +1,11 @@
-<UserControl xmlns="https://github.com/avaloniaui"
+﻿<UserControl xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d" d:DesignWidth="1200" d:DesignHeight="800"
-             xmlns:vm="using:DiplomProject.ViewModels"
+             xmlns:vm="using:DiscreteMath.ViewModels"
              x:DataType="vm:TeacherDashboardViewModel"
-             x:Class="DiplomProject.Views.TeacherDashboardView">
+             x:Class="DiscreteMath.Views.TeacherDashboardView">
 
     <Grid Background="#F5F5F7">
         <Grid RowDefinitions="Auto,*">
@@ -37,10 +37,6 @@
             <!-- CARDS AREA -->
             <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto">
                 <StackPanel Margin="40,16,40,40" Spacing="4">
-
-                    <!-- Top row label -->
-                    <TextBlock Text="Теория и проверка знаний" FontSize="13"
-                               Foreground="#9CA3AF" Margin="14,8,0,0"/>
 
                     <!-- TOP ROW: Теория, Тесты -->
                     <WrapPanel HorizontalAlignment="Center">
@@ -90,10 +86,6 @@
                         </Button>
 
                     </WrapPanel>
-
-                    <!-- Bottom row label -->
-                    <TextBlock Text="Практические задания" FontSize="13"
-                               Foreground="#9CA3AF" Margin="14,4,0,0"/>
 
                     <!-- BOTTOM ROW: Практика, Круги Эйлера, Пошаговые, Области -->
                     <WrapPanel HorizontalAlignment="Center">

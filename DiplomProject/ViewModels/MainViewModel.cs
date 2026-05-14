@@ -1,9 +1,9 @@
-using CommunityToolkit.Mvvm.Input;
-using DiplomProject.Models;
+﻿using CommunityToolkit.Mvvm.Input;
+using DiscreteMath.Models;
 using System;
 using System.Collections.ObjectModel;
 
-namespace DiplomProject.ViewModels
+namespace DiscreteMath.ViewModels
 {
     public partial class MainViewModel : ViewModelBase
     {

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace DiplomProject.Models;
+namespace DiscreteMath.Models;
 
 public partial class User
 {
@@ -26,4 +26,6 @@ public partial class User
     public virtual ICollection<TestResult> TestResults { get; set; } = new List<TestResult>();
 
     public virtual ICollection<UserTestSession> UserTestSessions { get; set; } = new List<UserTestSession>();
+
+    public virtual ICollection<UserTheoryProgress> UserTheoryProgresses { get; set; } = new List<UserTheoryProgress>();
 }

@@ -1,9 +1,9 @@
-using DiplomProject.Models;
+﻿using DiscreteMath.Models;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace DiplomProject.Services
+namespace DiscreteMath.Services
 {
     public class EulerService
     {

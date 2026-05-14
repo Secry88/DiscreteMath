@@ -1,9 +1,9 @@
 ﻿using CommunityToolkit.Mvvm.Input;
-using DiplomProject.Models;
-using DiplomProject.Services;
+using DiscreteMath.Models;
+using DiscreteMath.Services;
 using System.Collections.ObjectModel;
 
-namespace DiplomProject.ViewModels
+namespace DiscreteMath.ViewModels
 {
     public partial class TheoryCategoryViewModel : ViewModelBase
     {

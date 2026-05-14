@@ -1,11 +1,11 @@
-using DiplomProject.Models;
+﻿using DiscreteMath.Models;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using SysTask = System.Threading.Tasks.Task;
 
-namespace DiplomProject.Services
+namespace DiscreteMath.Services
 {
     public class PracticeService : IPracticeService
     {

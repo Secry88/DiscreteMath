@@ -1,7 +1,7 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
-using DiplomProject.Models;
+using DiscreteMath.Models;
 
-namespace DiplomProject.ViewModels
+namespace DiscreteMath.ViewModels
 {
     public abstract class ViewModelBase : ObservableObject
     {

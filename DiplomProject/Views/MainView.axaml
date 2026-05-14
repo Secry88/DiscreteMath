@@ -1,11 +1,11 @@
-<UserControl xmlns="https://github.com/avaloniaui"
+﻿<UserControl xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d" d:DesignWidth="1200" d:DesignHeight="800"
-             xmlns:vm="using:DiplomProject.ViewModels"
+             xmlns:vm="using:DiscreteMath.ViewModels"
              x:DataType="vm:MainViewModel"
-             x:Class="DiplomProject.Views.MainView">
+             x:Class="DiscreteMath.Views.MainView">
 
     <UserControl.Styles>
         <!-- Shared card DataTemplate styles -->
@@ -65,10 +65,6 @@
             <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto">
                 <StackPanel Margin="40,16,40,40" Spacing="4">
 
-                    <!-- Divider label top -->
-                    <TextBlock Text="Теория и проверка знаний" FontSize="13"
-                               Foreground="#9CA3AF" Margin="14,8,0,0"/>
-
                     <!-- TOP ROW: Теория, Тесты, Результаты -->
                     <ItemsControl HorizontalAlignment="Center"
                                   ItemsSource="{Binding TopMenuItems}">
@@ -108,10 +104,6 @@
                             </DataTemplate>
                         </ItemsControl.ItemTemplate>
                     </ItemsControl>
-
-                    <!-- Divider label bottom -->
-                    <TextBlock Text="Практические задания" FontSize="13"
-                               Foreground="#9CA3AF" Margin="14,4,0,0"/>
 
                     <!-- BOTTOM ROW: Практика, Круги, Пошаговые, Области, [Управление] -->
                     <ItemsControl HorizontalAlignment="Center"

@@ -1,6 +1,6 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
-namespace DiplomProject.Models
+namespace DiscreteMath.Models
 {
     public class TestQuestionDto
     {

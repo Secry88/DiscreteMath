@@ -1,9 +1,9 @@
-using DiplomProject.Models;
+﻿using DiscreteMath.Models;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Task = System.Threading.Tasks.Task;
 
-namespace DiplomProject.Services
+namespace DiscreteMath.Services
 {
     public interface ITestService
     {

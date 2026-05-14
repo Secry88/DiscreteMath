@@ -1,12 +1,12 @@
-<UserControl xmlns="https://github.com/avaloniaui"
+﻿<UserControl xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d" d:DesignWidth="900" d:DesignHeight="650"
-             xmlns:vm="using:DiplomProject.ViewModels"
-             xmlns:conv="using:DiplomProject.Converters"
+             xmlns:vm="using:DiscreteMath.ViewModels"
+             xmlns:conv="using:DiscreteMath.Converters"
              x:DataType="vm:ProfileViewModel"
-             x:Class="DiplomProject.Views.ProfileView">
+             x:Class="DiscreteMath.Views.ProfileView">
 
     <Grid Background="#F5F5F7" RowDefinitions="Auto,*" Margin="40,24,40,32">
 

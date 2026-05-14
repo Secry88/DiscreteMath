@@ -1,6 +1,6 @@
-using Avalonia.Controls;
+﻿using Avalonia.Controls;
 
-namespace DiplomProject.Views;
+namespace DiscreteMath.Views;
 
 public partial class RegionIdentificationView : UserControl
 {

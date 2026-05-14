@@ -1,10 +1,10 @@
-using Avalonia.Controls;
+﻿using Avalonia.Controls;
 using Avalonia.Controls.Templates;
-using DiplomProject.ViewModels;
+using DiscreteMath.ViewModels;
 using System;
 using System.Diagnostics.CodeAnalysis;
 
-namespace DiplomProject
+namespace DiscreteMath
 {
     /// <summary>
     /// Given a view model, returns the corresponding view if possible.

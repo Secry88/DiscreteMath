@@ -1,8 +1,8 @@
-using Avalonia;
+﻿using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Markup.Xaml;
 
-namespace DiplomProject.Views;
+namespace DiscreteMath.Views;
 
 public partial class TheoryDetailView : UserControl
 {

@@ -1,12 +1,12 @@
-using CommunityToolkit.Mvvm.ComponentModel;
+﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
-using DiplomProject.Models;
+using DiscreteMath.Models;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.ObjectModel;
 using System.Linq;
 
-namespace DiplomProject.ViewModels
+namespace DiscreteMath.ViewModels
 {
     public partial class ProfileViewModel : ViewModelBase
     {
@@ -23,7 +23,8 @@ namespace DiplomProject.ViewModels
         public int TestsCompleted { get; private set; }
         public string AverageScoreText { get; private set; } = "—";
         public int TotalTopics { get; private set; }
-        public string LessonsCompletedText => $"0 / {TotalTopics}";
+        public int CompletedTopics { get; private set; }
+        public string LessonsCompletedText => $"{CompletedTopics} / {TotalTopics}";
         public bool HasRecentTests => RecentTests.Count > 0;
         public bool HasPhoto => !string.IsNullOrEmpty(ProfileImageBase64);
 
@@ -62,6 +63,8 @@ namespace DiplomProject.ViewModels
                 : $"{(int)user.TestResults.Average(x => x.Percentage ?? 0)}%";
 
             TotalTopics = db.TheoryTopics.AsNoTracking().Count();
+            CompletedTopics = db.UserTheoryProgresses.AsNoTracking()
+                .Count(p => p.UserId == currentUserId.Value);
 
             RecentTests.Clear();
             foreach (var result in user.TestResults
@@ -78,6 +81,7 @@ namespace DiplomProject.ViewModels
 
             OnPropertyChanged(nameof(TestsCompleted));
             OnPropertyChanged(nameof(AverageScoreText));
+            OnPropertyChanged(nameof(CompletedTopics));
             OnPropertyChanged(nameof(LessonsCompletedText));
             OnPropertyChanged(nameof(HasRecentTests));
             OnPropertyChanged(nameof(HasPhoto));
