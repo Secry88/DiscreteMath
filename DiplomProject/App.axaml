@@ -1,10 +1,9 @@
-﻿<Application xmlns="https://github.com/avaloniaui"
+<Application xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              x:Class="DiscreteMath.App"
              xmlns:local="using:DiscreteMath"
              xmlns:conv="using:DiscreteMath.Converters"
              RequestedThemeVariant="Light">
-             <!-- "Default" ThemeVariant follows system theme variant. "Dark" or "Light" are other available options. -->
 
     <Application.DataTemplates>
         <local:ViewLocator/>
@@ -12,11 +11,35 @@
 
     <Application.Resources>
         <conv:Base64ToImageConverter x:Key="Base64ImageConverter"/>
+        <FontFamily x:Key="SyneFontFamily">avares://DiscreteMath/Assets/Fonts#Syne</FontFamily>
+        <FontFamily x:Key="ManropeFontFamily">avares://DiscreteMath/Assets/Fonts#Manrope</FontFamily>
     </Application.Resources>
-  
+
     <Application.Styles>
         <FluentTheme />
         <StyleInclude Source="avares://DiscreteMath/CustomControls/MenuCardControl.axaml"/>
         <StyleInclude Source="avares://DiscreteMath/CustomControls/TheoryCategoryCardControl.axaml"/>
+
+        <!-- Manrope: глобальный шрифт для всего текста -->
+        <Style Selector="TextBlock">
+            <Setter Property="FontFamily" Value="{StaticResource ManropeFontFamily}"/>
+        </Style>
+        <Style Selector="TextBox">
+            <Setter Property="FontFamily" Value="{StaticResource ManropeFontFamily}"/>
+        </Style>
+        <Style Selector="Button">
+            <Setter Property="FontFamily" Value="{StaticResource ManropeFontFamily}"/>
+        </Style>
+
+        <!-- Syne: акцентный шрифт для всех жирных заголовков -->
+        <Style Selector="TextBlock[FontWeight=SemiBold]">
+            <Setter Property="FontFamily" Value="{StaticResource SyneFontFamily}"/>
+        </Style>
+        <Style Selector="TextBlock[FontWeight=Bold]">
+            <Setter Property="FontFamily" Value="{StaticResource SyneFontFamily}"/>
+        </Style>
+        <Style Selector="TextBlock[FontWeight=ExtraBold]">
+            <Setter Property="FontFamily" Value="{StaticResource SyneFontFamily}"/>
+        </Style>
     </Application.Styles>
 </Application>
