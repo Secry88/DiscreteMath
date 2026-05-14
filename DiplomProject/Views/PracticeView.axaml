@@ -2,181 +2,154 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="600"
              xmlns:vm="using:DiplomProject.ViewModels"
              x:DataType="vm:PracticeViewModel"
              x:Class="DiplomProject.Views.PracticeView">
-    <Grid Background="#F5F5F7" RowDefinitions="Auto,*" Margin="28,18,28,24">
-        <Grid Grid.Row="0" ColumnDefinitions="*,Auto" Margin="0,0,0,18">
-            <Button Grid.Column="0"
-                    HorizontalAlignment="Left"
-                    Padding="0"
-                    Background="Transparent"
-                    BorderThickness="0"
-                    Command="{Binding NavigateBackCommand}">
-                <TextBlock Text="← Назад"
-                           FontSize="18"
-                           Foreground="#2B2142"/>
-            </Button>
 
-            <Border Grid.Column="1"
-                    Padding="20,10"
-                    CornerRadius="14"
-                    BorderBrush="#8B5CF6"
-                    BorderThickness="1.4"
-                    Background="#F9F8FD">
-                <TextBlock Text="{Binding ScoreText}"
-                           FontSize="16"
-                           Foreground="#2B2142"/>
+    <Grid Background="#F5F5F7" RowDefinitions="Auto,*" Margin="28,18,28,24">
+
+        <!-- Header -->
+        <Grid Grid.Row="0" ColumnDefinitions="*,Auto" Margin="0,0,0,18">
+            <Button Grid.Column="0" HorizontalAlignment="Left" Padding="0"
+                    Background="Transparent" BorderThickness="0"
+                    Command="{Binding NavigateBackCommand}">
+                <TextBlock Text="← Назад" FontSize="18" Foreground="#2B2142"/>
+            </Button>
+            <Border Grid.Column="1" Padding="20,10" CornerRadius="14"
+                    BorderBrush="#8B5CF6" BorderThickness="1.4" Background="#F9F8FD">
+                <TextBlock Text="{Binding ScoreText}" FontSize="16" Foreground="#2B2142"/>
             </Border>
         </Grid>
 
         <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto">
-            <Border Background="#F4F1FA"
-                    BorderBrush="#BFA9F6"
-                    BorderThickness="1.2"
-                    CornerRadius="18"
-                    Padding="26"
-                    BoxShadow="0 6 18 0 #22000000">
+            <Border Background="#F4F1FA" BorderBrush="#BFA9F6" BorderThickness="1.2"
+                    CornerRadius="18" Padding="26" BoxShadow="0 6 18 0 #22000000">
                 <StackPanel Spacing="16" HorizontalAlignment="Stretch">
+
                     <TextBlock Text="Практика по множествам"
-                               FontSize="38"
-                               FontWeight="SemiBold"
-                               HorizontalAlignment="Center"
-                               Foreground="#151022"/>
+                               FontSize="36" FontWeight="SemiBold"
+                               HorizontalAlignment="Center" Foreground="#151022"/>
 
-                    <Border Background="#E9DCF9"
-                            CornerRadius="12"
-                            Padding="14,10"
+                    <!-- Progress -->
+                    <Border Background="#E9DCF9" CornerRadius="12" Padding="14,8"
                             HorizontalAlignment="Center">
-                        <TextBlock Text="{Binding CurrentTaskProgress}"
-                                   FontSize="14"
-                                   Foreground="#3A295B"/>
+                        <TextBlock Text="{Binding ProgressText}" FontSize="14" Foreground="#3A295B"/>
                     </Border>
 
-                    <Border Background="#D9C3F5" CornerRadius="14" Padding="20,14">
-                        <TextBlock Text="{Binding CurrentTask.Condition}"
-                                   FontSize="18"
-                                   TextWrapping="Wrap"
-                                   HorizontalAlignment="Center"
-                                   Foreground="#19142A"/>
+                    <!-- Expression -->
+                    <Border Background="#D9C3F5" CornerRadius="16" Padding="22,16"
+                            HorizontalAlignment="Center">
+                        <StackPanel Spacing="6" HorizontalAlignment="Center">
+                            <TextBlock Text="Вычислите выражение:"
+                                       FontSize="14" Foreground="#5A2DC8" HorizontalAlignment="Center"/>
+                            <TextBlock Text="{Binding ExpressionDisplay}"
+                                       FontSize="34" FontWeight="SemiBold"
+                                       Foreground="#19142A" HorizontalAlignment="Center"/>
+                        </StackPanel>
                     </Border>
 
-                    <Grid ColumnDefinitions="*,Auto,*" Margin="0,8,0,2">
-                        <Border Grid.Column="0"
-                                Background="White"
-                                CornerRadius="12"
-                                BorderBrush="#D9C9F2"
-                                BorderThickness="1"
-                                Padding="16">
-                            <StackPanel>
-                                <TextBlock Text="Множество A" FontSize="14" Foreground="#6B5B95"/>
-                                <TextBlock Text="{Binding CurrentTask.SetA}" FontSize="22" FontWeight="SemiBold"/>
-                            </StackPanel>
-                        </Border>
+                    <!-- Sets display -->
+                    <Border Background="White" BorderBrush="#D9C9F2" BorderThickness="1"
+                            CornerRadius="14" Padding="18,14">
+                        <StackPanel Spacing="10">
+                            <TextBlock Text="Данные множества:" FontSize="13"
+                                       Foreground="#6B5B95" FontWeight="SemiBold"/>
+                            <WrapPanel>
+                                <Border Margin="0,0,12,8" Background="#EDE9FE"
+                                        CornerRadius="10" Padding="14,8">
+                                    <TextBlock Text="{Binding SetADisplay}" FontSize="15"
+                                               FontWeight="SemiBold" Foreground="#3730A3"/>
+                                </Border>
+                                <Border Margin="0,0,12,8" Background="#EDE9FE"
+                                        CornerRadius="10" Padding="14,8">
+                                    <TextBlock Text="{Binding SetBDisplay}" FontSize="15"
+                                               FontWeight="SemiBold" Foreground="#3730A3"/>
+                                </Border>
+                                <Border Margin="0,0,12,8" Background="#EDE9FE"
+                                        CornerRadius="10" Padding="14,8"
+                                        IsVisible="{Binding HasSetC}">
+                                    <TextBlock Text="{Binding SetCDisplay}" FontSize="15"
+                                               FontWeight="SemiBold" Foreground="#3730A3"/>
+                                </Border>
+                                <Border Margin="0,0,0,8" Background="#DDD6FE"
+                                        CornerRadius="10" Padding="14,8">
+                                    <TextBlock Text="{Binding UniversalDisplay}" FontSize="15"
+                                               FontWeight="SemiBold" Foreground="#3730A3"/>
+                                </Border>
+                            </WrapPanel>
+                        </StackPanel>
+                    </Border>
 
-                        <Border Grid.Column="1"
-                                Margin="14,0"
-                                Padding="14,10"
-                                CornerRadius="12"
-                                Background="#EFE6FF"
-                                BorderBrush="#CDB8F6"
-                                BorderThickness="1">
-                            <TextBlock Text="{Binding OperationSymbol}"
-                                       FontSize="30"
-                                       FontWeight="SemiBold"
-                                       Foreground="#5A2DC8"/>
-                        </Border>
-
-                        <Border Grid.Column="2"
-                                Background="White"
-                                CornerRadius="12"
-                                BorderBrush="#D9C9F2"
-                                BorderThickness="1"
-                                Padding="16">
-                            <StackPanel>
-                                <TextBlock Text="Множество B" FontSize="14" Foreground="#6B5B95"/>
-                                <TextBlock Text="{Binding CurrentTask.SetB}" FontSize="22" FontWeight="SemiBold"/>
-                            </StackPanel>
-                        </Border>
-                    </Grid>
-
+                    <!-- Answer input -->
                     <StackPanel Spacing="8">
-                        <TextBlock Text="Введите ответ через запятую"
-                                   FontSize="14"
-                                   Foreground="#6B5B95"/>
+                        <TextBlock Text="Введите ответ через запятую (или ∅ если пусто):"
+                                   FontSize="14" Foreground="#6B5B95"/>
                         <TextBox Text="{Binding UserAnswer}"
                                  Watermark="Например: 1, 2, 3"
-                                 FontSize="18"
-                                 Padding="12"
-                                 Background="White"
-                                 BorderBrush="#CDB8F6"
-                                 BorderThickness="1.2"
-                                 CornerRadius="10"/>
+                                 FontSize="18" Padding="12"
+                                 Background="White" BorderBrush="#CDB8F6"
+                                 BorderThickness="1.2" CornerRadius="10"/>
                     </StackPanel>
 
-                    <Border Background="#DCFCE7"
-                            CornerRadius="12"
-                            Padding="14,10"
+                    <!-- Feedback -->
+                    <Border Background="#DCFCE7" CornerRadius="12" Padding="14,10"
                             IsVisible="{Binding IsCorrectFeedback}">
-                        <TextBlock Text="{Binding FeedbackText}"
-                                   FontSize="16"
-                                   Foreground="#166534"
-                                   HorizontalAlignment="Center"/>
+                        <TextBlock Text="{Binding FeedbackText}" FontSize="16"
+                                   Foreground="#166534" HorizontalAlignment="Center"/>
                     </Border>
-
-                    <Border Background="#FEE2E2"
-                            CornerRadius="12"
-                            Padding="14,10"
+                    <Border Background="#FEE2E2" CornerRadius="12" Padding="14,10"
                             IsVisible="{Binding IsIncorrectFeedback}">
-                        <TextBlock Text="{Binding FeedbackText}"
-                                   FontSize="16"
-                                   Foreground="#991B1B"
-                                   HorizontalAlignment="Center"/>
+                        <TextBlock Text="{Binding FeedbackText}" FontSize="16"
+                                   Foreground="#991B1B" HorizontalAlignment="Center" TextWrapping="Wrap"/>
                     </Border>
 
+                    <!-- Buttons -->
                     <Grid ColumnDefinitions="*,*" ColumnSpacing="12">
-                        <Button Grid.Column="0"
-                                Content="Проверить"
+                        <Button Grid.Column="0" Content="Проверить"
                                 Command="{Binding CheckAnswerCommand}"
                                 IsEnabled="{Binding CanCheck}"
-                                Height="48"
-                                FontSize="18"
-                                FontWeight="SemiBold"
-                                Foreground="White"
-                                BorderThickness="0"
-                                CornerRadius="12"
+                                Height="48" FontSize="18" FontWeight="SemiBold"
+                                Foreground="White" BorderThickness="0" CornerRadius="12"
                                 Background="#7C3AED"/>
-
-                        <Button Grid.Column="1"
-                                Content="Следующая задача"
+                        <Button Grid.Column="1" Content="Следующая задача"
                                 Command="{Binding NextTaskCommand}"
                                 IsVisible="{Binding CanShowNext}"
-                                Height="48"
-                                FontSize="18"
-                                FontWeight="SemiBold"
-                                Foreground="White"
-                                BorderThickness="0"
-                                CornerRadius="12"
+                                Height="48" FontSize="18" FontWeight="SemiBold"
+                                Foreground="White" BorderThickness="0" CornerRadius="12"
                                 Background="#8B5CF6"/>
                     </Grid>
 
-                    <Border Background="White"
-                            CornerRadius="12"
-                            BorderBrush="#E4D7FA"
-                            BorderThickness="1"
-                            Padding="14"
-                            Margin="0,8,0,0">
-                        <StackPanel Spacing="4">
-                            <TextBlock Text="Подсказка по операциям"
-                                       FontSize="15"
-                                       FontWeight="SemiBold"
-                                       Foreground="#2B2142"/>
-                            <TextBlock Text="A ∪ B — все элементы из A и B." FontSize="13" Foreground="#5D5573"/>
-                            <TextBlock Text="A ∩ B — элементы, которые есть и в A, и в B." FontSize="13" Foreground="#5D5573"/>
-                            <TextBlock Text="A − B — элементы из A, которых нет в B." FontSize="13" Foreground="#5D5573"/>
+                    <!-- Session finished -->
+                    <Border Background="White" BorderBrush="#CDB8F6" BorderThickness="1.2"
+                            CornerRadius="16" Padding="28"
+                            IsVisible="{Binding IsSessionFinished}">
+                        <StackPanel Spacing="12" HorizontalAlignment="Center">
+                            <TextBlock Text="Сессия завершена!" FontSize="26"
+                                       FontWeight="SemiBold" Foreground="#1A1625"
+                                       HorizontalAlignment="Center"/>
+                            <TextBlock Text="{Binding ScoreText}" FontSize="20"
+                                       Foreground="#5B21B6" HorizontalAlignment="Center"/>
+                            <Button Content="Новые задачи" Command="{Binding ResetCommand}"
+                                    Width="200" Height="46" FontSize="17" FontWeight="SemiBold"
+                                    Foreground="White" BorderThickness="0" CornerRadius="12"
+                                    Background="#7C3AED"/>
                         </StackPanel>
                     </Border>
+
+                    <!-- Hints -->
+                    <Border Background="White" CornerRadius="12" BorderBrush="#E4D7FA"
+                            BorderThickness="1" Padding="14" Margin="0,8,0,0">
+                        <StackPanel Spacing="4">
+                            <TextBlock Text="Подсказка по операциям" FontSize="15"
+                                       FontWeight="SemiBold" Foreground="#2B2142"/>
+                            <TextBlock Text="A ∪ B — все элементы из A и B." FontSize="13" Foreground="#5D5573"/>
+                            <TextBlock Text="A ∩ B — элементы, которые есть и в A, и в B." FontSize="13" Foreground="#5D5573"/>
+                            <TextBlock Text="A \ B — элементы из A, которых нет в B." FontSize="13" Foreground="#5D5573"/>
+                            <TextBlock Text="Скобки выполняются первыми, как в математике." FontSize="13" Foreground="#5D5573"/>
+                        </StackPanel>
+                    </Border>
+
                 </StackPanel>
             </Border>
         </ScrollViewer>

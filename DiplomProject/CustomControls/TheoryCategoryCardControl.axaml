@@ -40,9 +40,11 @@
 							Height="200"
 							Background="White"
 							CornerRadius="24"
+							ClipToBounds="True"
 							Padding="22"
 							BorderBrush="#E9D5FF"
-							BorderThickness="1.2">
+							BorderThickness="1.2"
+							BoxShadow="0 4 14 0 #18000000">
 
 						<StackPanel Spacing="12">
 

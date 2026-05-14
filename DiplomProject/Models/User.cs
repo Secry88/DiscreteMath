@@ -17,6 +17,8 @@ public partial class User
 
     public int? GroupId { get; set; }
 
+    public string? ProfileImage { get; set; }
+
     public virtual Group? Group { get; set; }
 
     public virtual Role Role { get; set; } = null!;

@@ -60,7 +60,7 @@
 
                 <ItemsControl.ItemsPanel>
                     <ItemsPanelTemplate>
-                        <WrapPanel ItemWidth="280" ItemHeight="180"/>
+                        <WrapPanel ItemWidth="280" ItemHeight="224"/>
                     </ItemsPanelTemplate>
                 </ItemsControl.ItemsPanel>
 

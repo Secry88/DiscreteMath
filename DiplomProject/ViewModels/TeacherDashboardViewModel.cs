@@ -9,6 +9,8 @@ namespace DiplomProject.ViewModels
         public IRelayCommand ManagePracticeCommand { get; }
         public IRelayCommand ManageEulerCommand { get; }
         public IRelayCommand ManageTestsCommand { get; }
+        public IRelayCommand ManageSetOperationCommand { get; }
+        public IRelayCommand ManageRegionIdentificationCommand { get; }
 
         public TeacherDashboardViewModel()
         {
@@ -17,6 +19,8 @@ namespace DiplomProject.ViewModels
             ManagePracticeCommand = new RelayCommand(() => Navigate(new TeacherPracticeViewModel()));
             ManageEulerCommand   = new RelayCommand(() => Navigate(new TeacherEulerViewModel()));
             ManageTestsCommand   = new RelayCommand(() => Navigate(new TeacherTestsViewModel()));
+            ManageSetOperationCommand = new RelayCommand(() => Navigate(new TeacherSetOperationViewModel()));
+            ManageRegionIdentificationCommand = new RelayCommand(() => Navigate(new TeacherRegionIdentificationViewModel()));
         }
 
         private static void Navigate(ViewModelBase vm) =>

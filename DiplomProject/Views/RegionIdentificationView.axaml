@@ -1,0 +1,364 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="900" d:DesignHeight="700"
+             xmlns:vm="using:DiplomProject.ViewModels"
+             xmlns:models="using:DiplomProject.Models"
+             x:DataType="vm:RegionIdentificationViewModel"
+             x:Class="DiplomProject.Views.RegionIdentificationView">
+
+    <UserControl.Styles>
+        <Style Selector="Border.elem-correct">
+            <Setter Property="BorderBrush" Value="#4ADE80"/>
+            <Setter Property="Background" Value="#F0FDF4"/>
+        </Style>
+        <Style Selector="Border.elem-incorrect">
+            <Setter Property="BorderBrush" Value="#F87171"/>
+            <Setter Property="Background" Value="#FFF1F2"/>
+        </Style>
+    </UserControl.Styles>
+
+    <Grid Background="#F5F5F7" RowDefinitions="Auto,*" Margin="28,18,28,24">
+
+        <!-- Header -->
+        <Grid Grid.Row="0" ColumnDefinitions="*,Auto" Margin="0,0,0,18">
+            <Button Grid.Column="0" HorizontalAlignment="Left" Padding="0"
+                    Background="Transparent" BorderThickness="0"
+                    Command="{Binding NavigateBackCommand}">
+                <TextBlock Text="← Назад на главную" FontSize="17" Foreground="#2B2142"/>
+            </Button>
+            <Border Grid.Column="1" Padding="18,8" CornerRadius="12"
+                    BorderBrush="#8B5CF6" BorderThickness="1.4" Background="#F9F8FD">
+                <TextBlock Text="{Binding ScoreText}" FontSize="15" Foreground="#2B2142"/>
+            </Border>
+        </Grid>
+
+        <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto">
+            <Border Background="#F4F1FA" BorderBrush="#BFA9F6" BorderThickness="1.2"
+                    CornerRadius="18" Padding="28" BoxShadow="0 6 18 0 #22000000">
+                <StackPanel Spacing="16">
+
+                    <!-- Progress -->
+                    <Border Background="#D9C3F5" CornerRadius="12" Padding="24,6" HorizontalAlignment="Center">
+                        <TextBlock Text="{Binding TaskProgressText}" FontSize="14"
+                                   Foreground="#3A295B" HorizontalAlignment="Center"/>
+                    </Border>
+
+                    <!-- Title -->
+                    <TextBlock Text="Определите область каждого элемента"
+                               FontSize="28" FontWeight="SemiBold"
+                               HorizontalAlignment="Center" Foreground="#151022"/>
+
+                    <!-- Sets -->
+                    <WrapPanel HorizontalAlignment="Center" ItemWidth="160">
+                        <Border Margin="4" Background="#EDE9FE" CornerRadius="10" Padding="12,6">
+                            <TextBlock Text="{Binding SetADisplay}" FontSize="14" Foreground="#3730A3"/>
+                        </Border>
+                        <Border Margin="4" Background="#EDE9FE" CornerRadius="10" Padding="12,6">
+                            <TextBlock Text="{Binding SetBDisplay}" FontSize="14" Foreground="#3730A3"/>
+                        </Border>
+                        <Border Margin="4" Background="#EDE9FE" CornerRadius="10" Padding="12,6"
+                                IsVisible="{Binding HasSetC}">
+                            <TextBlock Text="{Binding SetCDisplay}" FontSize="14" Foreground="#3730A3"/>
+                        </Border>
+                        <Border Margin="4" Background="#DDD6FE" CornerRadius="10" Padding="12,6">
+                            <TextBlock Text="{Binding UniversalSetDisplay}" FontSize="14" Foreground="#3730A3"/>
+                        </Border>
+                    </WrapPanel>
+
+                    <!-- ══════ CUSTOM IMAGE (если загружено преподавателем) ══════ -->
+                    <Border Background="White" BorderBrush="#CDB8F6" BorderThickness="1.4"
+                            CornerRadius="14" Padding="16" HorizontalAlignment="Center"
+                            IsVisible="{Binding HasCustomImage}">
+                        <StackPanel Spacing="6">
+                            <TextBlock Text="Диаграмма Эйлера-Венна" FontSize="13"
+                                       Foreground="#6E6785" HorizontalAlignment="Center"/>
+                            <Image Source="{Binding DiagramImageBase64,
+                                           Converter={StaticResource Base64ImageConverter}}"
+                                   MaxHeight="380" MaxWidth="560" Stretch="Uniform"/>
+                        </StackPanel>
+                    </Border>
+
+                    <!-- ══════ 2-SET STATIC DIAGRAM (если нет картинки) ══════ -->
+                    <Border Background="White" BorderBrush="#CDB8F6" BorderThickness="1.4"
+                            CornerRadius="14" Padding="16" HorizontalAlignment="Center"
+                            IsVisible="{Binding ShowFallback2Set}">
+                        <StackPanel Spacing="8">
+                            <TextBlock Text="Диаграмма (нажмите на область для справки)"
+                                       FontSize="13" Foreground="#6E6785" HorizontalAlignment="Center"/>
+                            <Canvas Width="480" Height="300">
+                                <!-- Circle A -->
+                                <Ellipse Width="220" Height="220" Stroke="#8B5CF6" StrokeThickness="2"
+                                         Fill="#F5F0FF" Canvas.Left="60" Canvas.Top="50"/>
+                                <!-- Circle B -->
+                                <Ellipse Width="220" Height="220" Stroke="#8B5CF6" StrokeThickness="2"
+                                         Fill="#F5F0FF" Canvas.Left="200" Canvas.Top="50"/>
+                                <!-- Labels -->
+                                <TextBlock Canvas.Left="108" Canvas.Top="62" Text="A"
+                                           FontSize="20" FontWeight="SemiBold" Foreground="#5B21B6"/>
+                                <TextBlock Canvas.Left="348" Canvas.Top="62" Text="B"
+                                           FontSize="20" FontWeight="SemiBold" Foreground="#5B21B6"/>
+                                <!-- Region numbers -->
+                                <Border Canvas.Left="105" Canvas.Top="145"
+                                        Background="#7C3AED" CornerRadius="12" Width="30" Height="30">
+                                    <TextBlock Text="1" FontSize="14" FontWeight="Bold"
+                                               Foreground="White" HorizontalAlignment="Center"
+                                               VerticalAlignment="Center"/>
+                                </Border>
+                                <Border Canvas.Left="223" Canvas.Top="145"
+                                        Background="#7C3AED" CornerRadius="12" Width="30" Height="30">
+                                    <TextBlock Text="2" FontSize="14" FontWeight="Bold"
+                                               Foreground="White" HorizontalAlignment="Center"
+                                               VerticalAlignment="Center"/>
+                                </Border>
+                                <Border Canvas.Left="340" Canvas.Top="145"
+                                        Background="#7C3AED" CornerRadius="12" Width="30" Height="30">
+                                    <TextBlock Text="3" FontSize="14" FontWeight="Bold"
+                                               Foreground="White" HorizontalAlignment="Center"
+                                               VerticalAlignment="Center"/>
+                                </Border>
+                                <Border Canvas.Left="10" Canvas.Top="10"
+                                        Background="#5B21B6" CornerRadius="12" Width="30" Height="30">
+                                    <TextBlock Text="4" FontSize="14" FontWeight="Bold"
+                                               Foreground="White" HorizontalAlignment="Center"
+                                               VerticalAlignment="Center"/>
+                                </Border>
+                            </Canvas>
+                            <!-- Legend -->
+                            <WrapPanel HorizontalAlignment="Center">
+                                <Border Margin="3" Background="#EDE9FE" CornerRadius="8" Padding="8,4">
+                                    <TextBlock Text="1 — Только A" FontSize="12" Foreground="#5B21B6"/>
+                                </Border>
+                                <Border Margin="3" Background="#EDE9FE" CornerRadius="8" Padding="8,4">
+                                    <TextBlock Text="2 — A ∩ B" FontSize="12" Foreground="#5B21B6"/>
+                                </Border>
+                                <Border Margin="3" Background="#EDE9FE" CornerRadius="8" Padding="8,4">
+                                    <TextBlock Text="3 — Только B" FontSize="12" Foreground="#5B21B6"/>
+                                </Border>
+                                <Border Margin="3" Background="#EDE9FE" CornerRadius="8" Padding="8,4">
+                                    <TextBlock Text="4 — Вне множеств" FontSize="12" Foreground="#5B21B6"/>
+                                </Border>
+                            </WrapPanel>
+                        </StackPanel>
+                    </Border>
+
+                    <!-- ══════ 3-SET STATIC DIAGRAM (если нет картинки) ══════ -->
+                    <Border Background="White" BorderBrush="#CDB8F6" BorderThickness="1.4"
+                            CornerRadius="14" Padding="16" HorizontalAlignment="Center"
+                            IsVisible="{Binding ShowFallback3Set}">
+                        <StackPanel Spacing="8">
+                            <TextBlock Text="Диаграмма" FontSize="13" Foreground="#6E6785"
+                                       HorizontalAlignment="Center"/>
+                            <Canvas Width="520" Height="400">
+                                <!-- Circle A -->
+                                <Ellipse Width="230" Height="230" Stroke="#8B5CF6" StrokeThickness="2"
+                                         Fill="#F5F0FF" Canvas.Left="50" Canvas.Top="40"/>
+                                <!-- Circle B -->
+                                <Ellipse Width="230" Height="230" Stroke="#8B5CF6" StrokeThickness="2"
+                                         Fill="#F5F0FF" Canvas.Left="240" Canvas.Top="40"/>
+                                <!-- Circle C -->
+                                <Ellipse Width="230" Height="230" Stroke="#8B5CF6" StrokeThickness="2"
+                                         Fill="#F5F0FF" Canvas.Left="145" Canvas.Top="165"/>
+                                <!-- Labels -->
+                                <TextBlock Canvas.Left="100" Canvas.Top="52" Text="A"
+                                           FontSize="20" FontWeight="SemiBold" Foreground="#5B21B6"/>
+                                <TextBlock Canvas.Left="388" Canvas.Top="52" Text="B"
+                                           FontSize="20" FontWeight="SemiBold" Foreground="#5B21B6"/>
+                                <TextBlock Canvas.Left="254" Canvas.Top="378" Text="C"
+                                           FontSize="20" FontWeight="SemiBold" Foreground="#5B21B6"/>
+                                <!-- Region numbers -->
+                                <Border Canvas.Left="82" Canvas.Top="128" Background="#7C3AED" CornerRadius="12" Width="28" Height="28">
+                                    <TextBlock Text="1" FontSize="13" FontWeight="Bold" Foreground="White"
+                                               HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                </Border>
+                                <Border Canvas.Left="242" Canvas.Top="63" Background="#7C3AED" CornerRadius="12" Width="28" Height="28">
+                                    <TextBlock Text="2" FontSize="13" FontWeight="Bold" Foreground="White"
+                                               HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                </Border>
+                                <Border Canvas.Left="398" Canvas.Top="128" Background="#7C3AED" CornerRadius="12" Width="28" Height="28">
+                                    <TextBlock Text="3" FontSize="13" FontWeight="Bold" Foreground="White"
+                                               HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                </Border>
+                                <Border Canvas.Left="140" Canvas.Top="268" Background="#7C3AED" CornerRadius="12" Width="28" Height="28">
+                                    <TextBlock Text="4" FontSize="13" FontWeight="Bold" Foreground="White"
+                                               HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                </Border>
+                                <Border Canvas.Left="242" Canvas.Top="220" Background="#7C3AED" CornerRadius="12" Width="28" Height="28">
+                                    <TextBlock Text="5" FontSize="13" FontWeight="Bold" Foreground="White"
+                                               HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                </Border>
+                                <Border Canvas.Left="350" Canvas.Top="268" Background="#7C3AED" CornerRadius="12" Width="28" Height="28">
+                                    <TextBlock Text="6" FontSize="13" FontWeight="Bold" Foreground="White"
+                                               HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                </Border>
+                                <Border Canvas.Left="242" Canvas.Top="348" Background="#7C3AED" CornerRadius="12" Width="28" Height="28">
+                                    <TextBlock Text="7" FontSize="13" FontWeight="Bold" Foreground="White"
+                                               HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                </Border>
+                                <Border Canvas.Left="10" Canvas.Top="10" Background="#5B21B6" CornerRadius="12" Width="28" Height="28">
+                                    <TextBlock Text="8" FontSize="13" FontWeight="Bold" Foreground="White"
+                                               HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                </Border>
+                            </Canvas>
+                            <!-- Legend -->
+                            <WrapPanel HorizontalAlignment="Center">
+                                <Border Margin="3" Background="#EDE9FE" CornerRadius="8" Padding="8,4">
+                                    <TextBlock Text="1 — Только A" FontSize="11" Foreground="#5B21B6"/>
+                                </Border>
+                                <Border Margin="3" Background="#EDE9FE" CornerRadius="8" Padding="8,4">
+                                    <TextBlock Text="2 — A ∩ B (не C)" FontSize="11" Foreground="#5B21B6"/>
+                                </Border>
+                                <Border Margin="3" Background="#EDE9FE" CornerRadius="8" Padding="8,4">
+                                    <TextBlock Text="3 — Только B" FontSize="11" Foreground="#5B21B6"/>
+                                </Border>
+                                <Border Margin="3" Background="#EDE9FE" CornerRadius="8" Padding="8,4">
+                                    <TextBlock Text="4 — A ∩ C (не B)" FontSize="11" Foreground="#5B21B6"/>
+                                </Border>
+                                <Border Margin="3" Background="#EDE9FE" CornerRadius="8" Padding="8,4">
+                                    <TextBlock Text="5 — A ∩ B ∩ C" FontSize="11" Foreground="#5B21B6"/>
+                                </Border>
+                                <Border Margin="3" Background="#EDE9FE" CornerRadius="8" Padding="8,4">
+                                    <TextBlock Text="6 — B ∩ C (не A)" FontSize="11" Foreground="#5B21B6"/>
+                                </Border>
+                                <Border Margin="3" Background="#EDE9FE" CornerRadius="8" Padding="8,4">
+                                    <TextBlock Text="7 — Только C" FontSize="11" Foreground="#5B21B6"/>
+                                </Border>
+                                <Border Margin="3" Background="#EDE9FE" CornerRadius="8" Padding="8,4">
+                                    <TextBlock Text="8 — Вне множеств" FontSize="11" Foreground="#5B21B6"/>
+                                </Border>
+                            </WrapPanel>
+                        </StackPanel>
+                    </Border>
+
+                    <!-- ══════ ELEMENTS LIST ══════ -->
+                    <Border Background="White" BorderBrush="#CDB8F6" BorderThickness="1.2"
+                            CornerRadius="16" Padding="18">
+                        <StackPanel Spacing="10">
+                            <TextBlock Text="Для каждого элемента выберите область диаграммы:"
+                                       FontSize="15" FontWeight="SemiBold" Foreground="#1A1625"/>
+
+                            <ItemsControl ItemsSource="{Binding CurrentElements}">
+                                <ItemsControl.Styles>
+                                    <Style Selector="ContentPresenter">
+                                        <Setter Property="Margin" Value="0,4"/>
+                                    </Style>
+                                </ItemsControl.Styles>
+                                <ItemsControl.ItemTemplate>
+                                    <DataTemplate x:DataType="models:RegionIdentificationElementDto">
+                                        <Border CornerRadius="10" Padding="12,8"
+                                                BorderBrush="#CDB8F6" Background="#F9F8FD"
+                                                BorderThickness="1.2"
+                                                Classes.elem-correct="{Binding IsFeedbackCorrect}"
+                                                Classes.elem-incorrect="{Binding IsFeedbackIncorrect}">
+                                            <Grid ColumnDefinitions="Auto,*,Auto">
+                                                <!-- Element value badge -->
+                                                <Border Grid.Column="0" Width="44" Height="44"
+                                                        Background="#7C3AED" CornerRadius="12"
+                                                        VerticalAlignment="Center" Margin="0,0,12,0">
+                                                    <TextBlock Text="{Binding ElementValue}"
+                                                               FontSize="18" FontWeight="Bold"
+                                                               Foreground="White"
+                                                               HorizontalAlignment="Center"
+                                                               VerticalAlignment="Center"/>
+                                                </Border>
+                                                <!-- ComboBox (номер области) -->
+                                                <ComboBox Grid.Column="1"
+                                                          ItemsSource="{Binding $parent[UserControl].DataContext.AvailableRegionNumbers}"
+                                                          SelectedItem="{Binding SelectedRegionNumber}"
+                                                          Background="White" BorderBrush="#CDB8F6"
+                                                          CornerRadius="8" Padding="10,6"
+                                                          VerticalAlignment="Center"
+                                                          PlaceholderText="Номер области..."/>
+                                                <!-- Feedback icon -->
+                                                <Panel Grid.Column="2" Width="36" Margin="8,0,0,0"
+                                                       VerticalAlignment="Center">
+                                                    <Border Background="#DCFCE7" CornerRadius="10"
+                                                            Width="36" Height="36"
+                                                            IsVisible="{Binding IsFeedbackCorrect}">
+                                                        <TextBlock Text="✓" FontSize="18"
+                                                                   Foreground="#166534"
+                                                                   HorizontalAlignment="Center"
+                                                                   VerticalAlignment="Center"/>
+                                                    </Border>
+                                                    <Border Background="#FEE2E2" CornerRadius="10"
+                                                            Width="36" Height="36"
+                                                            IsVisible="{Binding IsFeedbackIncorrect}">
+                                                        <TextBlock Text="✗" FontSize="18"
+                                                                   Foreground="#991B1B"
+                                                                   HorizontalAlignment="Center"
+                                                                   VerticalAlignment="Center"/>
+                                                    </Border>
+                                                </Panel>
+                                            </Grid>
+                                        </Border>
+                                    </DataTemplate>
+                                </ItemsControl.ItemTemplate>
+                            </ItemsControl>
+
+                            <!-- Status -->
+                            <Border Background="#EDE9FE" CornerRadius="10" Padding="14,8"
+                                    IsVisible="{Binding IsChecked}">
+                                <TextBlock Text="{Binding StatusText}" FontSize="15"
+                                           FontWeight="SemiBold" Foreground="#5B21B6"
+                                           HorizontalAlignment="Center"/>
+                            </Border>
+
+                            <!-- Check button -->
+                            <Button Content="Проверить все ответы"
+                                    Command="{Binding CheckAnswersCommand}"
+                                    IsVisible="{Binding !IsChecked}"
+                                    Height="46" FontSize="16" FontWeight="SemiBold"
+                                    Foreground="White" BorderThickness="0" CornerRadius="12">
+                                <Button.Background>
+                                    <LinearGradientBrush StartPoint="0%,0%" EndPoint="100%,0%">
+                                        <GradientStop Color="#7C3AED" Offset="0"/>
+                                        <GradientStop Color="#9A7CF1" Offset="1"/>
+                                    </LinearGradientBrush>
+                                </Button.Background>
+                            </Button>
+
+                            <!-- Next task button -->
+                            <Button Content="Следующая задача →"
+                                    Command="{Binding NextTaskCommand}"
+                                    IsVisible="{Binding IsChecked}"
+                                    Height="46" FontSize="16" FontWeight="SemiBold"
+                                    Foreground="White" BorderThickness="0" CornerRadius="12">
+                                <Button.Background>
+                                    <LinearGradientBrush StartPoint="0%,0%" EndPoint="100%,0%">
+                                        <GradientStop Color="#7C3AED" Offset="0"/>
+                                        <GradientStop Color="#9A7CF1" Offset="1"/>
+                                    </LinearGradientBrush>
+                                </Button.Background>
+                            </Button>
+                        </StackPanel>
+                    </Border>
+
+                    <!-- Session finished -->
+                    <Border Background="White" BorderBrush="#CDB8F6" BorderThickness="1.2"
+                            CornerRadius="16" Padding="32"
+                            IsVisible="{Binding IsSessionFinished}">
+                        <StackPanel Spacing="14" HorizontalAlignment="Center">
+                            <TextBlock Text="Все задачи выполнены!" FontSize="26"
+                                       FontWeight="SemiBold" Foreground="#1A1625"
+                                       HorizontalAlignment="Center"/>
+                            <TextBlock Text="{Binding ScoreText}" FontSize="20"
+                                       Foreground="#5B21B6" HorizontalAlignment="Center"/>
+                            <Button Content="Начать заново" Command="{Binding ResetCommand}"
+                                    Width="220" Height="46" FontSize="17" FontWeight="SemiBold"
+                                    Foreground="White" BorderThickness="0" CornerRadius="12">
+                                <Button.Background>
+                                    <LinearGradientBrush StartPoint="0%,0%" EndPoint="100%,0%">
+                                        <GradientStop Color="#7C3AED" Offset="0"/>
+                                        <GradientStop Color="#9A7CF1" Offset="1"/>
+                                    </LinearGradientBrush>
+                                </Button.Background>
+                            </Button>
+                        </StackPanel>
+                    </Border>
+
+                </StackPanel>
+            </Border>
+        </ScrollViewer>
+    </Grid>
+</UserControl>

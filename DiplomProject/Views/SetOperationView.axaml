@@ -1,0 +1,392 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="900" d:DesignHeight="700"
+             xmlns:vm="using:DiplomProject.ViewModels"
+             x:DataType="vm:SetOperationViewModel"
+             x:Class="DiplomProject.Views.SetOperationView">
+
+    <UserControl.Styles>
+        <Style Selector="Border.Region">
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="CornerRadius" Value="100"/>
+        </Style>
+        <Style Selector="Border.Region.selected">
+            <Setter Property="Background" Value="#66CDB6FF"/>
+            <Setter Property="BorderBrush" Value="#8B5CF6"/>
+            <Setter Property="BorderThickness" Value="2"/>
+        </Style>
+        <Style Selector="Button.RegionButton:pointerover Border.Region">
+            <Setter Property="Background" Value="#33CDB6FF"/>
+        </Style>
+        <Style Selector="Button.OutsideBtn">
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Padding" Value="0"/>
+        </Style>
+        <Style Selector="Border.OutsideRegion">
+            <Setter Property="Background" Value="#F3F0FB"/>
+            <Setter Property="BorderBrush" Value="#CDB8F6"/>
+            <Setter Property="BorderThickness" Value="1.4"/>
+            <Setter Property="CornerRadius" Value="12"/>
+            <Setter Property="Padding" Value="18,10"/>
+        </Style>
+        <Style Selector="Border.OutsideRegion.selected">
+            <Setter Property="Background" Value="#66CDB6FF"/>
+            <Setter Property="BorderBrush" Value="#8B5CF6"/>
+            <Setter Property="BorderThickness" Value="2"/>
+        </Style>
+    </UserControl.Styles>
+
+    <Grid Background="#F5F5F7" RowDefinitions="Auto,*" Margin="28,18,28,24">
+
+        <!-- Header -->
+        <Grid Grid.Row="0" ColumnDefinitions="*,Auto" Margin="0,0,0,18">
+            <Button Grid.Column="0" HorizontalAlignment="Left" Padding="0"
+                    Background="Transparent" BorderThickness="0"
+                    Command="{Binding NavigateBackCommand}">
+                <TextBlock Text="← Назад на главную" FontSize="17" Foreground="#2B2142"/>
+            </Button>
+            <Border Grid.Column="1" Padding="18,8" CornerRadius="12"
+                    BorderBrush="#8B5CF6" BorderThickness="1.4" Background="#F9F8FD">
+                <TextBlock Text="{Binding ScoreText}" FontSize="15" Foreground="#2B2142"/>
+            </Border>
+        </Grid>
+
+        <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto">
+            <Border Background="#F4F1FA" BorderBrush="#BFA9F6" BorderThickness="1.2"
+                    CornerRadius="18" Padding="28" BoxShadow="0 6 18 0 #22000000">
+                <StackPanel Spacing="16">
+
+                    <!-- Progress -->
+                    <Border Background="#D9C3F5" CornerRadius="12" Padding="24,6" HorizontalAlignment="Center">
+                        <TextBlock Text="{Binding TaskProgressText}" FontSize="14"
+                                   Foreground="#3A295B" HorizontalAlignment="Center"/>
+                    </Border>
+
+                    <!-- Title -->
+                    <TextBlock Text="Пошаговые операции над множествами"
+                               FontSize="28" FontWeight="SemiBold"
+                               HorizontalAlignment="Center" Foreground="#151022"/>
+
+                    <!-- Sets display (above expression) -->
+                    <WrapPanel HorizontalAlignment="Center">
+                        <Border Margin="6,4" Background="#EDE9FE" CornerRadius="10" Padding="16,8">
+                            <TextBlock Text="{Binding SetADisplay}" FontSize="16" Foreground="#3730A3" FontWeight="SemiBold"/>
+                        </Border>
+                        <Border Margin="6,4" Background="#EDE9FE" CornerRadius="10" Padding="16,8">
+                            <TextBlock Text="{Binding SetBDisplay}" FontSize="16" Foreground="#3730A3" FontWeight="SemiBold"/>
+                        </Border>
+                        <Border Margin="6,4" Background="#EDE9FE" CornerRadius="10" Padding="16,8"
+                                IsVisible="{Binding HasSetC}">
+                            <TextBlock Text="{Binding SetCDisplay}" FontSize="16" Foreground="#3730A3" FontWeight="SemiBold"/>
+                        </Border>
+                        <Border Margin="6,4" Background="#DDD6FE" CornerRadius="10" Padding="16,8">
+                            <TextBlock Text="{Binding UniversalSetDisplay}" FontSize="16" Foreground="#3730A3" FontWeight="SemiBold"/>
+                        </Border>
+                    </WrapPanel>
+
+                    <!-- Expression -->
+                    <Border Background="White" BorderBrush="#CDB8F6" BorderThickness="1.4"
+                            CornerRadius="14" Padding="24,14" HorizontalAlignment="Center">
+                        <StackPanel Spacing="6" HorizontalAlignment="Center">
+                            <TextBlock Text="Выражение:" FontSize="13" Foreground="#6E6785"
+                                       HorizontalAlignment="Center"/>
+                            <TextBlock Text="{Binding FullExpression}" FontSize="32"
+                                       FontWeight="SemiBold" Foreground="#5B21B6"
+                                       HorizontalAlignment="Center"/>
+                        </StackPanel>
+                    </Border>
+
+                    <!-- ══════════════ STEP PHASE ══════════════ -->
+                    <Border Background="White" BorderBrush="#CDB8F6" BorderThickness="1.2"
+                            CornerRadius="16" Padding="22"
+                            IsVisible="{Binding IsStepPhase}">
+                        <StackPanel Spacing="14">
+                            <Grid ColumnDefinitions="*,Auto">
+                                <TextBlock Grid.Column="0" Text="Шаговое решение"
+                                           FontSize="17" FontWeight="SemiBold" Foreground="#1A1625"/>
+                                <Border Grid.Column="1" Background="#EDE9FE" CornerRadius="8" Padding="10,4">
+                                    <TextBlock Text="{Binding StepProgressText}" FontSize="13" Foreground="#5B21B6"/>
+                                </Border>
+                            </Grid>
+
+                            <!-- Step description -->
+                            <Border Background="#F9F8FD" BorderBrush="#E9D5FF" BorderThickness="1"
+                                    CornerRadius="10" Padding="14,10">
+                                <TextBlock Text="{Binding CurrentStepDescription}" FontSize="15"
+                                           Foreground="#2B2142" TextWrapping="Wrap"/>
+                            </Border>
+
+                            <!-- Expression to compute -->
+                            <Border Background="#EDE9FE" CornerRadius="10" Padding="14,10" HorizontalAlignment="Center">
+                                <TextBlock Text="{Binding CurrentStepExpression}" FontSize="26"
+                                           FontWeight="SemiBold" Foreground="#5B21B6" HorizontalAlignment="Center"/>
+                            </Border>
+
+                            <!-- Previous step result -->
+                            <Border Background="#EFF6FF" BorderBrush="#BFDBFE" BorderThickness="1"
+                                    CornerRadius="10" Padding="14,10"
+                                    IsVisible="{Binding HasPrevStepResult}">
+                                <TextBlock Text="{Binding PrevStepResultText}" FontSize="14"
+                                           Foreground="#1E40AF" FontWeight="SemiBold"/>
+                            </Border>
+
+                            <!-- Input -->
+                            <StackPanel Spacing="6">
+                                <TextBlock Text="Ваш ответ (например: 1,2,3 или {1,2,3}):"
+                                           FontSize="13" Foreground="#6E6785"/>
+                                <TextBox Text="{Binding StepUserAnswer}"
+                                         Watermark="{}{1,2,3}"
+                                         Background="White" BorderBrush="#CDB8F6"
+                                         CornerRadius="8" Padding="10,8" FontSize="16"/>
+                            </StackPanel>
+
+                            <!-- Check button -->
+                            <Button Content="Проверить"
+                                    Command="{Binding CheckStepCommand}"
+                                    IsEnabled="{Binding CanCheckStep}"
+                                    Height="44" FontSize="16" FontWeight="SemiBold"
+                                    Foreground="White" BorderThickness="0" CornerRadius="12">
+                                <Button.Background>
+                                    <LinearGradientBrush StartPoint="0%,0%" EndPoint="100%,0%">
+                                        <GradientStop Color="#7C3AED" Offset="0"/>
+                                        <GradientStop Color="#9A7CF1" Offset="1"/>
+                                    </LinearGradientBrush>
+                                </Button.Background>
+                            </Button>
+
+                            <!-- Correct feedback -->
+                            <Border Background="#DCFCE7" CornerRadius="10" Padding="14,10"
+                                    IsVisible="{Binding IsStepCorrect}">
+                                <TextBlock Text="✓ Верно!" FontSize="15" Foreground="#166534"
+                                           HorizontalAlignment="Center" FontWeight="SemiBold"/>
+                            </Border>
+
+                            <!-- Incorrect feedback -->
+                            <Border Background="#FEE2E2" CornerRadius="10" Padding="14,10"
+                                    IsVisible="{Binding IsStepIncorrect}">
+                                <TextBlock Text="✗ Неверно. Попробуйте ещё раз." FontSize="15"
+                                           Foreground="#991B1B" HorizontalAlignment="Center"/>
+                            </Border>
+
+                            <!-- Next step button -->
+                            <Button Content="Следующий шаг →"
+                                    Command="{Binding NextStepCommand}"
+                                    IsVisible="{Binding CanShowNextStep}"
+                                    Height="44" FontSize="16" FontWeight="SemiBold"
+                                    Foreground="White" BorderThickness="0" CornerRadius="12">
+                                <Button.Background>
+                                    <LinearGradientBrush StartPoint="0%,0%" EndPoint="100%,0%">
+                                        <GradientStop Color="#7C3AED" Offset="0"/>
+                                        <GradientStop Color="#9A7CF1" Offset="1"/>
+                                    </LinearGradientBrush>
+                                </Button.Background>
+                            </Button>
+                        </StackPanel>
+                    </Border>
+
+                    <!-- ══════════════ DIAGRAM PHASE ══════════════ -->
+                    <Border Background="White" BorderBrush="#CDB8F6" BorderThickness="1.2"
+                            CornerRadius="16" Padding="22"
+                            IsVisible="{Binding IsDiagramPhase}">
+                        <StackPanel Spacing="14">
+                            <TextBlock Text="Выберите области диаграммы, соответствующие результату"
+                                       FontSize="15" Foreground="#2B2142" TextWrapping="Wrap"
+                                       HorizontalAlignment="Center"/>
+
+                            <!-- 2-set diagram -->
+                            <StackPanel IsVisible="{Binding IsTwoSetDiagram}" HorizontalAlignment="Center">
+                                <Canvas Width="480" Height="300">
+                                    <!-- Circles -->
+                                    <Ellipse Width="220" Height="220" Stroke="#8B5CF6" StrokeThickness="2"
+                                             Fill="Transparent" Canvas.Left="60" Canvas.Top="50"/>
+                                    <Ellipse Width="220" Height="220" Stroke="#8B5CF6" StrokeThickness="2"
+                                             Fill="Transparent" Canvas.Left="200" Canvas.Top="50"/>
+                                    <!-- Labels -->
+                                    <TextBlock Canvas.Left="108" Canvas.Top="60" Text="A"
+                                               FontSize="20" FontWeight="SemiBold" Foreground="#5B21B6"/>
+                                    <TextBlock Canvas.Left="346" Canvas.Top="60" Text="B"
+                                               FontSize="20" FontWeight="SemiBold" Foreground="#5B21B6"/>
+                                    <!-- a-only region -->
+                                    <Button Classes="RegionButton" Command="{Binding ToggleRegionCommand}"
+                                            CommandParameter="a-only" Background="Transparent"
+                                            BorderThickness="0" Padding="0" Width="108" Height="200"
+                                            Canvas.Left="72" Canvas.Top="60">
+                                        <Border Classes="Region" Classes.selected="{Binding IsAOnlySelected}"/>
+                                    </Button>
+                                    <!-- ab region -->
+                                    <Button Classes="RegionButton" Command="{Binding ToggleRegionCommand}"
+                                            CommandParameter="ab" Background="Transparent"
+                                            BorderThickness="0" Padding="0" Width="88" Height="200"
+                                            Canvas.Left="196" Canvas.Top="60">
+                                        <Border Classes="Region" Classes.selected="{Binding IsAbSelected}"/>
+                                    </Button>
+                                    <!-- b-only region -->
+                                    <Button Classes="RegionButton" Command="{Binding ToggleRegionCommand}"
+                                            CommandParameter="b-only" Background="Transparent"
+                                            BorderThickness="0" Padding="0" Width="108" Height="200"
+                                            Canvas.Left="300" Canvas.Top="60">
+                                        <Border Classes="Region" Classes.selected="{Binding IsBOnlySelected}"/>
+                                    </Button>
+                                </Canvas>
+                            </StackPanel>
+
+                            <!-- 3-set diagram -->
+                            <StackPanel IsVisible="{Binding IsThreeSetDiagram}" HorizontalAlignment="Center">
+                                <Canvas Width="520" Height="395">
+                                    <!-- Circle A -->
+                                    <Ellipse Width="230" Height="230" Stroke="#8B5CF6" StrokeThickness="2"
+                                             Fill="Transparent" Canvas.Left="50" Canvas.Top="40"/>
+                                    <!-- Circle B -->
+                                    <Ellipse Width="230" Height="230" Stroke="#8B5CF6" StrokeThickness="2"
+                                             Fill="Transparent" Canvas.Left="240" Canvas.Top="40"/>
+                                    <!-- Circle C -->
+                                    <Ellipse Width="230" Height="230" Stroke="#8B5CF6" StrokeThickness="2"
+                                             Fill="Transparent" Canvas.Left="145" Canvas.Top="165"/>
+                                    <!-- Labels -->
+                                    <TextBlock Canvas.Left="100" Canvas.Top="50" Text="A"
+                                               FontSize="20" FontWeight="SemiBold" Foreground="#5B21B6"/>
+                                    <TextBlock Canvas.Left="385" Canvas.Top="50" Text="B"
+                                               FontSize="20" FontWeight="SemiBold" Foreground="#5B21B6"/>
+                                    <TextBlock Canvas.Left="254" Canvas.Top="372" Text="C"
+                                               FontSize="20" FontWeight="SemiBold" Foreground="#5B21B6"/>
+                                    <!-- a-only -->
+                                    <Button Classes="RegionButton" Command="{Binding ToggleRegionCommand}"
+                                            CommandParameter="a-only" Background="Transparent"
+                                            BorderThickness="0" Padding="0" Width="80" Height="80"
+                                            Canvas.Left="62" Canvas.Top="88">
+                                        <Border Classes="Region" Classes.selected="{Binding IsAOnlySelected}"/>
+                                    </Button>
+                                    <!-- b-only -->
+                                    <Button Classes="RegionButton" Command="{Binding ToggleRegionCommand}"
+                                            CommandParameter="b-only" Background="Transparent"
+                                            BorderThickness="0" Padding="0" Width="80" Height="80"
+                                            Canvas.Left="380" Canvas.Top="88">
+                                        <Border Classes="Region" Classes.selected="{Binding IsBOnlySelected}"/>
+                                    </Button>
+                                    <!-- ab -->
+                                    <Button Classes="RegionButton" Command="{Binding ToggleRegionCommand}"
+                                            CommandParameter="ab" Background="Transparent"
+                                            BorderThickness="0" Padding="0" Width="90" Height="75"
+                                            Canvas.Left="218" Canvas.Top="58">
+                                        <Border Classes="Region" Classes.selected="{Binding IsAbSelected}"/>
+                                    </Button>
+                                    <!-- ac -->
+                                    <Button Classes="RegionButton" Command="{Binding ToggleRegionCommand}"
+                                            CommandParameter="ac" Background="Transparent"
+                                            BorderThickness="0" Padding="0" Width="80" Height="70"
+                                            Canvas.Left="118" Canvas.Top="258">
+                                        <Border Classes="Region" Classes.selected="{Binding IsAcSelected}"/>
+                                    </Button>
+                                    <!-- bc -->
+                                    <Button Classes="RegionButton" Command="{Binding ToggleRegionCommand}"
+                                            CommandParameter="bc" Background="Transparent"
+                                            BorderThickness="0" Padding="0" Width="80" Height="70"
+                                            Canvas.Left="328" Canvas.Top="258">
+                                        <Border Classes="Region" Classes.selected="{Binding IsBcSelected}"/>
+                                    </Button>
+                                    <!-- abc -->
+                                    <Button Classes="RegionButton" Command="{Binding ToggleRegionCommand}"
+                                            CommandParameter="abc" Background="Transparent"
+                                            BorderThickness="0" Padding="0" Width="70" Height="65"
+                                            Canvas.Left="228" Canvas.Top="210">
+                                        <Border Classes="Region" Classes.selected="{Binding IsAbcSelected}"/>
+                                    </Button>
+                                    <!-- c-only -->
+                                    <Button Classes="RegionButton" Command="{Binding ToggleRegionCommand}"
+                                            CommandParameter="c-only" Background="Transparent"
+                                            BorderThickness="0" Padding="0" Width="80" Height="50"
+                                            Canvas.Left="220" Canvas.Top="342">
+                                        <Border Classes="Region" Classes.selected="{Binding IsCOnlySelected}"/>
+                                    </Button>
+                                </Canvas>
+                            </StackPanel>
+
+                            <!-- Outside region button (shared for both diagram types) -->
+                            <Button Classes="OutsideBtn" HorizontalAlignment="Center"
+                                    Command="{Binding ToggleRegionCommand}" CommandParameter="outside">
+                                <Border Classes="OutsideRegion" Classes.selected="{Binding IsOutsideSelected}">
+                                    <StackPanel Orientation="Horizontal" Spacing="8">
+                                        <TextBlock Text="□" FontSize="16" Foreground="#5B21B6" VerticalAlignment="Center"/>
+                                        <TextBlock Text="Вне множеств (outside)" FontSize="14"
+                                                   Foreground="#2B2142" VerticalAlignment="Center"/>
+                                    </StackPanel>
+                                </Border>
+                            </Button>
+
+                            <!-- Check diagram button -->
+                            <Button Content="Проверить выбор"
+                                    Command="{Binding CheckDiagramCommand}"
+                                    Height="44" FontSize="16" FontWeight="SemiBold"
+                                    Foreground="White" BorderThickness="0" CornerRadius="12">
+                                <Button.Background>
+                                    <LinearGradientBrush StartPoint="0%,0%" EndPoint="100%,0%">
+                                        <GradientStop Color="#7C3AED" Offset="0"/>
+                                        <GradientStop Color="#9A7CF1" Offset="1"/>
+                                    </LinearGradientBrush>
+                                </Button.Background>
+                            </Button>
+
+                            <!-- Diagram correct -->
+                            <Border Background="#DCFCE7" CornerRadius="10" Padding="14,10"
+                                    IsVisible="{Binding IsDiagramCorrect}">
+                                <TextBlock Text="✓ Правильно! Вы верно определили все области."
+                                           FontSize="15" Foreground="#166534"
+                                           HorizontalAlignment="Center" FontWeight="SemiBold"/>
+                            </Border>
+
+                            <!-- Diagram incorrect -->
+                            <Border Background="#FEE2E2" CornerRadius="10" Padding="14,10"
+                                    IsVisible="{Binding IsDiagramIncorrect}">
+                                <TextBlock Text="✗ Неверно. Попробуйте выбрать другие области."
+                                           FontSize="15" Foreground="#991B1B" HorizontalAlignment="Center"/>
+                            </Border>
+
+                            <!-- Next task -->
+                            <Button Content="Следующая задача →"
+                                    Command="{Binding NextTaskCommand}"
+                                    IsVisible="{Binding IsDiagramCorrect}"
+                                    Height="44" FontSize="16" FontWeight="SemiBold"
+                                    Foreground="White" BorderThickness="0" CornerRadius="12">
+                                <Button.Background>
+                                    <LinearGradientBrush StartPoint="0%,0%" EndPoint="100%,0%">
+                                        <GradientStop Color="#7C3AED" Offset="0"/>
+                                        <GradientStop Color="#9A7CF1" Offset="1"/>
+                                    </LinearGradientBrush>
+                                </Button.Background>
+                            </Button>
+                        </StackPanel>
+                    </Border>
+
+                    <!-- ══════════════ SESSION FINISHED ══════════════ -->
+                    <Border Background="White" BorderBrush="#CDB8F6" BorderThickness="1.2"
+                            CornerRadius="16" Padding="32"
+                            IsVisible="{Binding IsSessionFinished}">
+                        <StackPanel Spacing="14" HorizontalAlignment="Center">
+                            <TextBlock Text="Сессия завершена!" FontSize="28"
+                                       FontWeight="SemiBold" Foreground="#1A1625"
+                                       HorizontalAlignment="Center"/>
+                            <TextBlock Text="{Binding ScoreText}" FontSize="20"
+                                       Foreground="#5B21B6" HorizontalAlignment="Center"/>
+                            <Button Content="Начать заново"
+                                    Command="{Binding ResetCommand}"
+                                    Width="220" Height="46" FontSize="17" FontWeight="SemiBold"
+                                    Foreground="White" BorderThickness="0" CornerRadius="12">
+                                <Button.Background>
+                                    <LinearGradientBrush StartPoint="0%,0%" EndPoint="100%,0%">
+                                        <GradientStop Color="#7C3AED" Offset="0"/>
+                                        <GradientStop Color="#9A7CF1" Offset="1"/>
+                                    </LinearGradientBrush>
+                                </Button.Background>
+                            </Button>
+                        </StackPanel>
+                    </Border>
+
+                </StackPanel>
+            </Border>
+        </ScrollViewer>
+    </Grid>
+</UserControl>

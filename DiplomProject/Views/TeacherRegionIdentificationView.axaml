@@ -1,0 +1,282 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="980" d:DesignHeight="800"
+             xmlns:vm="using:DiplomProject.ViewModels"
+             xmlns:models="using:DiplomProject.Models"
+             x:DataType="vm:TeacherRegionIdentificationViewModel"
+             x:Class="DiplomProject.Views.TeacherRegionIdentificationView">
+
+    <UserControl.Styles>
+        <Style Selector="Button.primary">
+            <Setter Property="Background" Value="#7C3AED"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="CornerRadius" Value="10"/>
+            <Setter Property="Padding" Value="14,8"/>
+            <Setter Property="FontSize" Value="13"/>
+        </Style>
+        <Style Selector="Button.secondary">
+            <Setter Property="Background" Value="#F9F8FD"/>
+            <Setter Property="Foreground" Value="#6D28D9"/>
+            <Setter Property="BorderBrush" Value="#CDB8F6"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="CornerRadius" Value="10"/>
+            <Setter Property="Padding" Value="14,8"/>
+            <Setter Property="FontSize" Value="13"/>
+        </Style>
+        <Style Selector="Button.danger">
+            <Setter Property="Background" Value="#FEE2E2"/>
+            <Setter Property="Foreground" Value="#DC2626"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="CornerRadius" Value="10"/>
+            <Setter Property="Padding" Value="10,6"/>
+            <Setter Property="FontSize" Value="13"/>
+        </Style>
+        <Style Selector="TextBox.field">
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="BorderBrush" Value="#CDB8F6"/>
+            <Setter Property="CornerRadius" Value="8"/>
+            <Setter Property="Padding" Value="10,8"/>
+            <Setter Property="FontSize" Value="14"/>
+        </Style>
+    </UserControl.Styles>
+
+    <Grid Background="#F5F5F7" RowDefinitions="Auto,*">
+
+        <!-- Header -->
+        <Grid Grid.Row="0" Margin="28,18,28,0" ColumnDefinitions="Auto,*,Auto">
+            <Button Grid.Column="0" Classes="secondary" Command="{Binding NavigateBackCommand}">← Назад</Button>
+            <TextBlock Grid.Column="1" Margin="16,0,0,0"
+                       Text="Управление: Определение областей"
+                       FontSize="24" FontWeight="SemiBold" Foreground="#1A1625"
+                       VerticalAlignment="Center"/>
+            <TextBlock Grid.Column="2" Text="{Binding StatusMessage}"
+                       FontSize="13" Foreground="#7C3AED" VerticalAlignment="Center"
+                       IsVisible="{Binding HasStatus}"/>
+        </Grid>
+
+        <ScrollViewer Grid.Row="1" Margin="28,14,28,24">
+            <StackPanel Spacing="14">
+
+                <!-- Add button -->
+                <Button Classes="primary" HorizontalAlignment="Left"
+                        Command="{Binding ShowAddFormCommand}">+ Добавить задание</Button>
+
+                <!-- Edit form -->
+                <Border Background="White" BorderBrush="#CDB8F6" BorderThickness="1.2"
+                        CornerRadius="16" Padding="18"
+                        IsVisible="{Binding IsFormVisible}">
+                    <StackPanel Spacing="12">
+                        <TextBlock Text="Редактирование задания" FontSize="16"
+                                   FontWeight="SemiBold" Foreground="#1A1625"/>
+
+                        <!-- Title -->
+                        <StackPanel Spacing="6">
+                            <TextBlock Text="Заголовок" FontSize="13" Foreground="#6E6785"/>
+                            <TextBox Classes="field" Text="{Binding EditTitle}"
+                                     Watermark="Название задания"/>
+                        </StackPanel>
+
+                        <!-- Description -->
+                        <StackPanel Spacing="6">
+                            <TextBlock Text="Описание" FontSize="13" Foreground="#6E6785"/>
+                            <TextBox Classes="field" Text="{Binding EditDescription}"
+                                     AcceptsReturn="True" Height="60"
+                                     Watermark="Описание (необязательно)"/>
+                        </StackPanel>
+
+                        <!-- Sets -->
+                        <Grid ColumnDefinitions="*,*,*,*" ColumnSpacing="10">
+                            <StackPanel Grid.Column="0" Spacing="6">
+                                <TextBlock Text="Множество A" FontSize="13" Foreground="#6E6785"/>
+                                <TextBox Classes="field" Text="{Binding EditSetA}" Watermark="1,2,3"/>
+                            </StackPanel>
+                            <StackPanel Grid.Column="1" Spacing="6">
+                                <TextBlock Text="Множество B" FontSize="13" Foreground="#6E6785"/>
+                                <TextBox Classes="field" Text="{Binding EditSetB}" Watermark="4,5,6"/>
+                            </StackPanel>
+                            <StackPanel Grid.Column="2" Spacing="6">
+                                <TextBlock Text="Множество C" FontSize="13" Foreground="#6E6785"/>
+                                <TextBox Classes="field" Text="{Binding EditSetC}"
+                                         Watermark="(для 3 множеств)"
+                                         IsEnabled="{Binding IsEditingThreeSet}"/>
+                            </StackPanel>
+                            <StackPanel Grid.Column="3" Spacing="6">
+                                <TextBlock Text="Универсальное U" FontSize="13" Foreground="#6E6785"/>
+                                <TextBox Classes="field" Text="{Binding EditUniversalSet}" Watermark="1,...,9"/>
+                            </StackPanel>
+                        </Grid>
+
+                        <!-- DiagramType + Difficulty -->
+                        <Grid ColumnDefinitions="Auto,Auto,*" ColumnSpacing="24">
+                            <StackPanel Grid.Column="0" Spacing="6">
+                                <TextBlock Text="Тип диаграммы" FontSize="13" Foreground="#6E6785"/>
+                                <ComboBox ItemsSource="{Binding DiagramTypes}"
+                                          SelectedItem="{Binding EditDiagramType}"
+                                          Background="White" BorderBrush="#CDB8F6"
+                                          CornerRadius="8" Padding="10,8" MinWidth="120"/>
+                            </StackPanel>
+                            <StackPanel Grid.Column="1" Spacing="6">
+                                <TextBlock Text="Сложность" FontSize="13" Foreground="#6E6785"/>
+                                <ComboBox ItemsSource="{Binding Difficulties}"
+                                          SelectedItem="{Binding EditDifficulty}"
+                                          Background="White" BorderBrush="#CDB8F6"
+                                          CornerRadius="8" Padding="10,8" MinWidth="100"/>
+                            </StackPanel>
+                        </Grid>
+
+                        <!-- Diagram image section -->
+                        <Border Background="#F9F8FD" BorderBrush="#E9D5FF" BorderThickness="1"
+                                CornerRadius="12" Padding="14">
+                            <StackPanel Spacing="10">
+                                <TextBlock Text="Изображение диаграммы"
+                                           FontSize="14" FontWeight="SemiBold" Foreground="#1A1625"/>
+                                <TextBlock Text="Прикрепите картинку с готовой пронумерованной диаграммой Эйлера-Венна."
+                                           FontSize="12" Foreground="#6E6785" TextWrapping="Wrap"/>
+
+                                <StackPanel Orientation="Horizontal" Spacing="8">
+                                    <Button Classes="primary" x:Name="SelectImageBtn"
+                                            Click="OnSelectImageClick">
+                                        📎 Выбрать изображение
+                                    </Button>
+                                    <Button Classes="danger"
+                                            IsVisible="{Binding HasEditImage}"
+                                            Click="OnClearImageClick">
+                                        ✕ Удалить
+                                    </Button>
+                                </StackPanel>
+
+                                <!-- Image preview -->
+                                <Border IsVisible="{Binding HasEditImage}"
+                                        Background="White" BorderBrush="#CDB8F6"
+                                        BorderThickness="1" CornerRadius="10" Padding="8">
+                                    <Image Source="{Binding EditDiagramImageBase64,
+                                                   Converter={StaticResource Base64ImageConverter}}"
+                                           MaxHeight="280" MaxWidth="480"
+                                           Stretch="Uniform"/>
+                                </Border>
+
+                                <TextBlock Text="Изображение не загружено"
+                                           FontSize="13" Foreground="#9CA3AF"
+                                           IsVisible="{Binding !HasEditImage}"
+                                           HorizontalAlignment="Center"/>
+                            </StackPanel>
+                        </Border>
+
+                        <!-- Elements section -->
+                        <Border Background="#F9F8FD" BorderBrush="#E9D5FF" BorderThickness="1"
+                                CornerRadius="12" Padding="14">
+                            <StackPanel Spacing="10">
+                                <Grid ColumnDefinitions="*,Auto">
+                                    <TextBlock Grid.Column="0" Text="Элементы задания"
+                                               FontSize="14" FontWeight="SemiBold" Foreground="#1A1625"/>
+                                    <Button Grid.Column="1" Classes="primary"
+                                            Command="{Binding AddElementCommand}">+ Элемент</Button>
+                                </Grid>
+
+                                <TextBlock Text="Для каждого элемента укажите его числовое значение и номер области на диаграмме."
+                                           FontSize="12" Foreground="#6E6785" TextWrapping="Wrap"/>
+
+                                <!-- Elements list -->
+                                <ItemsControl ItemsSource="{Binding EditElements}">
+                                    <ItemsControl.Styles>
+                                        <Style Selector="ContentPresenter">
+                                            <Setter Property="Margin" Value="0,3"/>
+                                        </Style>
+                                    </ItemsControl.Styles>
+                                    <ItemsControl.ItemTemplate>
+                                        <DataTemplate>
+                                            <Border Background="White" BorderBrush="#DDD6FE"
+                                                    BorderThickness="1" CornerRadius="10" Padding="10">
+                                                <Grid ColumnDefinitions="120,*,Auto" ColumnSpacing="10">
+                                                    <!-- Element value -->
+                                                    <StackPanel Grid.Column="0" Spacing="4">
+                                                        <TextBlock Text="Элемент (число)" FontSize="11" Foreground="#6E6785"/>
+                                                        <TextBox Background="White" BorderBrush="#CDB8F6"
+                                                                 CornerRadius="6" Padding="8,6" FontSize="14"
+                                                                 Text="{Binding ElementValueText}"
+                                                                 Watermark="5"/>
+                                                    </StackPanel>
+                                                    <!-- Region number selector -->
+                                                    <StackPanel Grid.Column="1" Spacing="4">
+                                                        <TextBlock Text="Номер области" FontSize="11" Foreground="#6E6785"/>
+                                                        <ComboBox ItemsSource="{Binding $parent[UserControl].DataContext.AvailableRegionNumbers}"
+                                                                  SelectedItem="{Binding SelectedRegionNumber}"
+                                                                  Background="White" BorderBrush="#CDB8F6"
+                                                                  CornerRadius="6" Padding="8,6"
+                                                                  PlaceholderText="Номер..."/>
+                                                    </StackPanel>
+                                                    <!-- Remove -->
+                                                    <Button Grid.Column="2" Classes="danger"
+                                                            VerticalAlignment="Bottom"
+                                                            Command="{Binding $parent[UserControl].DataContext.RemoveElementCommand}"
+                                                            CommandParameter="{Binding}">✕</Button>
+                                                </Grid>
+                                            </Border>
+                                        </DataTemplate>
+                                    </ItemsControl.ItemTemplate>
+                                </ItemsControl>
+                            </StackPanel>
+                        </Border>
+
+                        <!-- Save/Cancel -->
+                        <StackPanel Orientation="Horizontal" Spacing="8">
+                            <Button Classes="primary" Command="{Binding SaveCommand}">Сохранить</Button>
+                            <Button Classes="secondary" Command="{Binding CancelCommand}">Отмена</Button>
+                        </StackPanel>
+                    </StackPanel>
+                </Border>
+
+                <!-- Tasks list -->
+                <ItemsControl ItemsSource="{Binding Tasks}">
+                    <ItemsControl.Styles>
+                        <Style Selector="ContentPresenter">
+                            <Setter Property="Margin" Value="0,4"/>
+                        </Style>
+                    </ItemsControl.Styles>
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate x:DataType="models:RegionIdentificationTaskDto">
+                            <Border Background="White" BorderBrush="#CDB8F6" BorderThickness="1.2"
+                                    CornerRadius="14" Padding="16">
+                                <Grid ColumnDefinitions="*,Auto">
+                                    <StackPanel Grid.Column="0" Spacing="4">
+                                        <TextBlock Text="{Binding Title}" FontSize="15"
+                                                   FontWeight="SemiBold" Foreground="#1A1625"/>
+                                        <StackPanel Orientation="Horizontal" Spacing="8">
+                                            <TextBlock Text="{Binding SetA, StringFormat='A = \{{0}\}'}"
+                                                       FontSize="13" Foreground="#3730A3"/>
+                                            <TextBlock Text="{Binding SetB, StringFormat='B = \{{0}\}'}"
+                                                       FontSize="13" Foreground="#3730A3"/>
+                                            <TextBlock Text="{Binding SetC, StringFormat='C = \{{0}\}'}"
+                                                       FontSize="13" Foreground="#3730A3"/>
+                                        </StackPanel>
+                                        <StackPanel Orientation="Horizontal" Spacing="8">
+                                            <TextBlock Text="{Binding DiagramType, StringFormat='Множеств: {0}'}"
+                                                       FontSize="12" Foreground="#6E6785"/>
+                                            <TextBlock Text="{Binding Difficulty, StringFormat='Сложность: {0}'}"
+                                                       FontSize="12" Foreground="#7C3AED"/>
+                                            <TextBlock Text="{Binding Elements.Count, StringFormat='Элементов: {0}'}"
+                                                       FontSize="12" Foreground="#6E6785"/>
+                                        </StackPanel>
+                                    </StackPanel>
+                                    <StackPanel Grid.Column="1" Orientation="Horizontal" Spacing="6"
+                                                VerticalAlignment="Center">
+                                        <Button Classes="secondary"
+                                                Command="{Binding $parent[UserControl].DataContext.ShowEditFormCommand}"
+                                                CommandParameter="{Binding}">✏ Изменить</Button>
+                                        <Button Classes="danger"
+                                                Command="{Binding $parent[UserControl].DataContext.DeleteCommand}"
+                                                CommandParameter="{Binding}">🗑 Удалить</Button>
+                                    </StackPanel>
+                                </Grid>
+                            </Border>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</UserControl>

@@ -2,101 +2,160 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             mc:Ignorable="d" d:DesignWidth="1200" d:DesignHeight="800"
              xmlns:vm="using:DiplomProject.ViewModels"
-             xmlns:controls="using:DiplomProject.CustomControls"
              x:DataType="vm:MainViewModel"
              x:Class="DiplomProject.Views.MainView">
 
+    <UserControl.Styles>
+        <!-- Shared card DataTemplate styles -->
+        <Style Selector="Button.card">
+            <Setter Property="Width" Value="320"/>
+            <Setter Property="Height" Value="200"/>
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Padding" Value="0"/>
+        </Style>
+        <Style Selector="Button.card:pointerover /template/ ContentPresenter">
+            <Setter Property="Background" Value="Transparent"/>
+        </Style>
+    </UserControl.Styles>
+
     <Grid Background="#F5F5F7">
         <Grid RowDefinitions="Auto,*">
-            <Grid Grid.Row="0"
-                  ColumnDefinitions="*,Auto"
-                  Margin="56,28,56,20">
-                <Grid Grid.Column="0" ColumnDefinitions="Auto,*" ColumnSpacing="16">
-                    <Border Grid.Column="0"
-                            Width="52"
-                            Height="52"
-                            CornerRadius="16"
-                            Background="#7C3AED"
-                            VerticalAlignment="Top">
-                        <TextBlock Text="👋"
-                                   FontSize="26"
-                                   HorizontalAlignment="Center"
-                                   VerticalAlignment="Center"/>
-                    </Border>
 
+            <!-- HEADER -->
+            <Grid Grid.Row="0" ColumnDefinitions="*,Auto" Margin="56,28,56,20">
+                <Grid Grid.Column="0" ColumnDefinitions="Auto,*" ColumnSpacing="16">
+                    <Border Grid.Column="0" Width="52" Height="52" CornerRadius="16"
+                            Background="#7C3AED" VerticalAlignment="Top">
+                        <TextBlock Text="👋" FontSize="26"
+                                   HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Border>
                     <StackPanel Grid.Column="1" Spacing="2">
-                        <TextBlock FontSize="44"
-                                   FontWeight="SemiBold"
-                                   Foreground="#6D28D9">
-                            <Run Text="Welcome back, "/>
+                        <TextBlock FontSize="44" FontWeight="SemiBold" Foreground="#6D28D9">
+                            <Run Text="Добро пожаловать, "/>
                             <Run Text="{Binding UserName}"/>
                             <Run Text="!"/>
                         </TextBlock>
-                        <TextBlock Text="Let's continue learning discrete mathematics"
-                                   FontSize="17"
-                                   Foreground="#5F5A70"/>
+                        <TextBlock Text="Продолжим изучение дискретной математики"
+                                   FontSize="17" Foreground="#5F5A70"/>
                     </StackPanel>
                 </Grid>
 
-                <StackPanel Grid.Column="1"
-                            Orientation="Horizontal"
-                            Spacing="16"
-                            HorizontalAlignment="Right"
-                            VerticalAlignment="Top">
-                    <Button Content="Profile"
-                            Command="{Binding OpenProfileCommand}"
-                            Padding="22,14"
-                            MinWidth="120"
-                            Background="#F9F8FD"
-                            BorderBrush="#D9D3EA"
-                            BorderThickness="1.5"
-                            CornerRadius="15"
-                            FontSize="20"
-                            FontWeight="SemiBold"
-                            Foreground="#6D28D9"/>
-
-                    <Button Content="Logout"
-                            Command="{Binding LogoutCommand}"
-                            Padding="22,14"
-                            MinWidth="120"
-                            Background="#F9F8FD"
-                            BorderBrush="#D9D3EA"
-                            BorderThickness="1.5"
-                            CornerRadius="15"
-                            FontSize="20"
-                            FontWeight="SemiBold"
-                            Foreground="#6D28D9"/>
+                <StackPanel Grid.Column="1" Orientation="Horizontal" Spacing="12"
+                            HorizontalAlignment="Right" VerticalAlignment="Center">
+                    <Button Content="⚙ Панель преподавателя"
+                            Command="{Binding OpenTeacherPanelCommand}"
+                            IsVisible="{Binding IsTeacher}"
+                            Padding="18,12" Background="#7C3AED" BorderThickness="0"
+                            CornerRadius="15" FontSize="15" FontWeight="SemiBold" Foreground="White"/>
+                    <Button Content="Профиль" Command="{Binding OpenProfileCommand}"
+                            Padding="20,12" Background="#F9F8FD" BorderBrush="#D9D3EA"
+                            BorderThickness="1.5" CornerRadius="15" FontSize="16"
+                            FontWeight="SemiBold" Foreground="#6D28D9"/>
+                    <Button Content="Выйти" Command="{Binding LogoutCommand}"
+                            Padding="20,12" Background="#F9F8FD" BorderBrush="#D9D3EA"
+                            BorderThickness="1.5" CornerRadius="15" FontSize="16"
+                            FontWeight="SemiBold" Foreground="#6D28D9"/>
                 </StackPanel>
             </Grid>
 
-            <ItemsControl Grid.Row="1"
-                          Margin="48,32,48,40"
-                          HorizontalAlignment="Center"
-                          MaxWidth="950"
-                          ItemsSource="{Binding MenuItems}">
-                <ItemsControl.Styles>
-                    <Style Selector="ContentPresenter">
-                        <Setter Property="Margin" Value="14"/>
-                    </Style>
-                </ItemsControl.Styles>
+            <!-- CARDS AREA — two rows -->
+            <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto">
+                <StackPanel Margin="40,16,40,40" Spacing="4">
 
-                <ItemsControl.ItemsPanel>
-                    <ItemsPanelTemplate>
-                        <WrapPanel ItemWidth="280" ItemHeight="220"/>
-                    </ItemsPanelTemplate>
-                </ItemsControl.ItemsPanel>
+                    <!-- Divider label top -->
+                    <TextBlock Text="Теория и проверка знаний" FontSize="13"
+                               Foreground="#9CA3AF" Margin="14,8,0,0"/>
 
-                <ItemsControl.ItemTemplate>
-                    <DataTemplate>
-                        <controls:MenuCardControl Title="{Binding Title}"
-                                                  Description="{Binding Description}"
-                                                  Icon="{Binding Icon}"
-                                                  Command="{Binding Command}"/>
-                    </DataTemplate>
-                </ItemsControl.ItemTemplate>
-            </ItemsControl>
+                    <!-- TOP ROW: Теория, Тесты, Результаты -->
+                    <ItemsControl HorizontalAlignment="Center"
+                                  ItemsSource="{Binding TopMenuItems}">
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <WrapPanel HorizontalAlignment="Center"/>
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                        <ItemsControl.Styles>
+                            <Style Selector="ContentPresenter">
+                                <Setter Property="Margin" Value="14"/>
+                            </Style>
+                        </ItemsControl.Styles>
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <Button Width="320" Height="200"
+                                        Background="Transparent" BorderThickness="0" Padding="0"
+                                        Command="{Binding Command}">
+                                    <Border Background="White" CornerRadius="20" Padding="22"
+                                            BorderBrush="#E9D5FF" BorderThickness="1.2"
+                                            ClipToBounds="True" BoxShadow="0 4 14 0 #18000000">
+                                        <StackPanel Spacing="10">
+                                            <Border Width="48" Height="48" Background="#EDE9FE"
+                                                    CornerRadius="12" HorizontalAlignment="Left">
+                                                <TextBlock Text="{Binding Icon}" FontSize="24"
+                                                           HorizontalAlignment="Center"
+                                                           VerticalAlignment="Center"/>
+                                            </Border>
+                                            <TextBlock Text="{Binding Title}" FontSize="19"
+                                                       FontWeight="SemiBold" Foreground="#1A1625"/>
+                                            <TextBlock Text="{Binding Description}" FontSize="13"
+                                                       Foreground="#6B5B95" TextWrapping="Wrap"/>
+                                            <TextBlock Text="Открыть ›" FontSize="13" Foreground="#7C3AED"/>
+                                        </StackPanel>
+                                    </Border>
+                                </Button>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+
+                    <!-- Divider label bottom -->
+                    <TextBlock Text="Практические задания" FontSize="13"
+                               Foreground="#9CA3AF" Margin="14,4,0,0"/>
+
+                    <!-- BOTTOM ROW: Практика, Круги, Пошаговые, Области, [Управление] -->
+                    <ItemsControl HorizontalAlignment="Center"
+                                  ItemsSource="{Binding BottomMenuItems}">
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <WrapPanel HorizontalAlignment="Center"/>
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                        <ItemsControl.Styles>
+                            <Style Selector="ContentPresenter">
+                                <Setter Property="Margin" Value="14"/>
+                            </Style>
+                        </ItemsControl.Styles>
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <Button Width="320" Height="200"
+                                        Background="Transparent" BorderThickness="0" Padding="0"
+                                        Command="{Binding Command}">
+                                    <Border Background="White" CornerRadius="20" Padding="22"
+                                            BorderBrush="#E9D5FF" BorderThickness="1.2"
+                                            ClipToBounds="True" BoxShadow="0 4 14 0 #18000000">
+                                        <StackPanel Spacing="10">
+                                            <Border Width="48" Height="48" Background="#EDE9FE"
+                                                    CornerRadius="12" HorizontalAlignment="Left">
+                                                <TextBlock Text="{Binding Icon}" FontSize="24"
+                                                           HorizontalAlignment="Center"
+                                                           VerticalAlignment="Center"/>
+                                            </Border>
+                                            <TextBlock Text="{Binding Title}" FontSize="19"
+                                                       FontWeight="SemiBold" Foreground="#1A1625"/>
+                                            <TextBlock Text="{Binding Description}" FontSize="13"
+                                                       Foreground="#6B5B95" TextWrapping="Wrap"/>
+                                            <TextBlock Text="Открыть ›" FontSize="13" Foreground="#7C3AED"/>
+                                        </StackPanel>
+                                    </Border>
+                                </Button>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+
+                </StackPanel>
+            </ScrollViewer>
+
         </Grid>
     </Grid>
 </UserControl>

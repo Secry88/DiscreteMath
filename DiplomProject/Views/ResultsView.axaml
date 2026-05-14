@@ -1,0 +1,123 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="1000" d:DesignHeight="700"
+             xmlns:vm="using:DiplomProject.ViewModels"
+             xmlns:models="using:DiplomProject.Models"
+             x:DataType="vm:ResultsViewModel"
+             x:Class="DiplomProject.Views.ResultsView">
+
+    <Grid Background="#F5F5F7" RowDefinitions="Auto,*" Margin="40,24,40,32">
+
+        <!-- Header -->
+        <Grid Grid.Row="0" ColumnDefinitions="Auto,*,Auto" Margin="0,0,0,20">
+            <Button Grid.Column="0"
+                    HorizontalAlignment="Left" VerticalAlignment="Center"
+                    Padding="0" Background="Transparent" BorderThickness="0"
+                    Command="{Binding NavigateBackCommand}">
+                <TextBlock Text="← На главную" FontSize="17" Foreground="#6E6785"/>
+            </Button>
+            <StackPanel Grid.Column="1" Orientation="Horizontal" Spacing="14"
+                        HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Border Width="52" Height="52" CornerRadius="16" Background="#7C3AED">
+                    <TextBlock Text="🏆" FontSize="26"
+                               HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                </Border>
+                <StackPanel Spacing="2" VerticalAlignment="Center">
+                    <TextBlock Text="Мои результаты" FontSize="32" FontWeight="SemiBold" Foreground="#1A1625"/>
+                    <TextBlock Text="История прохождения тестов" FontSize="14" Foreground="#6E6785"/>
+                </StackPanel>
+            </StackPanel>
+        </Grid>
+
+        <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto">
+            <StackPanel Spacing="16">
+
+                <!-- Summary cards -->
+                <Grid ColumnDefinitions="*,*,*" ColumnSpacing="16">
+                    <Border Grid.Column="0" Background="White" BorderBrush="#E9D5FF" BorderThickness="1.2"
+                            CornerRadius="16" Padding="20" BoxShadow="0 4 14 0 #18000000">
+                        <StackPanel Spacing="6">
+                            <TextBlock Text="Всего тестов" FontSize="13" Foreground="#6E6785"/>
+                            <TextBlock Text="{Binding TotalTests}" FontSize="36"
+                                       FontWeight="SemiBold" Foreground="#7C3AED"/>
+                        </StackPanel>
+                    </Border>
+                    <Border Grid.Column="1" Background="White" BorderBrush="#E9D5FF" BorderThickness="1.2"
+                            CornerRadius="16" Padding="20" BoxShadow="0 4 14 0 #18000000">
+                        <StackPanel Spacing="6">
+                            <TextBlock Text="Средний балл" FontSize="13" Foreground="#6E6785"/>
+                            <TextBlock Text="{Binding AverageScoreText}" FontSize="36"
+                                       FontWeight="SemiBold" Foreground="#7C3AED"/>
+                        </StackPanel>
+                    </Border>
+                    <Border Grid.Column="2" Background="White" BorderBrush="#E9D5FF" BorderThickness="1.2"
+                            CornerRadius="16" Padding="20" BoxShadow="0 4 14 0 #18000000">
+                        <StackPanel Spacing="6">
+                            <TextBlock Text="Лучший результат" FontSize="13" Foreground="#6E6785"/>
+                            <TextBlock Text="{Binding BestScoreText}" FontSize="36"
+                                       FontWeight="SemiBold" Foreground="#7C3AED"/>
+                        </StackPanel>
+                    </Border>
+                </Grid>
+
+                <!-- Results list -->
+                <Border Background="White" BorderBrush="#E9D5FF" BorderThickness="1.2"
+                        CornerRadius="16" Padding="24" BoxShadow="0 4 14 0 #18000000">
+                    <StackPanel Spacing="12">
+                        <TextBlock Text="История тестов" FontSize="20" FontWeight="SemiBold" Foreground="#1A1625"/>
+
+                        <!-- No results -->
+                        <Border IsVisible="{Binding !HasResults}" Padding="20">
+                            <TextBlock Text="Вы ещё не проходили тесты. Попробуйте пройти хотя бы один тест!"
+                                       FontSize="15" Foreground="#9CA3AF"
+                                       HorizontalAlignment="Center" TextWrapping="Wrap"/>
+                        </Border>
+
+                        <!-- Results items -->
+                        <ItemsControl ItemsSource="{Binding Results}" IsVisible="{Binding HasResults}">
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate x:DataType="models:TestResultItemDto">
+                                    <Border Background="#FAFAFA" BorderBrush="#E9D5FF" BorderThickness="1"
+                                            CornerRadius="12" Padding="16" Margin="0,0,0,8">
+                                        <Grid ColumnDefinitions="*,Auto,Auto">
+                                            <StackPanel Grid.Column="0" Spacing="4">
+                                                <TextBlock Text="{Binding TestTitle}"
+                                                           FontSize="16" FontWeight="SemiBold" Foreground="#1A1625"
+                                                           TextWrapping="Wrap"/>
+                                                <TextBlock Text="{Binding DateText}"
+                                                           FontSize="13" Foreground="#9CA3AF"/>
+                                            </StackPanel>
+                                            <StackPanel Grid.Column="1" HorizontalAlignment="Center"
+                                                        VerticalAlignment="Center" Margin="16,0">
+                                                <TextBlock Text="{Binding ScoreText}"
+                                                           FontSize="15" FontWeight="SemiBold"
+                                                           Foreground="#5B21B6" HorizontalAlignment="Center"/>
+                                                <TextBlock Text="вопросов" FontSize="11"
+                                                           Foreground="#9CA3AF" HorizontalAlignment="Center"/>
+                                            </StackPanel>
+                                            <Border Grid.Column="2" CornerRadius="20" Padding="14,6"
+                                                    Background="#22C55E" VerticalAlignment="Center"
+                                                    IsVisible="{Binding IsPassed}">
+                                                <TextBlock Text="{Binding PercentageText}"
+                                                           FontSize="15" FontWeight="SemiBold" Foreground="White"/>
+                                            </Border>
+                                            <Border Grid.Column="2" CornerRadius="20" Padding="14,6"
+                                                    Background="#EF4444" VerticalAlignment="Center"
+                                                    IsVisible="{Binding !IsPassed}">
+                                                <TextBlock Text="{Binding PercentageText}"
+                                                           FontSize="15" FontWeight="SemiBold" Foreground="White"/>
+                                            </Border>
+                                        </Grid>
+                                    </Border>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+                    </StackPanel>
+                </Border>
+
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</UserControl>

@@ -2,219 +2,172 @@ using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using DiplomProject.Models;
 using DiplomProject.Services;
-using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace DiplomProject.ViewModels
 {
     public partial class PracticeViewModel : ViewModelBase
     {
-        private readonly IPracticeService _practiceService;
+        private static readonly PracticeGenerator Generator = new();
+        private const int SessionSize = 10;
 
-        public ObservableCollection<PracticeTaskDto> Tasks { get; } = new();
+        private readonly List<GeneratedPracticeTask> _tasks = new();
 
-        [ObservableProperty]
-        private PracticeTaskDto? currentTask;
+        [ObservableProperty] private GeneratedPracticeTask? currentTask;
+        [ObservableProperty] private string userAnswer = string.Empty;
+        [ObservableProperty] private int score;
+        [ObservableProperty] private int attempts;
+        [ObservableProperty] private string feedbackState = "None";
+        [ObservableProperty] private int currentTaskIndex;
+        [ObservableProperty] private bool isSessionFinished;
 
-        [ObservableProperty]
-        private string userAnswer = string.Empty;
-
-        [ObservableProperty]
-        private int score;
-
-        [ObservableProperty]
-        private int attempts;
-
-        [ObservableProperty]
-        private string feedbackState = "None";
-
-        [ObservableProperty]
-        private int currentTaskIndex;
-
-        public IAsyncRelayCommand LoadTaskCommand { get; }
         public IRelayCommand CheckAnswerCommand { get; }
         public IRelayCommand NextTaskCommand { get; }
+        public IRelayCommand ResetCommand { get; }
         public IRelayCommand NavigateBackCommand { get; }
 
         public string ScoreText => $"{Score} / {Attempts}";
-        public string OperationSymbol => MapOperation(CurrentTask?.Operation, CurrentTask?.Subtype ?? 0);
-        public string FeedbackText =>
-            FeedbackState == "Correct"
-                ? "Верно! Отличная работа."
-                : FeedbackState == "Incorrect"
-                    ? $"Неверно. Правильный ответ: {CurrentTask?.CorrectAnswer}"
-                    : string.Empty;
+        public string ProgressText => $"Задача {CurrentTaskIndex + 1} из {_tasks.Count}";
 
-        public bool IsCorrectFeedback => FeedbackState == "Correct";
+        public string FeedbackText =>
+            FeedbackState == "Correct"   ? "✓ Верно! Отличная работа." :
+            FeedbackState == "Incorrect" ? $"✗ Неверно. Правильный ответ: {CurrentTask?.CorrectAnswer}" :
+            string.Empty;
+
+        public bool IsCorrectFeedback  => FeedbackState == "Correct";
         public bool IsIncorrectFeedback => FeedbackState == "Incorrect";
-        public bool CanCheck => !string.IsNullOrWhiteSpace(UserAnswer) && FeedbackState == "None" && CurrentTask is not null;
+        public bool CanCheck   => !string.IsNullOrWhiteSpace(UserAnswer) && FeedbackState == "None" && CurrentTask is not null;
         public bool CanShowNext => FeedbackState != "None";
-        public string CurrentTaskProgress => Tasks.Count == 0 ? "Задача 0 из 0" : $"Задача {CurrentTaskIndex + 1} из {Tasks.Count}";
+
+        // Task display helpers
+        public string ExpressionDisplay => CurrentTask?.Expression ?? string.Empty;
+        public string SetADisplay        => string.IsNullOrEmpty(CurrentTask?.SetADisplay) ? string.Empty : $"A = {CurrentTask.SetADisplay}";
+        public string SetBDisplay        => string.IsNullOrEmpty(CurrentTask?.SetBDisplay) ? string.Empty : $"B = {CurrentTask.SetBDisplay}";
+        public string SetCDisplay        => CurrentTask?.UsesC == true && CurrentTask.SetCDisplay is not null ? $"C = {CurrentTask.SetCDisplay}" : string.Empty;
+        public string UniversalDisplay   => string.IsNullOrEmpty(CurrentTask?.UniversalDisplay) ? string.Empty : $"U = {CurrentTask.UniversalDisplay}";
+        public bool HasSetC => CurrentTask?.UsesC == true;
 
         public PracticeViewModel()
         {
-            _practiceService = new PracticeService(db);
-
-            LoadTaskCommand = new AsyncRelayCommand(LoadTasksAsync);
             CheckAnswerCommand = new RelayCommand(CheckAnswer, () => CanCheck);
-            NextTaskCommand = new RelayCommand(NextTask);
+            NextTaskCommand    = new RelayCommand(NextTask);
+            ResetCommand       = new RelayCommand(Reset);
             NavigateBackCommand = new RelayCommand(NavigateBack);
 
-            _ = LoadTaskCommand.ExecuteAsync(null);
+            GenerateSession();
         }
 
-        private async System.Threading.Tasks.Task LoadTasksAsync()
+        private void GenerateSession()
         {
-            var loadedTasks = await _practiceService.GetPracticeTasksAsync();
-
-            Tasks.Clear();
-            foreach (var task in loadedTasks)
-            {
-                Tasks.Add(task);
-            }
+            _tasks.Clear();
+            for (int i = 0; i < SessionSize; i++)
+                _tasks.Add(Generator.Generate());
 
             CurrentTaskIndex = 0;
-            CurrentTask = Tasks.FirstOrDefault();
+            CurrentTask = _tasks[0];
             ResetAnswerState();
-
-            OnPropertyChanged(nameof(CurrentTaskProgress));
-            OnPropertyChanged(nameof(OperationSymbol));
+            OnPropertyChanged(nameof(ProgressText));
         }
 
         private void CheckAnswer()
         {
-            if (!CanCheck || CurrentTask is null)
-            {
-                return;
-            }
-
+            if (!CanCheck || CurrentTask is null) return;
             Attempts++;
 
-            var userValues = ParseSetValues(UserAnswer);
-            var correctValues = ParseSetValues(CurrentTask.CorrectAnswer);
+            var userSet    = ParseSet(UserAnswer);
+            var correctSet = ParseSet(CurrentTask.CorrectAnswer);
 
-            var isCorrect = userValues.SequenceEqual(correctValues);
+            bool isCorrect = userSet.SetEquals(correctSet);
             FeedbackState = isCorrect ? "Correct" : "Incorrect";
 
-            if (isCorrect)
-            {
-                Score++;
-            }
+            if (isCorrect) Score++;
 
             OnPropertyChanged(nameof(ScoreText));
             OnPropertyChanged(nameof(FeedbackText));
-            OnPropertyChanged(nameof(IsCorrectFeedback));
-            OnPropertyChanged(nameof(IsIncorrectFeedback));
             OnPropertyChanged(nameof(CanShowNext));
             CheckAnswerCommand.NotifyCanExecuteChanged();
         }
 
         private void NextTask()
         {
-            if (Tasks.Count == 0)
-            {
-                return;
-            }
-
-            var nextIndex = CurrentTaskIndex + 1;
-            if (nextIndex >= Tasks.Count)
-            {
-                nextIndex = 0;
-            }
-
-            CurrentTaskIndex = nextIndex;
-            CurrentTask = Tasks[nextIndex];
+            var next = CurrentTaskIndex + 1;
+            if (next >= _tasks.Count) { IsSessionFinished = true; return; }
+            CurrentTaskIndex = next;
+            CurrentTask = _tasks[next];
             ResetAnswerState();
+            OnPropertyChanged(nameof(ProgressText));
+        }
 
-            OnPropertyChanged(nameof(CurrentTaskProgress));
-            OnPropertyChanged(nameof(OperationSymbol));
+        private void Reset()
+        {
+            Score = 0;
+            Attempts = 0;
+            IsSessionFinished = false;
+            GenerateSession();
+            OnPropertyChanged(nameof(ScoreText));
         }
 
         private void ResetAnswerState()
         {
             UserAnswer = string.Empty;
             FeedbackState = "None";
-
             OnPropertyChanged(nameof(FeedbackText));
             OnPropertyChanged(nameof(IsCorrectFeedback));
             OnPropertyChanged(nameof(IsIncorrectFeedback));
             OnPropertyChanged(nameof(CanShowNext));
+            OnPropertyChanged(nameof(ExpressionDisplay));
+            OnPropertyChanged(nameof(SetADisplay));
+            OnPropertyChanged(nameof(SetBDisplay));
+            OnPropertyChanged(nameof(SetCDisplay));
+            OnPropertyChanged(nameof(UniversalDisplay));
+            OnPropertyChanged(nameof(HasSetC));
             CheckAnswerCommand.NotifyCanExecuteChanged();
         }
 
         private void NavigateBack()
         {
             var user = MainWindowViewModel.Instance?.CurrentUser;
-            if (user is null)
-            {
-                MainWindowViewModel.Instance!.CurrentViewModel = new AuthViewModel();
-                return;
-            }
-
-            MainWindowViewModel.Instance!.CurrentViewModel = new MainViewModel(user);
+            if (user is null) MainWindowViewModel.Instance!.CurrentViewModel = new AuthViewModel();
+            else MainWindowViewModel.Instance!.CurrentViewModel = new MainViewModel(user);
         }
 
-        private static List<int> ParseSetValues(string source)
+        private static HashSet<int> ParseSet(string source)
         {
-            if (string.IsNullOrWhiteSpace(source))
-            {
-                return new List<int>();
-            }
-
+            if (string.IsNullOrWhiteSpace(source) || source.Trim() == "∅")
+                return new HashSet<int>();
             return source
-                .Split(',', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries)
-                .Select(token => int.TryParse(token, out var value) ? (int?)value : null)
-                .Where(value => value.HasValue)
-                .Select(value => value!.Value)
-                .Distinct()
-                .OrderBy(value => value)
-                .ToList();
-        }
-
-        private static string MapOperation(string? operation, int subtype)
-        {
-            if (!string.IsNullOrWhiteSpace(operation))
-            {
-                return operation.ToLowerInvariant() switch
-                {
-                    "union" => "A ∪ B",
-                    "intersection" => "A ∩ B",
-                    "difference" => "A − B",
-                    _ => operation
-                };
-            }
-
-            return subtype switch
-            {
-                1 => "A ∪ B",
-                2 => "A ∩ B",
-                3 => "A − B",
-                _ => "A ? B"
-            };
+                .Trim('{', '}', ' ')
+                .Split(',', System.StringSplitOptions.RemoveEmptyEntries | System.StringSplitOptions.TrimEntries)
+                .Where(t => int.TryParse(t, out _))
+                .Select(int.Parse)
+                .ToHashSet();
         }
 
         partial void OnUserAnswerChanged(string value)
         {
-            CheckAnswerCommand.NotifyCanExecuteChanged();
             OnPropertyChanged(nameof(CanCheck));
+            CheckAnswerCommand.NotifyCanExecuteChanged();
         }
 
         partial void OnFeedbackStateChanged(string value)
         {
-            CheckAnswerCommand.NotifyCanExecuteChanged();
-            OnPropertyChanged(nameof(CanCheck));
-            OnPropertyChanged(nameof(CanShowNext));
-            OnPropertyChanged(nameof(FeedbackText));
             OnPropertyChanged(nameof(IsCorrectFeedback));
             OnPropertyChanged(nameof(IsIncorrectFeedback));
+            OnPropertyChanged(nameof(FeedbackText));
+            OnPropertyChanged(nameof(CanCheck));
+            OnPropertyChanged(nameof(CanShowNext));
+            CheckAnswerCommand.NotifyCanExecuteChanged();
         }
 
-        partial void OnCurrentTaskChanged(PracticeTaskDto? value)
+        partial void OnCurrentTaskChanged(GeneratedPracticeTask? value)
         {
-            OnPropertyChanged(nameof(OperationSymbol));
+            OnPropertyChanged(nameof(ExpressionDisplay));
+            OnPropertyChanged(nameof(SetADisplay));
+            OnPropertyChanged(nameof(SetBDisplay));
+            OnPropertyChanged(nameof(SetCDisplay));
+            OnPropertyChanged(nameof(UniversalDisplay));
+            OnPropertyChanged(nameof(HasSetC));
         }
     }
 }

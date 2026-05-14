@@ -25,7 +25,17 @@ public partial class KarmanovContext : DbContext
 
     public virtual DbSet<Question> Questions { get; set; }
 
+    public virtual DbSet<RegionIdentificationElement> RegionIdentificationElements { get; set; }
+
+    public virtual DbSet<RegionIdentificationTask> RegionIdentificationTasks { get; set; }
+
     public virtual DbSet<Role> Roles { get; set; }
+
+    public virtual DbSet<SetOperationCorrectRegion> SetOperationCorrectRegions { get; set; }
+
+    public virtual DbSet<SetOperationStep> SetOperationSteps { get; set; }
+
+    public virtual DbSet<SetOperationTask> SetOperationTasks { get; set; }
 
     public virtual DbSet<Task> Tasks { get; set; }
 
@@ -140,6 +150,48 @@ public partial class KarmanovContext : DbContext
                 .HasConstraintName("fk_question_test");
         });
 
+        modelBuilder.Entity<RegionIdentificationElement>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("region_identification_elements_pkey");
+
+            entity.ToTable("region_identification_elements", "Diplom");
+
+            entity.Property(e => e.Id).HasColumnName("id");
+            entity.Property(e => e.CorrectRegionNumber)
+                .HasDefaultValue(1)
+                .HasColumnName("correct_region_number");
+            entity.Property(e => e.ElementValue).HasColumnName("element_value");
+            entity.Property(e => e.TaskId).HasColumnName("task_id");
+
+            entity.HasOne(d => d.Task).WithMany(p => p.RegionIdentificationElements)
+                .HasForeignKey(d => d.TaskId)
+                .HasConstraintName("fk_element_task");
+        });
+
+        modelBuilder.Entity<RegionIdentificationTask>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("region_identification_tasks_pkey");
+
+            entity.ToTable("region_identification_tasks", "Diplom");
+
+            entity.Property(e => e.Id).HasColumnName("id");
+            entity.Property(e => e.Description).HasColumnName("description");
+            entity.Property(e => e.DiagramImage).HasColumnName("diagram_image");
+            entity.Property(e => e.DiagramType)
+                .HasDefaultValue(2)
+                .HasColumnName("diagram_type");
+            entity.Property(e => e.Difficulty)
+                .HasDefaultValue(1)
+                .HasColumnName("difficulty");
+            entity.Property(e => e.SetA).HasColumnName("set_a");
+            entity.Property(e => e.SetB).HasColumnName("set_b");
+            entity.Property(e => e.SetC).HasColumnName("set_c");
+            entity.Property(e => e.Title)
+                .HasMaxLength(200)
+                .HasColumnName("title");
+            entity.Property(e => e.UniversalSet).HasColumnName("universal_set");
+        });
+
         modelBuilder.Entity<Role>(entity =>
         {
             entity.HasKey(e => e.Id).HasName("roles_pkey");
@@ -152,6 +204,71 @@ public partial class KarmanovContext : DbContext
             entity.Property(e => e.Name)
                 .HasMaxLength(50)
                 .HasColumnName("name");
+        });
+
+        modelBuilder.Entity<SetOperationCorrectRegion>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("set_operation_correct_regions_pkey");
+
+            entity.ToTable("set_operation_correct_regions", "Diplom");
+
+            entity.Property(e => e.Id).HasColumnName("id");
+            entity.Property(e => e.RegionCode)
+                .HasMaxLength(50)
+                .HasColumnName("region_code");
+            entity.Property(e => e.TaskId).HasColumnName("task_id");
+
+            entity.HasOne(d => d.Task).WithMany(p => p.SetOperationCorrectRegions)
+                .HasForeignKey(d => d.TaskId)
+                .HasConstraintName("fk_correct_region_task");
+        });
+
+        modelBuilder.Entity<SetOperationStep>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("set_operation_steps_pkey");
+
+            entity.ToTable("set_operation_steps", "Diplom");
+
+            entity.Property(e => e.Id).HasColumnName("id");
+            entity.Property(e => e.CorrectAnswer).HasColumnName("correct_answer");
+            entity.Property(e => e.Description).HasColumnName("description");
+            entity.Property(e => e.Expression)
+                .HasMaxLength(200)
+                .HasColumnName("expression");
+            entity.Property(e => e.StepNumber)
+                .HasDefaultValue(0)
+                .HasColumnName("step_number");
+            entity.Property(e => e.TaskId).HasColumnName("task_id");
+
+            entity.HasOne(d => d.Task).WithMany(p => p.SetOperationSteps)
+                .HasForeignKey(d => d.TaskId)
+                .HasConstraintName("fk_step_task");
+        });
+
+        modelBuilder.Entity<SetOperationTask>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("set_operation_tasks_pkey");
+
+            entity.ToTable("set_operation_tasks", "Diplom");
+
+            entity.Property(e => e.Id).HasColumnName("id");
+            entity.Property(e => e.Description).HasColumnName("description");
+            entity.Property(e => e.DiagramType)
+                .HasDefaultValue(2)
+                .HasColumnName("diagram_type");
+            entity.Property(e => e.Difficulty)
+                .HasDefaultValue(1)
+                .HasColumnName("difficulty");
+            entity.Property(e => e.Expression)
+                .HasMaxLength(200)
+                .HasColumnName("expression");
+            entity.Property(e => e.SetA).HasColumnName("set_a");
+            entity.Property(e => e.SetB).HasColumnName("set_b");
+            entity.Property(e => e.SetC).HasColumnName("set_c");
+            entity.Property(e => e.Title)
+                .HasMaxLength(200)
+                .HasColumnName("title");
+            entity.Property(e => e.UniversalSet).HasColumnName("universal_set");
         });
 
         modelBuilder.Entity<Task>(entity =>
@@ -293,6 +410,7 @@ public partial class KarmanovContext : DbContext
                 .HasMaxLength(50)
                 .HasColumnName("login");
             entity.Property(e => e.Password).HasColumnName("password");
+            entity.Property(e => e.ProfileImage).HasColumnName("profile_image");
             entity.Property(e => e.RoleId).HasColumnName("role_id");
 
             entity.HasOne(d => d.Group).WithMany(p => p.Users)
